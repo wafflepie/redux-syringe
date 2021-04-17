@@ -19,12 +19,12 @@ A collection of tools for maintaining large Redux applications by enabling depen
     <img src="https://flat.badgen.net/badge/license/MIT/blue" alt="MIT License" />
   </a>
 
-  <a href="https://npmjs.com/package/@redux-syringe/reducers">
-    <img src="https://flat.badgen.net/npm/dm/@redux-syringe/reducers" alt="Downloads" />
+  <a href="https://npmjs.com/package/redux-syringe">
+    <img src="https://flat.badgen.net/npm/dm/redux-syringe" alt="Downloads" />
   </a>
 
-  <a href="https://npmjs.com/package/@redux-syringe/reducers">
-    <img src="https://flat.badgen.net/npm/v/@redux-syringe/reducers" alt="Version" />
+  <a href="https://npmjs.com/package/redux-syringe">
+    <img src="https://flat.badgen.net/npm/v/redux-syringe" alt="Version" />
   </a>
 </p>
 

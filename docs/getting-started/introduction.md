@@ -3,8 +3,8 @@
 [![GitHub Stars](https://img.shields.io/github/stars/wafflepie/redux-syringe)](https://github.com/wafflepie/redux-syringe)
 [![GitHub Issues](https://img.shields.io/github/issues/wafflepie/redux-syringe?color=bada55)](https://github.com/wafflepie/redux-syringe/issues)
 [![License](https://img.shields.io/badge/licence-MIT-ff69b4)](https://github.com/wafflepie/redux-syringe)
-[![Downloads](https://badgen.net/npm/dm/@redux-syringe/reducers)](https://npmjs.com/package/@redux-syringe/reducers)
-[![Version](https://badgen.net/npm/v/@redux-syringe/reducers)](https://npmjs.com/package/@redux-syringe/reducers)
+[![Downloads](https://badgen.net/npm/dm/redux-syringe)](https://npmjs.com/package/redux-syringe)
+[![Version](https://badgen.net/npm/v/redux-syringe)](https://npmjs.com/package/redux-syringe)
 
 A collection of tools for maintaining large Redux applications by enabling dependency injection of Redux code and development of multi-instance components by namespacing their state.
 
