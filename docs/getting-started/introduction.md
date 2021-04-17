@@ -35,6 +35,7 @@ Here are the packages `redux-syringe` reexports:
 - [@redux-syringe/reducers-react](/packages/reducers-react), React bindings for the `reducers` package.
 - [@redux-syringe/middleware](/packages/middleware), store enhancer for asynchronous injection of middleware.
 - [@redux-syringe/middleware-react](/packages/middleware-react), React bindings for the `middleware` package.
+- [@redux-syringe/thunk](/packages/thunk), custom implementation of [Redux Thunk](https://github.com/reduxjs/redux-thunk) with namespacing support.
 
 Take a look at the [package index](https://github.com/wafflepie/redux-syringe/blob/master/packages/react/src/index.js) to see all the available exports.
 
@@ -43,7 +44,6 @@ Based on your preferred method of handling side effects, install any of the foll
 - [@redux-syringe/epics](/packages/epics), store enhancer for asynchronous injection of [epics](https://redux-observable.js.org/).
 - [@redux-syringe/epics-react](/packages/epics-react), React bindings for the `epics` package.
 - [@redux-syringe/stream-creators](/packages/stream-creators), collection of stream creators for the `epics` package.
-- [@redux-syringe/thunk](/packages/thunk), custom implementation of [Redux Thunk](https://github.com/reduxjs/redux-thunk) with namespacing support.
 
 ## Changelog
 
