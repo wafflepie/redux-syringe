@@ -1,6 +1,6 @@
 {
   "name": "redux-syringe",
-  "version": "0.11.0",
+  "version": "0.11.1",
   "license": "MIT",
   "main": "dist/redux-syringe.cjs.js",
   "module": "dist/redux-syringe.esm.js",
