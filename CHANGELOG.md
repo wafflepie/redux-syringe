@@ -8,6 +8,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Nothing!
 
+## [0.10.0] – 2021-04-17
+
+### Changed
+
+- All non-preset packages have been renamed from `@redux-tools/<package>` to `@redux-syringe/<package>`.
+- The `@redux-tools/react` preset package was renamed to `redux-syringe`.
+
+### Fixed
+
+- (_redux-syringe_): Add missing `preventNamespace` reexport.
+
 ## [0.9.1] – 2020-07-23
 
 ### Added
