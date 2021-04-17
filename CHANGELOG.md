@@ -8,6 +8,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Nothing!
 
+## [0.11.1] – 2021-04-17
+
+### Fixed
+
+- (_redux-syringe_): Update `package.json#main,module,unpkg` fields.
+
 ## [0.11.0] – 2021-04-17
 
 ### Added
