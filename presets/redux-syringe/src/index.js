@@ -21,6 +21,7 @@ export { useMiddleware, withMiddleware } from '@redux-syringe/middleware-react';
 export {
 	attachNamespace,
 	defaultNamespace,
+	preventNamespace,
 	getNamespaceByAction,
 	isActionFromNamespace,
 	getStateByAction,
