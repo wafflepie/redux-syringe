@@ -1,6 +1,6 @@
 {
   "name": "@redux-syringe/middleware-react",
-  "version": "0.9.1",
+  "version": "0.10.0",
   "license": "MIT",
   "main": "dist/redux-syringe-middleware-react.cjs.js",
   "module": "dist/redux-syringe-middleware-react.esm.js",
@@ -15,8 +15,8 @@
     "Martin Machacek <martin.machacek@lundegaard.eu>"
   ],
   "dependencies": {
-    "@redux-syringe/injectors-react": "^0.9.1",
-    "@redux-syringe/middleware": "^0.9.1",
+    "@redux-syringe/injectors-react": "^0.10.0",
+    "@redux-syringe/middleware": "^0.10.0",
     "ramda": ">=0.26.1",
     "ramda-extension": ">=0.8.0"
   },

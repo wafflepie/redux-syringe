@@ -1,6 +1,6 @@
 {
   "name": "@redux-syringe/actions",
-  "version": "0.9.1",
+  "version": "0.10.0",
   "license": "MIT",
   "main": "dist/redux-syringe-actions.cjs.js",
   "module": "dist/redux-syringe-actions.esm.js",
@@ -18,7 +18,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@redux-syringe/utils": "^0.9.1",
+    "@redux-syringe/utils": "^0.10.0",
     "invariant": "^2.2.4",
     "ramda": ">=0.26.1",
     "ramda-extension": ">=0.8.0"

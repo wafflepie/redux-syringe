@@ -1,6 +1,6 @@
 {
   "name": "@redux-syringe/namespaces",
-  "version": "0.9.1",
+  "version": "0.10.0",
   "license": "MIT",
   "main": "dist/redux-syringe-namespaces.cjs.js",
   "module": "dist/redux-syringe-namespaces.esm.js",

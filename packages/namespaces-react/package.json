@@ -1,6 +1,6 @@
 {
   "name": "@redux-syringe/namespaces-react",
-  "version": "0.9.1",
+  "version": "0.10.0",
   "license": "MIT",
   "main": "dist/redux-syringe-namespaces-react.cjs.js",
   "module": "dist/redux-syringe-namespaces-react.esm.js",
@@ -15,9 +15,9 @@
     "Martin Machacek <martin.machacek@lundegaard.eu>"
   ],
   "dependencies": {
-    "@redux-syringe/namespaces": "^0.9.1",
-    "@redux-syringe/reducers": "^0.9.1",
-    "@redux-syringe/utils-react": "^0.9.1",
+    "@redux-syringe/namespaces": "^0.10.0",
+    "@redux-syringe/reducers": "^0.10.0",
+    "@redux-syringe/utils-react": "^0.10.0",
     "hoist-non-react-statics": "^3.3.2",
     "prop-types": "^15.7.2",
     "ramda": ">=0.26.1",
