@@ -1,6 +1,6 @@
 {
   "name": "@redux-syringe/injectors",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "license": "MIT",
   "main": "dist/redux-syringe-injectors.cjs.js",
   "module": "dist/redux-syringe-injectors.esm.js",
@@ -15,8 +15,8 @@
     "Martin Machacek <martin.machacek@lundegaard.eu>"
   ],
   "dependencies": {
-    "@redux-syringe/namespaces": "^0.10.0",
-    "@redux-syringe/utils": "^0.10.0",
+    "@redux-syringe/namespaces": "^0.11.0",
+    "@redux-syringe/utils": "^0.11.0",
     "invariant": "^2.2.4",
     "ramda": ">=0.26.1",
     "ramda-extension": ">=0.8.0"

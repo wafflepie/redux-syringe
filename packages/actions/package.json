@@ -1,6 +1,6 @@
 {
   "name": "@redux-syringe/actions",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "license": "MIT",
   "main": "dist/redux-syringe-actions.cjs.js",
   "module": "dist/redux-syringe-actions.esm.js",

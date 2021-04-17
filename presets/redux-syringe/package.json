@@ -1,6 +1,6 @@
 {
   "name": "redux-syringe",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "license": "MIT",
   "main": "dist/redux-syringe-react.cjs.js",
   "module": "dist/redux-syringe-react.esm.js",
@@ -16,14 +16,14 @@
     "Martin Machacek <martin.machacek@lundegaard.eu>"
   ],
   "dependencies": {
-    "@redux-syringe/actions": "^0.10.0",
-    "@redux-syringe/middleware": "^0.10.0",
-    "@redux-syringe/middleware-react": "^0.10.0",
-    "@redux-syringe/namespaces": "^0.10.0",
-    "@redux-syringe/namespaces-react": "^0.10.0",
-    "@redux-syringe/reducers": "^0.10.0",
-    "@redux-syringe/reducers-react": "^0.10.0",
-    "@redux-syringe/thunk": "^0.10.0"
+    "@redux-syringe/actions": "^0.11.0",
+    "@redux-syringe/middleware": "^0.11.0",
+    "@redux-syringe/middleware-react": "^0.11.0",
+    "@redux-syringe/namespaces": "^0.11.0",
+    "@redux-syringe/namespaces-react": "^0.11.0",
+    "@redux-syringe/reducers": "^0.11.0",
+    "@redux-syringe/reducers-react": "^0.11.0",
+    "@redux-syringe/thunk": "^0.11.0"
   },
   "peerDependencies": {
     "react": ">=16.8.3",

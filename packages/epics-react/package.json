@@ -1,6 +1,6 @@
 {
   "name": "@redux-syringe/epics-react",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "license": "MIT",
   "main": "dist/redux-syringe-epics-react.cjs.js",
   "module": "dist/redux-syringe-epics-react.esm.js",
@@ -18,8 +18,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@redux-syringe/epics": "^0.10.0",
-    "@redux-syringe/injectors-react": "^0.10.0",
+    "@redux-syringe/epics": "^0.11.0",
+    "@redux-syringe/injectors-react": "^0.11.0",
     "ramda": ">=0.26.1"
   },
   "peerDependencies": {
