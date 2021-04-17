@@ -47,3 +47,5 @@ export {
 	useNamespacedSelector,
 	useNamespacedDispatch,
 } from '@redux-syringe/namespaces-react';
+
+export { default as thunkMiddleware } from '@redux-syringe/thunk';

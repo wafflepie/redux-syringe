@@ -22,7 +22,8 @@
     "@redux-syringe/namespaces": "^0.10.0",
     "@redux-syringe/namespaces-react": "^0.10.0",
     "@redux-syringe/reducers": "^0.10.0",
-    "@redux-syringe/reducers-react": "^0.10.0"
+    "@redux-syringe/reducers-react": "^0.10.0",
+    "@redux-syringe/thunk": "^0.10.0"
   },
   "peerDependencies": {
     "react": ">=16.8.3",
