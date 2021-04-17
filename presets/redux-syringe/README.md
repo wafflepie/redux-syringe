@@ -15,7 +15,7 @@ A collection of tools for maintaining large Redux applications by enabling depen
 </p>
 
 <p align="center">
-  <a href="https://github.com/wafflepie/redux-syringe/blob/master/LICENSE">
+  <a href="https://github.com/wafflepie/redux-syringe/blob/main/LICENSE">
     <img src="https://flat.badgen.net/badge/license/MIT/blue" alt="MIT License" />
   </a>
 
@@ -61,8 +61,8 @@ See the [CHANGELOG.md](CHANGELOG.md) file.
 
 We are open to all ideas and suggestions, feel free to open an issue or a pull request!
 
-See the [contribution guide](https://github.com/wafflepie/redux-syringe/blob/master/CONTRIBUTING.md) for guidelines.
+See the [contribution guide](https://github.com/wafflepie/redux-syringe/blob/main/CONTRIBUTING.md) for guidelines.
 
 ## License
 
-All packages are distributed under the MIT license. See the license [here](https://github.com/wafflepie/redux-syringe/blob/master/LICENSE).
+All packages are distributed under the MIT license. See the license [here](https://github.com/wafflepie/redux-syringe/blob/main/LICENSE).

@@ -37,7 +37,7 @@ Here are the packages `redux-syringe` reexports:
 - [@redux-syringe/middleware-react](/packages/middleware-react), React bindings for the `middleware` package.
 - [@redux-syringe/thunk](/packages/thunk), custom implementation of [Redux Thunk](https://github.com/reduxjs/redux-thunk) with namespacing support.
 
-Take a look at the [package index](https://github.com/wafflepie/redux-syringe/blob/master/packages/react/src/index.js) to see all the available exports.
+Take a look at the [package index](https://github.com/wafflepie/redux-syringe/blob/main/presets/redux-syringe/src/index.js) to see all the available exports.
 
 Based on your preferred method of handling side effects, install any of the following packages as well:
 
@@ -47,7 +47,7 @@ Based on your preferred method of handling side effects, install any of the foll
 
 ## Changelog
 
-See the [CHANGELOG.md](https://github.com/wafflepie/redux-syringe/blob/master/CHANGELOG.md) file in our [repository](https://github.com/wafflepie/redux-syringe).
+See the [CHANGELOG.md](https://github.com/wafflepie/redux-syringe/blob/main/CHANGELOG.md) file in our [repository](https://github.com/wafflepie/redux-syringe).
 
 ## Resources
 
@@ -55,4 +55,4 @@ See the [CHANGELOG.md](https://github.com/wafflepie/redux-syringe/blob/master/CH
 
 ## License
 
-All packages are distributed under the MIT license. See the license [here](https://github.com/wafflepie/redux-syringe/blob/master/LICENSE).
+All packages are distributed under the MIT license. See the license [here](https://github.com/wafflepie/redux-syringe/blob/main/LICENSE).
