@@ -2,9 +2,9 @@
   "name": "redux-syringe",
   "version": "0.11.0",
   "license": "MIT",
-  "main": "dist/redux-syringe-react.cjs.js",
-  "module": "dist/redux-syringe-react.esm.js",
-  "unpkg": "dist/redux-syringe-react.umd.js",
+  "main": "dist/redux-syringe.cjs.js",
+  "module": "dist/redux-syringe.esm.js",
+  "unpkg": "dist/redux-syringe.umd.js",
   "description": "Maintaining large Redux applications with ease.",
   "repository": "https://github.com/wafflepie/redux-syringe",
   "contributors": [
