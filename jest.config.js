@@ -1,4 +1,4 @@
-const ignorePatterns = ['/.history/', '/node_modules/', '/es', '/dist', '/lib', '/rollup'];
+const ignorePatterns = ['/node_modules/', '/dist/'];
 
 module.exports = {
 	bail: true,
@@ -6,5 +6,5 @@ module.exports = {
 	testPathIgnorePatterns: ignorePatterns,
 	coveragePathIgnorePatterns: ignorePatterns,
 	snapshotSerializers: ['enzyme-to-json/serializer'],
-	setupFilesAfterEnv: ['<rootDir>/tests/enzymeSetup.js'],
+	setupFilesAfterEnv: ['<rootDir>/enzymeSetup.js'],
 };

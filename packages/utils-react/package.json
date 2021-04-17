@@ -2,9 +2,8 @@
   "name": "@redux-syringe/utils-react",
   "version": "0.9.1",
   "license": "MIT",
-  "main": "lib/redux-syringe-utils-react.js",
-  "module": "es/redux-syringe-utils-react.js",
-  "unpkg": "dist/redux-syringe-utils-react.js",
+  "main": "dist/redux-syringe-utils-react.cjs.js",
+  "module": "dist/redux-syringe-utils-react.esm.js",
   "description": "React-specific utility functions for @redux-syringe packages.",
   "repository": "https://github.com/lundegaard/redux-syringe",
   "contributors": [
@@ -14,7 +13,7 @@
     "Sergey Dunaevskiy <sergey.dunaevskiy@lundegaard.eu>"
   ],
   "dependencies": {
-    "hoist-non-react-statics": "^3.3.0",
+    "hoist-non-react-statics": "^3.3.2",
     "ramda": ">=0.26.1",
     "ramda-extension": ">=0.8.0"
   },

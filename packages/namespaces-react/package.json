@@ -2,9 +2,8 @@
   "name": "@redux-syringe/namespaces-react",
   "version": "0.9.1",
   "license": "MIT",
-  "main": "lib/redux-syringe-namespaces-react.js",
-  "module": "es/redux-syringe-namespaces-react.js",
-  "unpkg": "dist/redux-syringe-namespaces-react.js",
+  "main": "dist/redux-syringe-namespaces-react.cjs.js",
+  "module": "dist/redux-syringe-namespaces-react.esm.js",
   "description": "React bindings for the @redux-syringe/namespaces package.",
   "repository": "https://github.com/lundegaard/redux-syringe",
   "contributors": [
@@ -18,7 +17,7 @@
     "@redux-syringe/namespaces": "^0.9.1",
     "@redux-syringe/reducers": "^0.9.1",
     "@redux-syringe/utils-react": "^0.9.1",
-    "hoist-non-react-statics": "^3.3.0",
+    "hoist-non-react-statics": "^3.3.2",
     "prop-types": "^15.7.2",
     "ramda": ">=0.26.1",
     "ramda-extension": ">=0.8.0"

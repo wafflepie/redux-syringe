@@ -2,9 +2,8 @@
   "name": "@redux-syringe/stream-creators",
   "version": "0.9.1",
   "license": "MIT",
-  "main": "lib/redux-syringe-stream-creators.js",
-  "module": "es/redux-syringe-stream-creators.js",
-  "unpkg": "dist/redux-syringe-stream-creators.js",
+  "main": "dist/redux-syringe-stream-creators.cjs.js",
+  "module": "dist/redux-syringe-stream-creators.esm.js",
   "description": "Collection of stream creators for the @redux-syringe/epics package.",
   "repository": "https://github.com/lundegaard/redux-syringe",
   "contributors": [

@@ -2,9 +2,8 @@
   "name": "@redux-syringe/epics-react",
   "version": "0.9.1",
   "license": "MIT",
-  "main": "lib/redux-syringe-epics-react.js",
-  "module": "es/redux-syringe-epics-react.js",
-  "unpkg": "dist/redux-syringe-epics-react.js",
+  "main": "dist/redux-syringe-epics-react.cjs.js",
+  "module": "dist/redux-syringe-epics-react.esm.js",
   "description": "React bindings for the @redux-syringe/epics package.",
   "repository": "https://github.com/lundegaard/redux-syringe",
   "contributors": [

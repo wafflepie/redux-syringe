@@ -2,9 +2,8 @@
   "name": "@redux-syringe/middleware",
   "version": "0.9.1",
   "license": "MIT",
-  "main": "lib/redux-syringe-middleware.js",
-  "module": "es/redux-syringe-middleware.js",
-  "unpkg": "dist/redux-syringe-middleware.js",
+  "main": "dist/redux-syringe-middleware.cjs.js",
+  "module": "dist/redux-syringe-middleware.esm.js",
   "description": "Redux store enhancer for asynchronous injection of middleware.",
   "repository": "https://github.com/lundegaard/redux-syringe",
   "contributors": [

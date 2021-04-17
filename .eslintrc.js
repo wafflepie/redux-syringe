@@ -1,6 +1,6 @@
 module.exports = {
 	root: true,
-	extends: ['react-union', 'prettier', 'prettier/react'],
+	extends: ['react-union', 'prettier'],
 	plugins: ['react-hooks'],
 	rules: {
 		'padding-line-between-statements': [
@@ -50,7 +50,7 @@ module.exports = {
 		'no-console': ['error', { allow: ['warn', 'error', 'info'] }],
 		'import/no-extraneous-dependencies': [
 			'error',
-			{ devDependencies: ['packages/**/*.test.js', '*.js', 'rollup/*.js', 'tests/*.js'] },
+			{ devDependencies: ['packages/**/*.test.js', '*.js'] },
 		],
 		// TODO: Look at `common-tags` to solve indentation issues with multiline template strings.
 		'prefer-template': 'off',

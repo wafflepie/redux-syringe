@@ -2,9 +2,8 @@
   "name": "@redux-syringe/thunk",
   "version": "0.9.1",
   "license": "MIT",
-  "main": "lib/redux-syringe-thunk.js",
-  "module": "es/redux-syringe-thunk.js",
-  "unpkg": "dist/redux-syringe-thunk.js",
+  "main": "dist/redux-syringe-thunk.cjs.js",
+  "module": "dist/redux-syringe-thunk.esm.js",
   "description": "Redux Thunk clone which supports namespacing.",
   "repository": "https://github.com/lundegaard/redux-syringe",
   "contributors": [

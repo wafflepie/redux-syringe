@@ -2,9 +2,8 @@
   "name": "@redux-syringe/reducers-react",
   "version": "0.9.1",
   "license": "MIT",
-  "main": "lib/redux-syringe-reducers-react.js",
-  "module": "es/redux-syringe-reducers-react.js",
-  "unpkg": "dist/redux-syringe-reducers-react.js",
+  "main": "dist/redux-syringe-reducers-react.cjs.js",
+  "module": "dist/redux-syringe-reducers-react.esm.js",
   "description": "React bindings for the @redux-syringe/reducers package.",
   "repository": "https://github.com/lundegaard/redux-syringe",
   "contributors": [

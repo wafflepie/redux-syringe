@@ -2,9 +2,8 @@
   "name": "@redux-syringe/epics",
   "version": "0.9.1",
   "license": "MIT",
-  "main": "lib/redux-syringe-epics.js",
-  "module": "es/redux-syringe-epics.js",
-  "unpkg": "dist/redux-syringe-epics.js",
+  "main": "dist/redux-syringe-epics.cjs.js",
+  "module": "dist/redux-syringe-epics.esm.js",
   "description": "Redux store enhancer for asynchronous injection of epics.",
   "repository": "https://github.com/lundegaard/redux-syringe",
   "contributors": [
@@ -28,7 +27,7 @@
   "devDependencies": {
     "redux": "4.0.5",
     "redux-observable": "1.2.0",
-    "rxjs": "6.5.4"
+    "rxjs": "6.6.7"
   },
   "publishConfig": {
     "access": "public"

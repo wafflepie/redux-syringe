@@ -2,9 +2,8 @@
   "name": "@redux-syringe/actions",
   "version": "0.9.1",
   "license": "MIT",
-  "main": "lib/redux-syringe-actions.js",
-  "module": "es/redux-syringe-actions.js",
-  "unpkg": "dist/redux-syringe-actions.js",
+  "main": "dist/redux-syringe-actions.cjs.js",
+  "module": "dist/redux-syringe-actions.esm.js",
   "description": "Alternative implementation of redux-actions using Ramda.",
   "repository": "https://github.com/lundegaard/redux-syringe",
   "contributors": [

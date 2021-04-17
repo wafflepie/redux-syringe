@@ -2,9 +2,8 @@
   "name": "@redux-syringe/namespaces",
   "version": "0.9.1",
   "license": "MIT",
-  "main": "lib/redux-syringe-namespaces.js",
-  "module": "es/redux-syringe-namespaces.js",
-  "unpkg": "dist/redux-syringe-namespaces.js",
+  "main": "dist/redux-syringe-namespaces.cjs.js",
+  "module": "dist/redux-syringe-namespaces.esm.js",
   "description": "Utility functions for namespacing of Redux actions.",
   "repository": "https://github.com/lundegaard/redux-syringe",
   "contributors": [

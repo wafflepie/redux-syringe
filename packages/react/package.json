@@ -2,9 +2,9 @@
   "name": "@redux-syringe/react",
   "version": "0.9.1",
   "license": "MIT",
-  "main": "lib/redux-syringe-react.js",
-  "module": "es/redux-syringe-react.js",
-  "unpkg": "dist/redux-syringe-react.js",
+  "main": "dist/redux-syringe-react.cjs.js",
+  "module": "dist/redux-syringe-react.esm.js",
+  "unpkg": "dist/redux-syringe-react.umd.js",
   "description": "Everything you need to get started with Redux Syringe in a React application.",
   "repository": "https://github.com/lundegaard/redux-syringe",
   "contributors": [
