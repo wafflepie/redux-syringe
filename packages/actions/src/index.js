@@ -1,9 +1,8 @@
 import makeEmptyActionCreator from './makeEmptyActionCreator';
 import makePayloadActionCreator from './makePayloadActionCreator';
 
-export { prefixedValueMirror as makeActionTypes } from '@redux-syringe/utils';
-
 export { default as configureActionCreator } from './configureActionCreator';
+export { default as makeActionTypes } from './makeActionTypes';
 export { default as makePayloadMetaActionCreator } from './makePayloadMetaActionCreator';
 
 export { default as isErrorAction } from './isErrorAction';

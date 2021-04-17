@@ -1,7 +1,7 @@
 import { o, map, curry } from 'ramda';
 import { valueMirror } from 'ramda-extension';
 
-const addPrefix = prefix => map(x => `${prefix}/${x}`);
+const addPrefix = (prefix) => map((x) => `${prefix}/${x}`);
 
 /**
  * Works just like `valueMirror` from ramda-extension, but prefixes each value.
