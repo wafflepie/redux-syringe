@@ -6,12 +6,14 @@
   "module": "dist/redux-syringe-react.esm.js",
   "unpkg": "dist/redux-syringe-react.umd.js",
   "description": "Everything you need to get started with Redux Syringe in a React application.",
-  "repository": "https://github.com/lundegaard/redux-syringe",
+  "repository": "https://github.com/wafflepie/redux-syringe",
   "contributors": [
+    "Vaclav Jancarik <vaclav.janc@gmail.com>",
     "Tomas Konrady <tomas.konrady@lundegaard.eu>",
-    "Vaclav Jancarik <vaclav.jancarik@lundegaard.eu>",
     "Martin Kadlec <martin.kadlec@lundegaard.eu>",
-    "Sergey Dunaevskiy <sergey.dunaevskiy@lundegaard.eu>"
+    "Sergey Dunaevskiy <sergey.dunaevskiy@lundegaard.eu>",
+    "Veronika Wernerova <veronika.wernerova@lundegaard.eu>",
+    "Martin Machacek <martin.machacek@lundegaard.eu>"
   ],
   "dependencies": {
     "@redux-syringe/actions": "^0.9.1",

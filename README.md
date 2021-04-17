@@ -1,13 +1,5 @@
-<p align="center">
-  <a href="https://redux-syringe.js.org">
-    <img alt="Redux Syringe" src="https://redux-syringe.js.org/_media/logo-transparent.png" width="300" />
-  </a>
-</p>
-
 <h1 align="center">
-  <a href="https://lundegaard.eu">
-    <img alt="by Lundegaard" src="https://redux-syringe.js.org/_media/by-lundegaard.png" width="120" />
-  </a>
+Redux Syringe
 </h1>
 
 <h3 align="center">
@@ -23,7 +15,7 @@ A collection of tools for maintaining large Redux applications by enabling depen
 </p>
 
 <p align="center">
-  <a href="https://github.com/lundegaard/redux-syringe/blob/master/LICENSE">
+  <a href="https://github.com/wafflepie/redux-syringe/blob/master/LICENSE">
     <img src="https://flat.badgen.net/badge/license/MIT/blue" alt="MIT License" />
   </a>
 
@@ -70,14 +62,8 @@ See the [CHANGELOG.md](CHANGELOG.md) file.
 
 We are open to all ideas and suggestions, feel free to open an issue or a pull request!
 
-See the [contribution guide](https://github.com/lundegaard/redux-syringe/blob/master/CONTRIBUTING.md) for guidelines.
-
-## Related Projects
-
-- [validarium](https://github.com/lundegaard/validarium) – Validations done right.
-- [lundium](https://github.com/lundegaard/lundium) – Beautiful React component library.
-- [react-union](https://github.com/lundegaard/react-union) – Integrate React apps into various CMSs seamlessly.
+See the [contribution guide](https://github.com/wafflepie/redux-syringe/blob/master/CONTRIBUTING.md) for guidelines.
 
 ## License
 
-All packages are distributed under the MIT license. See the license [here](https://github.com/lundegaard/redux-syringe/blob/master/LICENSE).
+All packages are distributed under the MIT license. See the license [here](https://github.com/wafflepie/redux-syringe/blob/master/LICENSE).

@@ -5,12 +5,14 @@
   "main": "dist/redux-syringe-utils-react.cjs.js",
   "module": "dist/redux-syringe-utils-react.esm.js",
   "description": "React-specific utility functions for @redux-syringe packages.",
-  "repository": "https://github.com/lundegaard/redux-syringe",
+  "repository": "https://github.com/wafflepie/redux-syringe",
   "contributors": [
+    "Vaclav Jancarik <vaclav.janc@gmail.com>",
     "Tomas Konrady <tomas.konrady@lundegaard.eu>",
-    "Vaclav Jancarik <vaclav.jancarik@lundegaard.eu>",
     "Martin Kadlec <martin.kadlec@lundegaard.eu>",
-    "Sergey Dunaevskiy <sergey.dunaevskiy@lundegaard.eu>"
+    "Sergey Dunaevskiy <sergey.dunaevskiy@lundegaard.eu>",
+    "Veronika Wernerova <veronika.wernerova@lundegaard.eu>",
+    "Martin Machacek <martin.machacek@lundegaard.eu>"
   ],
   "dependencies": {
     "hoist-non-react-statics": "^3.3.2",

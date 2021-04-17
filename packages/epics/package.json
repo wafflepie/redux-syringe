@@ -5,12 +5,14 @@
   "main": "dist/redux-syringe-epics.cjs.js",
   "module": "dist/redux-syringe-epics.esm.js",
   "description": "Redux store enhancer for asynchronous injection of epics.",
-  "repository": "https://github.com/lundegaard/redux-syringe",
+  "repository": "https://github.com/wafflepie/redux-syringe",
   "contributors": [
+    "Vaclav Jancarik <vaclav.janc@gmail.com>",
     "Tomas Konrady <tomas.konrady@lundegaard.eu>",
-    "Vaclav Jancarik <vaclav.jancarik@lundegaard.eu>",
     "Martin Kadlec <martin.kadlec@lundegaard.eu>",
-    "Sergey Dunaevskiy <sergey.dunaevskiy@lundegaard.eu>"
+    "Sergey Dunaevskiy <sergey.dunaevskiy@lundegaard.eu>",
+    "Veronika Wernerova <veronika.wernerova@lundegaard.eu>",
+    "Martin Machacek <martin.machacek@lundegaard.eu>"
   ],
   "dependencies": {
     "@redux-syringe/injectors": "^0.9.1",

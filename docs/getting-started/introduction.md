@@ -1,8 +1,8 @@
 # Redux Syringe {docsify-ignore-all}
 
-[![GitHub Stars](https://img.shields.io/github/stars/lundegaard/redux-syringe)](https://github.com/lundegaard/redux-syringe)
-[![GitHub Issues](https://img.shields.io/github/issues/lundegaard/redux-syringe?color=bada55)](https://github.com/lundegaard/redux-syringe/issues)
-[![License](https://img.shields.io/badge/licence-MIT-ff69b4)](https://github.com/lundegaard/redux-syringe)
+[![GitHub Stars](https://img.shields.io/github/stars/wafflepie/redux-syringe)](https://github.com/wafflepie/redux-syringe)
+[![GitHub Issues](https://img.shields.io/github/issues/wafflepie/redux-syringe?color=bada55)](https://github.com/wafflepie/redux-syringe/issues)
+[![License](https://img.shields.io/badge/licence-MIT-ff69b4)](https://github.com/wafflepie/redux-syringe)
 [![Downloads](https://badgen.net/npm/dm/@redux-syringe/reducers)](https://npmjs.com/package/@redux-syringe/reducers)
 [![Version](https://badgen.net/npm/v/@redux-syringe/reducers)](https://npmjs.com/package/@redux-syringe/reducers)
 
@@ -38,7 +38,7 @@ Here are the packages `@redux-syringe/react` reexports:
 - [@redux-syringe/middleware](/packages/middleware), store enhancer for asynchronous injection of middleware.
 - [@redux-syringe/middleware-react](/packages/middleware-react), React bindings for the `middleware` package.
 
-Take a look at the [package index](https://github.com/lundegaard/redux-syringe/blob/master/packages/react/src/index.js) to see all the available exports.
+Take a look at the [package index](https://github.com/wafflepie/redux-syringe/blob/master/packages/react/src/index.js) to see all the available exports.
 
 Based on your preferred method of handling side effects, install any of the following packages as well:
 
@@ -49,18 +49,12 @@ Based on your preferred method of handling side effects, install any of the foll
 
 ## Changelog
 
-See the [CHANGELOG.md](https://github.com/lundegaard/redux-syringe/blob/master/CHANGELOG.md) file in our [repository](https://github.com/lundegaard/redux-syringe).
+See the [CHANGELOG.md](https://github.com/wafflepie/redux-syringe/blob/master/CHANGELOG.md) file in our [repository](https://github.com/wafflepie/redux-syringe).
 
 ## Resources
 
 - [Beyond Simplicity: Using Redux in Dynamic Applications](https://medium.com/@wafflepie/beyond-simplicity-using-redux-in-dynamic-applications-ae9e0aea928c) (published 21 Jan 2019)
 
-## Related Projects
-
-- [validarium](https://github.com/lundegaard/validarium) – Validations done right.
-- [lundium](https://github.com/lundegaard/lundium) – Beautiful React component library.
-- [react-union](https://github.com/lundegaard/react-union) – Integrate React apps into various CMSs seamlessly.
-
 ## License
 
-All packages are distributed under the MIT license. See the license [here](https://github.com/lundegaard/redux-syringe/blob/master/LICENSE).
+All packages are distributed under the MIT license. See the license [here](https://github.com/wafflepie/redux-syringe/blob/master/LICENSE).

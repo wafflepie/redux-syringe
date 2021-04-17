@@ -17,7 +17,7 @@ import { makeActionTypes, makeEmptyActionCreator, makeReducer } from '@redux-syr
 export const ActionTypes = makeActionTypes('duck', ['INCREMENT']);
 export const increment = makeEmptyActionCreator(ActionTypes.INCREMENT);
 
-export default makeReducer([[ActionTypes.INCREMENT, count => count + 1]], 0);
+export default makeReducer([[ActionTypes.INCREMENT, (count) => count + 1]], 0);
 ```
 
 _**Counter.js**_
@@ -38,7 +38,7 @@ const Counter = ({ count, increment }) => <button onClick={increment}>{count}</b
 
 const enhance = o(
 	withReducers({ count: countReducer }),
-	connect(state => ({ count: state.count }), { increment })
+	connect((state) => ({ count: state.count }), { increment })
 );
 
 export default enhance(Counter);
@@ -96,7 +96,7 @@ import { makeActionTypes, makeEmptyActionCreator, makeReducer } from '@redux-syr
 export const ActionTypes = makeActionTypes('duck', ['INCREMENT']);
 export const increment = makeEmptyActionCreator(ActionTypes.INCREMENT);
 
-export default makeReducer([[ActionTypes.INCREMENT, count => count + 1]], 0);
+export default makeReducer([[ActionTypes.INCREMENT, (count) => count + 1]], 0);
 ```
 
 _**Counter.js**_
@@ -115,7 +115,7 @@ import countReducer, { increment } from './duck';
 
 const Counter = ({ count, increment }) => <button onClick={increment}>{count}</button>;
 
-const mapStateToProps = namespacedState => ({ count: namespacedState.count });
+const mapStateToProps = (namespacedState) => ({ count: namespacedState.count });
 const mapDispatchToProps = { increment };
 
 const enhance = o(
@@ -166,5 +166,3 @@ The state structure will look like this:
 	}
 }
 ```
-
-See more examples in the [examples section](/getting-started/examples).
