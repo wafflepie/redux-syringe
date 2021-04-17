@@ -1982,6 +1982,15 @@
   dependencies:
     "@octokit/openapi-types" "^6.0.0"
 
+"@redux-syringe/actions@^0.11.0":
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/@redux-syringe/actions/-/actions-0.11.0.tgz#2e1a67096068dfb3a7577dc80af3b9205eef32fc"
+  integrity sha512-LRWBwI9CB6j0Nc1GrIbD4Xu9yyeJ4NZWx5txr91CAMVjBitKNr/kkEpoDqReZh+n5dbcJlDIwFv2zdZ96gfJ3Q==
+  dependencies:
+    invariant "^2.2.4"
+    ramda ">=0.26.1"
+    ramda-extension ">=0.8.0"
+
 "@sinonjs/commons@^1.7.0":
   version "1.8.3"
   resolved "https://registry.yarnpkg.com/@sinonjs/commons/-/commons-1.8.3.tgz#3802ddd21a50a949b6721ddd72da36e67e7f1b2d"

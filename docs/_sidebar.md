@@ -17,7 +17,6 @@
 
 - Packages
 
-  - [Actions](/packages/actions)
   - [Namespaces](/packages/namespaces)
   - [Namespaces (React Bindings)](/packages/namespaces-react)
   - [Reducers](/packages/reducers)

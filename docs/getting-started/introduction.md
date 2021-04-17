@@ -30,7 +30,6 @@ npm i redux-syringe
 
 Here are the packages `redux-syringe` reexports:
 
-- [@redux-syringe/actions](/packages/actions), functions for creating [FSA-compliant](https://github.com/redux-utilities/flux-standard-action) action creators and reducers.
 - [@redux-syringe/namespaces](/packages/namespaces), logic for associating Redux actions with a namespace.
 - [@redux-syringe/namespaces-react](/packages/namespaces), React bindings for the `namespaces` package.
 - [@redux-syringe/reducers](/packages/reducers), store enhancer for asynchronous injection of reducers.
