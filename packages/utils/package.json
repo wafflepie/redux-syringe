@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "dist/redux-syringe-utils.cjs.js",
   "module": "dist/redux-syringe-utils.esm.js",
-  "description": "Utility functions for @redux-syringe packages.",
+  "description": "Utility functions for Redux Syringe packages.",
   "repository": "https://github.com/wafflepie/redux-syringe",
   "contributors": [
     "Vaclav Jancarik <vaclav.janc@gmail.com>",

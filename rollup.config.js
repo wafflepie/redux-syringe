@@ -36,7 +36,7 @@ const plugins = {
 };
 
 // NOTE: Packages which are meant to be "plug and play" for prototyping using unpkg.
-const presets = ['@redux-syringe/react'];
+const presets = ['redux-syringe'];
 
 // NOTE: Only add globals which must be loaded manually when prototyping with a preset.
 const globals = {

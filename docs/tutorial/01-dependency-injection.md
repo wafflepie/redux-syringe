@@ -31,9 +31,9 @@ To this:
 
 ```js
 import { createStore, combineReducers } from 'redux';
-import { makeReducersEnhancer } from '@redux-syringe/react';
+import { makeReducersEnhancer } from 'redux-syringe';
 
-export const configureStore = () => createStore(state => state, makeReducersEnhancer());
+export const configureStore = () => createStore((state) => state, makeReducersEnhancer());
 ```
 
 Usually, your modules will expose a single React component, serving as the entry point.
@@ -77,7 +77,7 @@ Okay, now how do we use Redux Syringe to define the Redux dependencies of this m
 ```js
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { withReducers } from '@redux-syringe/react';
+import { withReducers } from 'redux-syringe';
 import reducer, { getUsers, fetchUsers } from './redux';
 import { UserGrid } from './components';
 

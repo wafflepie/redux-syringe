@@ -40,12 +40,12 @@ See [redux-syringe.js.org](https://redux-syringe.js.org/), powered by Docsify.
 
 ## Installation
 
-The `@redux-syringe/react` package contains everything you'll need to get started with using Redux Syringe in a React application. Use either of these commands, depending on the package manager you prefer:
+The `redux-syringe` package contains everything you'll need to get started with using Redux Syringe in a React application. Use either of these commands, depending on the package manager you prefer:
 
 ```sh
-yarn add @redux-syringe/react
+yarn add redux-syringe
 
-npm i @redux-syringe/react
+npm i redux-syringe
 ```
 
 Please visit [redux-syringe.js.org](https://redux-syringe.js.org/) to see all available packages.

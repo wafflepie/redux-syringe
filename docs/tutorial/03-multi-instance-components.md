@@ -5,7 +5,7 @@ Redux Syringe allows you to use the injection mechanism for generic multi-instan
 Assume that you want to have multiple data grids mounted over a single page lifecycle, and you also want to store their state in Redux. To do that, you only need to write a reducer which manages the state of a single data grid, meaning that you never have to distinguish the individual data grids.
 
 ```js
-import { withReducers } from '@redux-syringe/react';
+import { withReducers } from 'redux-syringe';
 import { DataGridPresenter } from './components';
 
 // This reducer doesn't do anything, it has a static state.

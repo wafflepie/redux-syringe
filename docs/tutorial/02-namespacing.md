@@ -17,15 +17,15 @@ import {
 	makeReducer,
 	withReducers,
 	namespacedConnect,
-} from '@redux-syringe/react';
+} from 'redux-syringe';
 
 const ActionTypes = makeActionTypes('duck', ['INCREMENT']);
 const increment = makeEmptyActionCreator(ActionTypes.INCREMENT);
-const reducer = makeReducer([[ActionTypes.INCREMENT, count => count + 1]], 0);
+const reducer = makeReducer([[ActionTypes.INCREMENT, (count) => count + 1]], 0);
 
 const Counter = ({ count, increment }) => <button onClick={increment}>{count}</button>;
 
-const mapStateToProps = namespacedState => ({ count: namespacedState.count });
+const mapStateToProps = (namespacedState) => ({ count: namespacedState.count });
 const mapDispatchToProps = { increment };
 
 const enhance = o(
@@ -93,7 +93,7 @@ Wrap each widget separately via a `<NamespaceProvider namespace={namespace} />` 
 
 ```js
 import React, { Fragment } from 'react';
-import { NamespaceProvider } from '@redux-syringe/react';
+import { NamespaceProvider } from 'redux-syringe';
 import { Counter } from './components';
 
 const CounterExample = () => (
@@ -112,11 +112,11 @@ Even if our counters were more complex, they will always access the correct name
 
 ```js
 import React from 'react';
-import { withReducers, useNamespacedSelector, useNamespacedDispatch } from '@redux-syringe/react';
+import { withReducers, useNamespacedSelector, useNamespacedDispatch } from 'redux-syringe';
 import { increment, countReducer } from './duck';
 
 const Counter = () => {
-	const count = useNamespacedSelector(namespacedState => namespacedState.count);
+	const count = useNamespacedSelector((namespacedState) => namespacedState.count);
 	const dispatch = useNamespacedDispatch();
 
 	return <button onClick={() => dispatch(increment())}>{count}</button>;
@@ -129,7 +129,7 @@ The second approach is to wrap all the widgets in a single `<NamespaceProvider u
 
 ```js
 import React, { createContext, useContext } from 'react';
-import { NamespaceProvider } from '@redux-syringe/react';
+import { NamespaceProvider } from 'redux-syringe';
 import { Counter } from './components';
 
 const WidgetNamespaceContext = createContext(null);

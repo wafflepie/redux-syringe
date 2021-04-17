@@ -18,17 +18,17 @@ Although the Redux Syringe core is platform-agnostic, [React](https://github.com
 
 ## Installation
 
-The `@redux-syringe/react` package contains everything you'll need to get started with using Redux Syringe in a React application. Use either of these commands, depending on the package manager you prefer:
+The `redux-syringe` package contains everything you'll need to get started with using Redux Syringe in a React application. Use either of these commands, depending on the package manager you prefer:
 
 ```sh
-yarn add @redux-syringe/react
+yarn add redux-syringe
 
-npm i @redux-syringe/react
+npm i redux-syringe
 ```
 
 ## Packages
 
-Here are the packages `@redux-syringe/react` reexports:
+Here are the packages `redux-syringe` reexports:
 
 - [@redux-syringe/actions](/packages/actions), functions for creating [FSA-compliant](https://github.com/redux-utilities/flux-standard-action) action creators and reducers.
 - [@redux-syringe/namespaces](/packages/namespaces), logic for associating Redux actions with a namespace.

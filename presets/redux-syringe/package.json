@@ -1,5 +1,5 @@
 {
-  "name": "@redux-syringe/react",
+  "name": "redux-syringe",
   "version": "0.9.1",
   "license": "MIT",
   "main": "dist/redux-syringe-react.cjs.js",

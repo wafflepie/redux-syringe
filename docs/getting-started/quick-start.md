@@ -12,7 +12,7 @@ _**duck.js**_
 - exports a reducer and an action creator
 
 ```js
-import { makeActionTypes, makeEmptyActionCreator, makeReducer } from '@redux-syringe/react';
+import { makeActionTypes, makeEmptyActionCreator, makeReducer } from 'redux-syringe';
 
 export const ActionTypes = makeActionTypes('duck', ['INCREMENT']);
 export const increment = makeEmptyActionCreator(ActionTypes.INCREMENT);
@@ -29,7 +29,7 @@ _**Counter.js**_
 ```js
 import React from 'react';
 import { o } from 'ramda';
-import { withReducers } from '@redux-syringe/react';
+import { withReducers } from 'redux-syringe';
 import { connect } from 'react-redux';
 
 import countReducer, { increment } from './duck';
@@ -54,7 +54,7 @@ _**index.js**_
 import React from 'react';
 import { render } from 'react-dom';
 import { createStore } from 'redux';
-import { makeReducersEnhancer } from '@redux-syringe/react';
+import { makeReducersEnhancer } from 'redux-syringe';
 import { Provider } from 'react-redux';
 import { identity } from 'ramda';
 
@@ -91,7 +91,7 @@ _**duck.js**_
 - exports a reducer and an action creator
 
 ```js
-import { makeActionTypes, makeEmptyActionCreator, makeReducer } from '@redux-syringe/react';
+import { makeActionTypes, makeEmptyActionCreator, makeReducer } from 'redux-syringe';
 
 export const ActionTypes = makeActionTypes('duck', ['INCREMENT']);
 export const increment = makeEmptyActionCreator(ActionTypes.INCREMENT);
@@ -109,7 +109,7 @@ _**Counter.js**_
 ```js
 import React from 'react';
 import { o } from 'ramda';
-import { withReducers, namespacedConnect } from '@redux-syringe/react';
+import { withReducers, namespacedConnect } from 'redux-syringe';
 
 import countReducer, { increment } from './duck';
 
@@ -137,7 +137,7 @@ _**index.js**_
 import React from 'react';
 import { render } from 'react-dom';
 import { createStore } from 'redux';
-import { makeReducersEnhancer } from '@redux-syringe/react';
+import { makeReducersEnhancer } from 'redux-syringe';
 import { Provider } from 'react-redux';
 import { identity } from 'ramda';
 
