@@ -147,7 +147,7 @@ Returns Redux state by feature and namespace.
 **Example**
 
 ```js
-import { getStateByFeatureNamespace } from '@redux-syringe/namespaces';
+import { getStateByFeatureAndNamespace } from '@redux-syringe/namespaces';
 
 const state = {
 	namespaces: {
@@ -155,7 +155,7 @@ const state = {
 	},
 };
 
-getStateByFeatureNamespace('namespaces', 'foo', state); // { value: 'bar' }
+getStateByFeatureAndNamespace('namespaces', 'foo', state); // { value: 'bar' }
 ```
 
 ### getStateByNamespace()
