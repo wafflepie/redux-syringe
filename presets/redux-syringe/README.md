@@ -31,7 +31,6 @@ A collection of tools for maintaining large Redux applications by enabling depen
 Redux Syringe consists mainly of:
 
 - [Store enhancers](https://github.com/reduxjs/redux/blob/master/docs/Glossary.md#store-enhancer) for injecting reducers, middleware, and epics into your Redux store after the store is created.
-- Utility functions for less verbose definitions of action creators and reducers.
 - Logic for managing your state via namespaces.
 
 ## Documentation & API Reference
