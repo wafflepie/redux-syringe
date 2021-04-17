@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "dist/redux-syringe-injectors.cjs.js",
   "module": "dist/redux-syringe-injectors.esm.js",
-  "description": "Core logic for asynchronous Redux dependency injection.",
+  "description": "Core logic for asynchronous injection of Redux dependencies.",
   "repository": "https://github.com/wafflepie/redux-syringe",
   "contributors": [
     "Vaclav Jancarik <vaclav.janc@gmail.com>",

@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "dist/redux-syringe-reducers-react.cjs.js",
   "module": "dist/redux-syringe-reducers-react.esm.js",
-  "description": "React bindings for the @redux-syringe/reducers package.",
+  "description": "React bindings for the reducers package.",
   "repository": "https://github.com/wafflepie/redux-syringe",
   "contributors": [
     "Vaclav Jancarik <vaclav.janc@gmail.com>",

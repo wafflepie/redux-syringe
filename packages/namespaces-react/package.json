@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "dist/redux-syringe-namespaces-react.cjs.js",
   "module": "dist/redux-syringe-namespaces-react.esm.js",
-  "description": "React bindings for the @redux-syringe/namespaces package.",
+  "description": "React bindings for the namespaces package.",
   "repository": "https://github.com/wafflepie/redux-syringe",
   "contributors": [
     "Vaclav Jancarik <vaclav.janc@gmail.com>",

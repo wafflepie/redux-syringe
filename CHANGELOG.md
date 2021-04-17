@@ -8,6 +8,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Nothing!
 
+## [0.11.0] – 2021-04-17
+
+### Added
+
+- (_redux-syringe_): Added reexport of `thunkMiddleware`.
+
+### Removed
+
+- (_utils_): `prefixedValueMirror` has been removed. The `@redux-syringe/actions` package thus no longer depends on any other Redux Syringe packages.
+
 ## [0.10.0] – 2021-04-17
 
 ### Changed

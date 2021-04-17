@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "dist/redux-syringe-middleware-react.cjs.js",
   "module": "dist/redux-syringe-middleware-react.esm.js",
-  "description": "React bindings for the @redux-syringe/middleware package.",
+  "description": "React bindings for the middleware package.",
   "repository": "https://github.com/wafflepie/redux-syringe",
   "contributors": [
     "Vaclav Jancarik <vaclav.janc@gmail.com>",

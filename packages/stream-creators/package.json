@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "dist/redux-syringe-stream-creators.cjs.js",
   "module": "dist/redux-syringe-stream-creators.esm.js",
-  "description": "Collection of stream creators for the @redux-syringe/epics package.",
+  "description": "Collection of stream creators for the epics package.",
   "repository": "https://github.com/wafflepie/redux-syringe",
   "contributors": [
     "Vaclav Jancarik <vaclav.janc@gmail.com>",

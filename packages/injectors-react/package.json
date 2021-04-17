@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "dist/redux-syringe-injectors-react.cjs.js",
   "module": "dist/redux-syringe-injectors-react.esm.js",
-  "description": "Core React functionality for asynchronous React injectors.",
+  "description": "Core logic for React injector hooks and decorators.",
   "repository": "https://github.com/wafflepie/redux-syringe",
   "contributors": [
     "Vaclav Jancarik <vaclav.janc@gmail.com>",

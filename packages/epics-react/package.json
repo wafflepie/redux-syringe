@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "dist/redux-syringe-epics-react.cjs.js",
   "module": "dist/redux-syringe-epics-react.esm.js",
-  "description": "React bindings for the @redux-syringe/epics package.",
+  "description": "React bindings for the epics package.",
   "repository": "https://github.com/wafflepie/redux-syringe",
   "contributors": [
     "Vaclav Jancarik <vaclav.janc@gmail.com>",

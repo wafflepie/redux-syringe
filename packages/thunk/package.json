@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "dist/redux-syringe-thunk.cjs.js",
   "module": "dist/redux-syringe-thunk.esm.js",
-  "description": "Redux Thunk clone which supports namespacing.",
+  "description": "Redux Thunk clone with support for namespacing.",
   "repository": "https://github.com/wafflepie/redux-syringe",
   "contributors": [
     "Vaclav Jancarik <vaclav.janc@gmail.com>",
