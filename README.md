@@ -36,7 +36,7 @@ Redux Syringe consists mainly of:
 
 ## Documentation & API Reference
 
-See [redux-syringe.js.org](https://redux-syringe.js.org/), powered by Docsify.
+See [wafflepie.github.io/redux-syringe](https://wafflepie.github.io/redux-syringe/), powered by Docsify.
 
 ## Installation
 
@@ -48,7 +48,7 @@ yarn add redux-syringe
 npm i redux-syringe
 ```
 
-Please visit [redux-syringe.js.org](https://redux-syringe.js.org/) to see all available packages.
+Please visit [wafflepie.github.io/redux-syringe](https://wafflepie.github.io/redux-syringe/) to see all available packages.
 
 ## Changelog
 
