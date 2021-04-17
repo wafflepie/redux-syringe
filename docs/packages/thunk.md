@@ -1,8 +1,8 @@
 # Thunk (Extended)
 
-> yarn add @redux-tools/thunk
+> yarn add @redux-syringe/thunk
 
-A [Redux Thunk](https://github.com/reduxjs/redux-thunk) clone adapted for Redux Tools: it passes the namespace of a thunk dispatched via `namespacedConnect`'s `mapDispatchToProps` or `useNamespacedDispatch` down to all actions dispatched from within the thunk.
+A [Redux Thunk](https://github.com/reduxjs/redux-thunk) clone adapted for Redux Syringe: it passes the namespace of a thunk dispatched via `namespacedConnect`'s `mapDispatchToProps` or `useNamespacedDispatch` down to all actions dispatched from within the thunk.
 
 Make sure to inject this middleware before any other middleware.
 

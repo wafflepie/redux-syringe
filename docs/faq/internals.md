@@ -54,7 +54,7 @@ New entries are processed differently based on the type of the injectable.
 - Reducers: the root reducer is assembled from `store.entries.reducers` directly.
 - Middleware: the root middleware essentially iterates over current `store.entries.middleware` per each action.
 
-The `path` property is mainly useful for reducers, allowing deep reducer injection for a [view-based state structure](/tutorial/04-view-state-management). Additionally, Redux Tools allow us to inject epics and middleware as functions or within an array.
+The `path` property is mainly useful for reducers, allowing deep reducer injection for a [view-based state structure](/tutorial/04-view-state-management). Additionally, Redux Syringe allows us to inject epics and middleware as functions or within an array.
 
 ```js
 store.injectEpics([someEpic, anotherEpic]);

@@ -1,14 +1,14 @@
 # Reducers (React Bindings)
 
-> yarn add @redux-tools/reducers-react
+> yarn add @redux-syringe/reducers-react
 
-This package provides React bindings for the [@redux-tools/reducers](/packages/reducers) package.
+This package provides React bindings for the [@redux-syringe/reducers](/packages/reducers) package.
 
 ## Usage Example
 
 ```js
 import React from 'react';
-import { withReducers } from '@redux-tools/reducers-react';
+import { withReducers } from '@redux-syringe/reducers-react';
 import someReducer from './someReducer';
 
 const Container = () => null;

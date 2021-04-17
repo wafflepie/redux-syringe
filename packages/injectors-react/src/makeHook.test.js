@@ -3,8 +3,8 @@ import { always } from 'ramda';
 import { noop } from 'ramda-extension';
 import React from 'react';
 
-import { makeStoreInterface } from '@redux-tools/injectors';
-import { NamespaceProvider } from '@redux-tools/namespaces-react';
+import { makeStoreInterface } from '@redux-syringe/injectors';
+import { NamespaceProvider } from '@redux-syringe/namespaces-react';
 
 import makeHook from './makeHook';
 

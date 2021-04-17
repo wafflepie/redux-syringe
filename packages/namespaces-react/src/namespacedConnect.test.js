@@ -4,7 +4,7 @@ import * as R_ from 'ramda-extension';
 import React from 'react';
 import { createStore } from 'redux';
 
-import { DEFAULT_FEATURE } from '@redux-tools/namespaces';
+import { DEFAULT_FEATURE } from '@redux-syringe/namespaces';
 
 import NamespaceProvider from './NamespaceProvider';
 import namespacedConnect, {

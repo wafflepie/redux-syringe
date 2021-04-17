@@ -1,7 +1,7 @@
 import { o, chain, map, toPairs, mergeRight } from 'ramda';
 import { isArray, rejectNil, isObject } from 'ramda-extension';
 
-import { DEFAULT_FEATURE } from '@redux-tools/namespaces';
+import { DEFAULT_FEATURE } from '@redux-syringe/namespaces';
 
 const createRawEntries = injectables => {
 	// NOTE: `isFunction` from ramda-extension returns `false` for `jest.fn()`.

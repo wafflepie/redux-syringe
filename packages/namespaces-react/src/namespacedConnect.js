@@ -6,8 +6,8 @@ import {
 	defaultNamespace,
 	DEFAULT_FEATURE,
 	getStateByFeatureAndNamespace,
-} from '@redux-tools/namespaces';
-import { withProps, mapProps } from '@redux-tools/utils-react';
+} from '@redux-syringe/namespaces';
+import { withProps, mapProps } from '@redux-syringe/utils-react';
 
 import useNamespace from './useNamespace';
 

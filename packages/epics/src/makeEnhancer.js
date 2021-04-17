@@ -2,9 +2,9 @@ import { equals, includes } from 'ramda';
 import { Subject } from 'rxjs';
 import * as Rx from 'rxjs/operators';
 
-import { enhanceStore, makeStoreInterface } from '@redux-tools/injectors';
-import { isActionFromNamespace, defaultNamespace } from '@redux-tools/namespaces';
-import { includesTimes } from '@redux-tools/utils';
+import { enhanceStore, makeStoreInterface } from '@redux-syringe/injectors';
+import { isActionFromNamespace, defaultNamespace } from '@redux-syringe/namespaces';
+import { includesTimes } from '@redux-syringe/utils';
 
 export const storeInterface = makeStoreInterface('epics');
 

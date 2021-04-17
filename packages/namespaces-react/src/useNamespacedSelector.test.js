@@ -1,7 +1,7 @@
 import { mount } from 'enzyme';
 import React from 'react';
 
-import { DEFAULT_FEATURE } from '@redux-tools/namespaces';
+import { DEFAULT_FEATURE } from '@redux-syringe/namespaces';
 
 import NamespaceProvider from './NamespaceProvider';
 import useNamespacedSelector from './useNamespacedSelector';

@@ -1,6 +1,6 @@
 # Actions
 
-> yarn add @redux-tools/actions
+> yarn add @redux-syringe/actions
 
 This package is a collection of utility functions for creating [FSA-compliant](https://github.com/redux-utilities/flux-standard-action) action creators and reducers.
 
@@ -23,7 +23,7 @@ import {
 	makeActionTypes,
 	makeEmptyActionCreator,
 	makePayloadActionCreator,
-} from '@redux-tools/actions';
+} from '@redux-syringe/actions';
 
 export const ActionTypes = makeActionTypes('@counter', ['ADD', 'INCREMENT']);
 

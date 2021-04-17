@@ -1,10 +1,10 @@
 import { of } from 'rxjs';
 
-import { getStateByFeatureAndNamespace } from '@redux-tools/namespaces';
+import { getStateByFeatureAndNamespace } from '@redux-syringe/namespaces';
 
 import { globalAction$, namespacedState$ } from './streamCreators';
 
-jest.mock('@redux-tools/namespaces');
+jest.mock('@redux-syringe/namespaces');
 
 getStateByFeatureAndNamespace.mockImplementation((feature, namespace) => state =>
 	`${feature}-${namespace}/${state}`

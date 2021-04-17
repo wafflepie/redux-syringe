@@ -3,7 +3,7 @@ import { always } from 'ramda';
 import { alwaysNull } from 'ramda-extension';
 import React from 'react';
 
-import { DEFAULT_FEATURE } from '@redux-tools/namespaces';
+import { DEFAULT_FEATURE } from '@redux-syringe/namespaces';
 
 import { NamespaceContext } from './contexts';
 import useNamespace from './useNamespace';

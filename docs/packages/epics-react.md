@@ -1,14 +1,14 @@
 # Epics (React Bindings)
 
-> yarn add @redux-tools/epics-react
+> yarn add @redux-syringe/epics-react
 
-This package provides React bindings for the [@redux-tools/epics](/packages/epics) package.
+This package provides React bindings for the [@redux-syringe/epics](/packages/epics) package.
 
 ## Usage Example
 
 ```js
 import React from 'react';
-import { withEpics } from '@redux-tools/epics-react';
+import { withEpics } from '@redux-syringe/epics-react';
 import someEpic from './someEpic';
 
 const Container = () => null;

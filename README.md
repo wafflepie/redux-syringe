@@ -1,12 +1,12 @@
 <p align="center">
-  <a href="https://redux-tools.js.org">
-    <img alt="Redux Tools" src="https://redux-tools.js.org/_media/logo-transparent.png" width="300" />
+  <a href="https://redux-syringe.js.org">
+    <img alt="Redux Syringe" src="https://redux-syringe.js.org/_media/logo-transparent.png" width="300" />
   </a>
 </p>
 
 <h1 align="center">
   <a href="https://lundegaard.eu">
-    <img alt="by Lundegaard" src="https://redux-tools.js.org/_media/by-lundegaard.png" width="120" />
+    <img alt="by Lundegaard" src="https://redux-syringe.js.org/_media/by-lundegaard.png" width="120" />
   </a>
 </h1>
 
@@ -23,20 +23,20 @@ A collection of tools for maintaining large Redux applications by enabling depen
 </p>
 
 <p align="center">
-  <a href="https://github.com/lundegaard/redux-tools/blob/master/LICENSE">
+  <a href="https://github.com/lundegaard/redux-syringe/blob/master/LICENSE">
     <img src="https://flat.badgen.net/badge/license/MIT/blue" alt="MIT License" />
   </a>
 
-  <a href="https://npmjs.com/package/@redux-tools/reducers">
-    <img src="https://flat.badgen.net/npm/dm/@redux-tools/reducers" alt="Downloads" />
+  <a href="https://npmjs.com/package/@redux-syringe/reducers">
+    <img src="https://flat.badgen.net/npm/dm/@redux-syringe/reducers" alt="Downloads" />
   </a>
 
-  <a href="https://npmjs.com/package/@redux-tools/reducers">
-    <img src="https://flat.badgen.net/npm/v/@redux-tools/reducers" alt="Version" />
+  <a href="https://npmjs.com/package/@redux-syringe/reducers">
+    <img src="https://flat.badgen.net/npm/v/@redux-syringe/reducers" alt="Version" />
   </a>
 </p>
 
-Redux Tools consist mainly of:
+Redux Syringe consists mainly of:
 
 - [Store enhancers](https://github.com/reduxjs/redux/blob/master/docs/Glossary.md#store-enhancer) for injecting reducers, middleware, and epics into your Redux store after the store is created.
 - Utility functions for less verbose definitions of action creators and reducers.
@@ -44,19 +44,19 @@ Redux Tools consist mainly of:
 
 ## Documentation & API Reference
 
-See [redux-tools.js.org](https://redux-tools.js.org/), powered by Docsify.
+See [redux-syringe.js.org](https://redux-syringe.js.org/), powered by Docsify.
 
 ## Installation
 
-The `@redux-tools/react` package contains everything you'll need to get started with using Redux Tools in a React application. Use either of these commands, depending on the package manager you prefer:
+The `@redux-syringe/react` package contains everything you'll need to get started with using Redux Syringe in a React application. Use either of these commands, depending on the package manager you prefer:
 
 ```sh
-yarn add @redux-tools/react
+yarn add @redux-syringe/react
 
-npm i @redux-tools/react
+npm i @redux-syringe/react
 ```
 
-Please visit [redux-tools.js.org](https://redux-tools.js.org/) to see all available packages.
+Please visit [redux-syringe.js.org](https://redux-syringe.js.org/) to see all available packages.
 
 ## Changelog
 
@@ -70,7 +70,7 @@ See the [CHANGELOG.md](CHANGELOG.md) file.
 
 We are open to all ideas and suggestions, feel free to open an issue or a pull request!
 
-See the [contribution guide](https://github.com/lundegaard/redux-tools/blob/master/CONTRIBUTING.md) for guidelines.
+See the [contribution guide](https://github.com/lundegaard/redux-syringe/blob/master/CONTRIBUTING.md) for guidelines.
 
 ## Related Projects
 
@@ -80,4 +80,4 @@ See the [contribution guide](https://github.com/lundegaard/redux-tools/blob/mast
 
 ## License
 
-All packages are distributed under the MIT license. See the license [here](https://github.com/lundegaard/redux-tools/blob/master/LICENSE).
+All packages are distributed under the MIT license. See the license [here](https://github.com/lundegaard/redux-syringe/blob/master/LICENSE).

@@ -1,7 +1,7 @@
 import { alwaysNull } from 'ramda-extension';
 import { useContext } from 'react';
 
-import { DEFAULT_FEATURE } from '@redux-tools/namespaces';
+import { DEFAULT_FEATURE } from '@redux-syringe/namespaces';
 
 import { NamespaceContext } from './contexts';
 

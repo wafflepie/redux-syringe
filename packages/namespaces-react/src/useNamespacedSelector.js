@@ -2,7 +2,7 @@ import { o } from 'ramda';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { getStateByFeatureAndNamespace, DEFAULT_FEATURE } from '@redux-tools/namespaces';
+import { getStateByFeatureAndNamespace, DEFAULT_FEATURE } from '@redux-syringe/namespaces';
 
 import useNamespace from './useNamespace';
 

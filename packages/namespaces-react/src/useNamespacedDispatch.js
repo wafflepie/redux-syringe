@@ -2,7 +2,7 @@ import { o } from 'ramda';
 import { useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { defaultNamespace, DEFAULT_FEATURE } from '@redux-tools/namespaces';
+import { defaultNamespace, DEFAULT_FEATURE } from '@redux-syringe/namespaces';
 
 import useNamespace from './useNamespace';
 

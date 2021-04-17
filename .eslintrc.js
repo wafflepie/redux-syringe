@@ -33,7 +33,7 @@ module.exports = {
 				'newlines-between': 'always',
 				pathGroups: [
 					{
-						pattern: '@redux-tools/**',
+						pattern: '@redux-syringe/**',
 						group: 'external',
 						position: 'after',
 					},

@@ -1,6 +1,6 @@
 import { noop } from 'ramda-extension';
 
-import { DEFAULT_FEATURE } from '@redux-tools/namespaces';
+import { DEFAULT_FEATURE } from '@redux-syringe/namespaces';
 
 import enhanceStore from './enhanceStore';
 import makeStoreInterface from './makeStoreInterface';
@@ -42,14 +42,14 @@ describe('enhanceStore', () => {
 		store.injectThings({ foo: noop }, { namespace: 'bar' });
 		expect(dispatch).toHaveBeenCalledTimes(1);
 		const injectedAction = dispatch.mock.calls[0][0];
-		expect(injectedAction.type).toBe('@redux-tools/THINGS_INJECTED');
+		expect(injectedAction.type).toBe('@redux-syringe/THINGS_INJECTED');
 		expect(injectedAction.payload).toEqual([['foo']]);
 		expect(injectedAction.meta).toEqual({ namespace: 'bar' });
 		jest.clearAllMocks();
 		store.ejectThings({ foo: noop }, { namespace: 'bar' });
 		expect(dispatch).toHaveBeenCalledTimes(1);
 		const ejectedAction = dispatch.mock.calls[0][0];
-		expect(ejectedAction.type).toBe('@redux-tools/THINGS_EJECTED');
+		expect(ejectedAction.type).toBe('@redux-syringe/THINGS_EJECTED');
 		expect(ejectedAction.payload).toEqual([['foo']]);
 		expect(ejectedAction.meta).toEqual({ namespace: 'bar' });
 	});

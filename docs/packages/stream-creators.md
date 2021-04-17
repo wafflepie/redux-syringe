@@ -1,14 +1,14 @@
 # Stream Creators
 
-> yarn add @redux-tools/stream-creators
+> yarn add @redux-syringe/stream-creators
 
-The [@redux-tools/epics](/packages/epics) enhancer accepts an optional `streamCreator` option, allowing you to add an additional argument to all epics. This package is a collection of various useful stream creators.
+The [@redux-syringe/epics](/packages/epics) enhancer accepts an optional `streamCreator` option, allowing you to add an additional argument to all epics. This package is a collection of various useful stream creators.
 
 ## Usage
 
 ```js
-import { namespacedState$ } from '@redux-tools/stream-creators';
-import { makeEnhancer as makeEpicsEnhancer } from '@redux-tools/epics';
+import { namespacedState$ } from '@redux-syringe/stream-creators';
+import { makeEnhancer as makeEpicsEnhancer } from '@redux-syringe/epics';
 import { identity, compose } from 'ramda';
 import { createStore, applyMiddleware } from 'redux';
 import { createEpicMiddleware } from 'redux-observable';
@@ -60,7 +60,7 @@ A stream creator for namespaced state. Similar to `state$`, except it will alway
 
 ### globalAction\$
 
-A stream creator for global actions. By default, every injected epic only accepts actions matching its namespace (see [@redux-tools/namespaces](/packages/namespaces) for more info). This stream creator allows you to react to actions from other namespaces if you need to.
+A stream creator for global actions. By default, every injected epic only accepts actions matching its namespace (see [@redux-syringe/namespaces](/packages/namespaces) for more info). This stream creator allows you to react to actions from other namespaces if you need to.
 
 **Parameters**
 

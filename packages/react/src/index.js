@@ -9,11 +9,11 @@ export {
 	makeConstantActionCreator,
 	makeSimpleActionCreator,
 	makePayloadMetaActionCreator,
-} from '@redux-tools/actions';
+} from '@redux-syringe/actions';
 
-export { makeEnhancer as makeMiddlewareEnhancer, composeMiddleware } from '@redux-tools/middleware';
+export { makeEnhancer as makeMiddlewareEnhancer, composeMiddleware } from '@redux-syringe/middleware';
 
-export { useMiddleware, withMiddleware } from '@redux-tools/middleware-react';
+export { useMiddleware, withMiddleware } from '@redux-syringe/middleware-react';
 
 export {
 	attachNamespace,
@@ -24,16 +24,16 @@ export {
 	getStateByFeatureAndAction,
 	getStateByNamespace,
 	getStateByFeatureAndNamespace,
-} from '@redux-tools/namespaces';
+} from '@redux-syringe/namespaces';
 
 export {
 	composeReducers,
 	makeEnhancer as makeReducersEnhancer,
 	makeReducer,
 	combineReducers,
-} from '@redux-tools/reducers';
+} from '@redux-syringe/reducers';
 
-export { useReducers, withReducers } from '@redux-tools/reducers-react';
+export { useReducers, withReducers } from '@redux-syringe/reducers-react';
 
 export {
 	namespacedConnect,
@@ -42,4 +42,4 @@ export {
 	withNamespaceProvider,
 	useNamespacedSelector,
 	useNamespacedDispatch,
-} from '@redux-tools/namespaces-react';
+} from '@redux-syringe/namespaces-react';

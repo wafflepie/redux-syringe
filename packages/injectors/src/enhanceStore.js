@@ -2,7 +2,7 @@ import invariant from 'invariant';
 import { pluck, concat } from 'ramda';
 import { noop, isObject, toScreamingSnakeCase } from 'ramda-extension';
 
-import { withoutOnce } from '@redux-tools/utils';
+import { withoutOnce } from '@redux-syringe/utils';
 
 import createEntries from './createEntries';
 
@@ -29,7 +29,7 @@ const enhanceStore = (prevStore, storeInterface, { onEjected = noop, onInjected 
 		onInjected({ injectables, props, entries });
 
 		dispatch({
-			type: `@redux-tools/${actionType}_INJECTED`,
+			type: `@redux-syringe/${actionType}_INJECTED`,
 			payload: pluck('path', entries),
 			meta: props,
 		});
@@ -42,7 +42,7 @@ const enhanceStore = (prevStore, storeInterface, { onEjected = noop, onInjected 
 		onEjected({ injectables, props, entries });
 
 		dispatch({
-			type: `@redux-tools/${actionType}_EJECTED`,
+			type: `@redux-syringe/${actionType}_EJECTED`,
 			payload: pluck('path', entries),
 			meta: props,
 		});

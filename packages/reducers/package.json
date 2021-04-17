@@ -1,20 +1,20 @@
 {
-  "name": "@redux-tools/reducers",
+  "name": "@redux-syringe/reducers",
   "version": "0.9.1",
   "license": "MIT",
-  "main": "lib/redux-tools-reducers.js",
-  "module": "es/redux-tools-reducers.js",
-  "unpkg": "dist/redux-tools-reducers.js",
+  "main": "lib/redux-syringe-reducers.js",
+  "module": "es/redux-syringe-reducers.js",
+  "unpkg": "dist/redux-syringe-reducers.js",
   "description": "Redux store enhancer for asynchronous injection of reducers.",
-  "repository": "https://github.com/lundegaard/redux-tools",
+  "repository": "https://github.com/lundegaard/redux-syringe",
   "contributors": [
     "Tomas Konrady <tomas.konrady@lundegaard.eu>",
     "Vaclav Jancarik <vaclav.jancarik@lundegaard.eu>"
   ],
   "dependencies": {
-    "@redux-tools/injectors": "^0.9.1",
-    "@redux-tools/namespaces": "^0.9.1",
-    "@redux-tools/utils": "^0.9.1",
+    "@redux-syringe/injectors": "^0.9.1",
+    "@redux-syringe/namespaces": "^0.9.1",
+    "@redux-syringe/utils": "^0.9.1",
     "invariant": "^2.2.4",
     "ramda": ">=0.26.1",
     "ramda-extension": ">=0.8.0"

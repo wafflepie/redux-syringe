@@ -5,7 +5,7 @@ describe('filterReducer', () => {
 	beforeEach(() => jest.resetModules());
 
 	it('calls reducer when namespace matches', () => {
-		jest.doMock('@redux-tools/namespaces', () => ({ isActionFromNamespace: jest.fn(() => true) }));
+		jest.doMock('@redux-syringe/namespaces', () => ({ isActionFromNamespace: jest.fn(() => true) }));
 		const { default: filterReducer } = require('./filterReducer');
 		const reducer = jest.fn(() => newState);
 
@@ -14,7 +14,7 @@ describe('filterReducer', () => {
 	});
 
 	it('does not call reducer when namespace does not match', () => {
-		jest.doMock('@redux-tools/namespaces', () => ({ isActionFromNamespace: jest.fn(() => false) }));
+		jest.doMock('@redux-syringe/namespaces', () => ({ isActionFromNamespace: jest.fn(() => false) }));
 		const { default: filterReducer } = require('./filterReducer');
 		const reducer = jest.fn(() => newState);
 

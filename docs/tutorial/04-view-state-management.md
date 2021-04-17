@@ -1,6 +1,6 @@
 # View State Management {docsify-ignore-all}
 
-Redux Tools support deep reducer injection, meaning that you can organize state for huge applications very easily.
+Redux Syringe supports deep reducer injection, meaning that you can organize state for huge applications very easily.
 
 ```json
 {

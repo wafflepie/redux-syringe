@@ -4,7 +4,7 @@
 
 <!--
 
-All examples with descriptions are located in the [examples directory](https://github.com/lundegaard/redux-tools/tree/master/examples) of the Redux Tools repository.
+All examples with descriptions are located in the [examples directory](https://github.com/lundegaard/redux-syringe/tree/master/examples) of the Redux Syringe repository.
 
 ## Simple Examples
 

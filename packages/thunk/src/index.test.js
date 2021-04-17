@@ -1,7 +1,7 @@
 import { identity } from 'ramda';
 import { createStore, applyMiddleware } from 'redux';
 
-import { attachNamespace, getNamespaceByAction } from '@redux-tools/namespaces';
+import { attachNamespace, getNamespaceByAction } from '@redux-syringe/namespaces';
 
 import thunkMiddleware from './index';
 

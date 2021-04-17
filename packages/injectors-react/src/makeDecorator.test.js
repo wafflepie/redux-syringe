@@ -2,8 +2,8 @@ import { mount } from 'enzyme';
 import { noop } from 'ramda-extension';
 import React from 'react';
 
-import { makeStoreInterface } from '@redux-tools/injectors';
-import { NamespaceProvider } from '@redux-tools/namespaces-react';
+import { makeStoreInterface } from '@redux-syringe/injectors';
+import { NamespaceProvider } from '@redux-syringe/namespaces-react';
 
 import makeDecorator from './makeDecorator';
 import makeHook from './makeHook';

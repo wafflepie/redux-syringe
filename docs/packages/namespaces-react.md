@@ -1,8 +1,8 @@
 # Namespaces (React Bindings)
 
-> yarn add @redux-tools/namespaces-react
+> yarn add @redux-syringe/namespaces-react
 
-This package provides React bindings for the [@redux-tools/namespaces](/packages/namespaces) package.
+This package provides React bindings for the [@redux-syringe/namespaces](/packages/namespaces) package.
 
 ## API Reference
 

@@ -2,7 +2,7 @@ import hoistNonReactStatics from 'hoist-non-react-statics';
 import { mergeLeft } from 'ramda';
 import React from 'react';
 
-import { getDisplayName } from '@redux-tools/utils-react';
+import { getDisplayName } from '@redux-syringe/utils-react';
 
 import NamespaceProvider from './NamespaceProvider';
 

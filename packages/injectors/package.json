@@ -1,12 +1,12 @@
 {
-  "name": "@redux-tools/injectors",
+  "name": "@redux-syringe/injectors",
   "version": "0.9.1",
   "license": "MIT",
-  "main": "lib/redux-tools-injectors.js",
-  "module": "es/redux-tools-injectors.js",
-  "unpkg": "dist/redux-tools-injectors.js",
+  "main": "lib/redux-syringe-injectors.js",
+  "module": "es/redux-syringe-injectors.js",
+  "unpkg": "dist/redux-syringe-injectors.js",
   "description": "Core logic for asynchronous Redux dependency injection.",
-  "repository": "https://github.com/lundegaard/redux-tools",
+  "repository": "https://github.com/lundegaard/redux-syringe",
   "contributors": [
     "Tomas Konrady <tomas.konrady@lundegaard.eu>",
     "Vaclav Jancarik <vaclav.jancarik@lundegaard.eu>",
@@ -14,8 +14,8 @@
     "Sergey Dunaevskiy <sergey.dunaevskiy@lundegaard.eu>"
   ],
   "dependencies": {
-    "@redux-tools/namespaces": "^0.9.1",
-    "@redux-tools/utils": "^0.9.1",
+    "@redux-syringe/namespaces": "^0.9.1",
+    "@redux-syringe/utils": "^0.9.1",
     "invariant": "^2.2.4",
     "ramda": ">=0.26.1",
     "ramda-extension": ">=0.8.0"

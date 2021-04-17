@@ -1,7 +1,7 @@
 import { prop } from 'ramda';
 import { map } from 'rxjs/operators';
 
-import { DEFAULT_FEATURE, getStateByFeatureAndNamespace } from '@redux-tools/namespaces';
+import { DEFAULT_FEATURE, getStateByFeatureAndNamespace } from '@redux-syringe/namespaces';
 
 /**
  * Stream creator to pass as `streamCreator` to the enhancer. Adds a `namespacedState$` argument

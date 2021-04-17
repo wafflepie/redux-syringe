@@ -1,12 +1,12 @@
 {
-  "name": "@redux-tools/namespaces",
+  "name": "@redux-syringe/namespaces",
   "version": "0.9.1",
   "license": "MIT",
-  "main": "lib/redux-tools-namespaces.js",
-  "module": "es/redux-tools-namespaces.js",
-  "unpkg": "dist/redux-tools-namespaces.js",
+  "main": "lib/redux-syringe-namespaces.js",
+  "module": "es/redux-syringe-namespaces.js",
+  "unpkg": "dist/redux-syringe-namespaces.js",
   "description": "Utility functions for namespacing of Redux actions.",
-  "repository": "https://github.com/lundegaard/redux-tools",
+  "repository": "https://github.com/lundegaard/redux-syringe",
   "contributors": [
     "Tomas Konrady <tomas.konrady@lundegaard.eu>",
     "Vaclav Jancarik <vaclav.jancarik@lundegaard.eu>",

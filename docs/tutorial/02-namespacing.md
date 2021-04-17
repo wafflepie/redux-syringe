@@ -1,6 +1,6 @@
 # Namespacing
 
-Let's assume that we have to develop a widget that can be used multiple times on a single page. The catch: it should store its data in Redux. Furthermore, every instance of the widget should have its own isolated state. Redux Tools offer a mechanism to handle this very efficiently.
+Let's assume that we have to develop a widget that can be used multiple times on a single page. The catch: it should store its data in Redux. Furthermore, every instance of the widget should have its own isolated state. Redux Syringe offers a mechanism to handle this very efficiently.
 
 Enter namespaces.
 
@@ -17,7 +17,7 @@ import {
 	makeReducer,
 	withReducers,
 	namespacedConnect,
-} from '@redux-tools/react';
+} from '@redux-syringe/react';
 
 const ActionTypes = makeActionTypes('duck', ['INCREMENT']);
 const increment = makeEmptyActionCreator(ActionTypes.INCREMENT);
@@ -64,7 +64,7 @@ The state structure will look like this:
 
 Under the hood, `withReducers` will inject the reducers at `state.namespaces.foo` because it has received the `namespace="foo"` prop. Furthermore, `namespacedConnect` will access `state.namespaces.foo` because it too has received the `namespace="foo"` prop.
 
-!> The `namespaces` key is usually referred to as `DEFAULT_FEATURE`. This is because Redux Tools can be used to develop generic widgets as well as specific [multi-instance components](/tutorial/03-multi-instance-components).
+!> The `namespaces` key is usually referred to as `DEFAULT_FEATURE`. This is because Redux Syringe can be used to develop generic widgets as well as specific [multi-instance components](/tutorial/03-multi-instance-components).
 
 When the `INCREMENT` action is dispatched, the action will look like this:
 
@@ -93,7 +93,7 @@ Wrap each widget separately via a `<NamespaceProvider namespace={namespace} />` 
 
 ```js
 import React, { Fragment } from 'react';
-import { NamespaceProvider } from '@redux-tools/react';
+import { NamespaceProvider } from '@redux-syringe/react';
 import { Counter } from './components';
 
 const CounterExample = () => (
@@ -112,7 +112,7 @@ Even if our counters were more complex, they will always access the correct name
 
 ```js
 import React from 'react';
-import { withReducers, useNamespacedSelector, useNamespacedDispatch } from '@redux-tools/react';
+import { withReducers, useNamespacedSelector, useNamespacedDispatch } from '@redux-syringe/react';
 import { increment, countReducer } from './duck';
 
 const Counter = () => {
@@ -129,7 +129,7 @@ The second approach is to wrap all the widgets in a single `<NamespaceProvider u
 
 ```js
 import React, { createContext, useContext } from 'react';
-import { NamespaceProvider } from '@redux-tools/react';
+import { NamespaceProvider } from '@redux-syringe/react';
 import { Counter } from './components';
 
 const WidgetNamespaceContext = createContext(null);
@@ -151,7 +151,7 @@ const CounterExample = () => (
 );
 ```
 
-Any Redux Tools decorator or hook inside a widget will now access the appropriate namespace without the need to wrap each widget in a separate provider.
+Any Redux Syringe decorator or hook inside a widget will now access the appropriate namespace without the need to wrap each widget in a separate provider.
 
 ## Usage Guidelines for Standard SPAs
 
@@ -159,7 +159,7 @@ Namespaces are awesome for developing widgets that can be mounted multiple times
 
 However, if your application is clearly split into isolated modules that rarely need to communicate with one another, namespaces might come in handy. There is one main rule you should follow: **never use multiple namespaces within a single module**. Mixing namespaces may result in some application logic not being triggered due to the actions being rejected by the namespacing mechanism.
 
-!> The main reason for not using multiple namespaces within a single module is to avoid issues with namespace mixing. Therefore, it is fine to use multi-instance components inside your namespaced widgets/modules as these components should never interact with their surroundings. Of course, Redux Tools fully support arbitrary mixing and nesting of namespaces via the `feature` prop of the namespace provider.
+!> The main reason for not using multiple namespaces within a single module is to avoid issues with namespace mixing. Therefore, it is fine to use multi-instance components inside your namespaced widgets/modules as these components should never interact with their surroundings. Of course, Redux Syringe fully supports arbitrary mixing and nesting of namespaces via the `feature` prop of the namespace provider.
 
 The main reason for using namespaces even if you don't need to mount a module multiple times is implicit selector scoping. Compare the following state structures:
 

@@ -4,7 +4,7 @@ import { noop, alwaysNull } from 'ramda-extension';
 import React from 'react';
 import { ReactReduxContext } from 'react-redux';
 
-import { DEFAULT_FEATURE } from '@redux-tools/namespaces';
+import { DEFAULT_FEATURE } from '@redux-syringe/namespaces';
 
 import NamespaceProvider from './NamespaceProvider';
 import { NamespaceContext } from './contexts';

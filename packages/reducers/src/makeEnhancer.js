@@ -12,8 +12,8 @@ import {
 	tail,
 } from 'ramda';
 
-import { enhanceStore, makeStoreInterface } from '@redux-tools/injectors';
-import { DEFAULT_FEATURE } from '@redux-tools/namespaces';
+import { enhanceStore, makeStoreInterface } from '@redux-syringe/injectors';
+import { DEFAULT_FEATURE } from '@redux-syringe/namespaces';
 
 import combineReducerEntries from './combineReducerEntries';
 import composeReducers from './composeReducers';
@@ -21,7 +21,7 @@ import composeReducers from './composeReducers';
 export const storeInterface = makeStoreInterface('reducers');
 
 const cleanupReducer = (state, action) => {
-	if (action.type !== '@redux-tools/CLEAN_UP_STATE') {
+	if (action.type !== '@redux-syringe/CLEAN_UP_STATE') {
 		return state;
 	}
 
@@ -76,7 +76,7 @@ const makeEnhancer = ({ initialReducers } = {}) => createStore => (reducer = ide
 		const fullyEjectedEntries = difference(entries, nextEntries);
 
 		nextStore.dispatch({
-			type: '@redux-tools/CLEAN_UP_STATE',
+			type: '@redux-syringe/CLEAN_UP_STATE',
 			payload: pluck('path', fullyEjectedEntries),
 			meta: props,
 		});

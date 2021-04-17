@@ -1,6 +1,6 @@
 # FAQ: General {docsify-ignore-all}
 
-## How to use Redux Tools with React Union?
+## How to use Redux Syringe with React Union?
 
 1. Wrap your `<Union />` component in a `<NamespaceProvider />`.
 2. Pass `() => useContext(WidgetContext).namespace` as the `useNamespace` prop to the namespace provider.
@@ -23,6 +23,6 @@ const composeEnhancers = composeWithDevTools({
 
 If you're having issues with infinite loops outside production environments, passing `shouldHotReload: false` might help you get around this issue.
 
-> `store.replaceReducer` will otherwise cause all prior actions to be redispatched to the new reducer, updating the state. This might cause a rerender of some of your components. However, if you are creating components dynamically without proper memoization, they will be completely remounted. Whenever a Redux Tools decorator is remounted, the injectables are reinjected accordingly. This will cause another `store.replaceReducer` call and an infinite loop.
+> `store.replaceReducer` will otherwise cause all prior actions to be redispatched to the new reducer, updating the state. This might cause a rerender of some of your components. However, if you are creating components dynamically without proper memoization, they will be completely remounted. Whenever a Redux Syringe decorator is remounted, the injectables are reinjected accordingly. This will cause another `store.replaceReducer` call and an infinite loop.
 
 See the [API Documentation](https://github.com/zalmoxisus/redux-devtools-extension/blob/master/docs/API/Arguments.md) for more info.

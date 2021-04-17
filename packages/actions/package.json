@@ -1,12 +1,12 @@
 {
-  "name": "@redux-tools/actions",
+  "name": "@redux-syringe/actions",
   "version": "0.9.1",
   "license": "MIT",
-  "main": "lib/redux-tools-actions.js",
-  "module": "es/redux-tools-actions.js",
-  "unpkg": "dist/redux-tools-actions.js",
+  "main": "lib/redux-syringe-actions.js",
+  "module": "es/redux-syringe-actions.js",
+  "unpkg": "dist/redux-syringe-actions.js",
   "description": "Alternative implementation of redux-actions using Ramda.",
-  "repository": "https://github.com/lundegaard/redux-tools",
+  "repository": "https://github.com/lundegaard/redux-syringe",
   "contributors": [
     "Tomas Konrady <tomas.konrady@lundegaard.eu>",
     "Vaclav Jancarik <vaclav.jancarik@lundegaard.eu>",
@@ -17,7 +17,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@redux-tools/utils": "^0.9.1",
+    "@redux-syringe/utils": "^0.9.1",
     "invariant": "^2.2.4",
     "ramda": ">=0.26.1",
     "ramda-extension": ">=0.8.0"

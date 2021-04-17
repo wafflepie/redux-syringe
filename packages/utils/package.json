@@ -1,12 +1,12 @@
 {
-  "name": "@redux-tools/utils",
+  "name": "@redux-syringe/utils",
   "version": "0.9.1",
   "license": "MIT",
-  "main": "lib/redux-tools-utils.js",
-  "module": "es/redux-tools-utils.js",
-  "unpkg": "dist/redux-tools-utils.js",
-  "description": "Utility functions for @redux-tools packages.",
-  "repository": "https://github.com/lundegaard/redux-tools",
+  "main": "lib/redux-syringe-utils.js",
+  "module": "es/redux-syringe-utils.js",
+  "unpkg": "dist/redux-syringe-utils.js",
+  "description": "Utility functions for @redux-syringe packages.",
+  "repository": "https://github.com/lundegaard/redux-syringe",
   "contributors": [
     "Tomas Konrady <tomas.konrady@lundegaard.eu>",
     "Vaclav Jancarik <vaclav.jancarik@lundegaard.eu>",

@@ -1,18 +1,18 @@
 import invariant from 'invariant';
 import { map, compose, uniq, forEach, o } from 'ramda';
 
-import { enhanceStore, makeStoreInterface } from '@redux-tools/injectors';
+import { enhanceStore, makeStoreInterface } from '@redux-syringe/injectors';
 import {
 	isActionFromNamespace,
 	defaultNamespace,
 	getStateByFeatureAndNamespace,
 	DEFAULT_FEATURE,
-} from '@redux-tools/namespaces';
+} from '@redux-syringe/namespaces';
 
 export const storeInterface = makeStoreInterface('middleware');
 
 const noopEntry = {
-	path: ['@redux-tools/NOOP_MIDDLEWARE'],
+	path: ['@redux-syringe/NOOP_MIDDLEWARE'],
 	value: () => next => action => next(action),
 };
 

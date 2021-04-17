@@ -13,8 +13,8 @@
 
 - FAQ
 
-  - [General](/faq/general 'FAQ: General - Redux Tools')
-  - [Internals](/faq/internals 'FAQ: Internals - Redux Tools')
+  - [General](/faq/general 'FAQ: General - Redux Syringe')
+  - [Internals](/faq/internals 'FAQ: Internals - Redux Syringe')
 
 - Packages
 

@@ -11,7 +11,7 @@ const PACKAGE_ROOT_PATH = process.cwd();
 const INPUT_FILE = path.join(PACKAGE_ROOT_PATH, 'src/index.js');
 
 // NOTE: Packages which are meant to be "plug and play" for prototyping using unpkg.
-const presets = ['@redux-tools/react'];
+const presets = ['@redux-syringe/react'];
 
 // NOTE: Only add globals which must be loaded manually when prototyping with a preset.
 const globals = {

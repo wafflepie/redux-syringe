@@ -6,7 +6,7 @@ import {
 	defaultNamespace,
 	getStateByFeatureAndNamespace,
 	DEFAULT_FEATURE,
-} from '@redux-tools/namespaces';
+} from '@redux-syringe/namespaces';
 
 const makeThunkMiddleware = dependencies => ({ dispatch, getState }) => next => action => {
 	if (isFunction(action)) {

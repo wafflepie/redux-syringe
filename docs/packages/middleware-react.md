@@ -1,14 +1,14 @@
 # Middleware (React Bindings)
 
-> yarn add @redux-tools/middleware-react
+> yarn add @redux-syringe/middleware-react
 
-This package provides React bindings for the [@redux-tools/middleware](/packages/middleware) package.
+This package provides React bindings for the [@redux-syringe/middleware](/packages/middleware) package.
 
 ## Usage Example
 
 ```js
 import React from 'react';
-import { withMiddleware } from '@redux-tools/middleware-react';
+import { withMiddleware } from '@redux-syringe/middleware-react';
 import someMiddleware from './someMiddleware';
 
 const Container = () => null;

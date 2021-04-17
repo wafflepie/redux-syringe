@@ -1,12 +1,12 @@
 {
-  "name": "@redux-tools/stream-creators",
+  "name": "@redux-syringe/stream-creators",
   "version": "0.9.1",
   "license": "MIT",
-  "main": "lib/redux-tools-stream-creators.js",
-  "module": "es/redux-tools-stream-creators.js",
-  "unpkg": "dist/redux-tools-stream-creators.js",
-  "description": "Collection of stream creators for the @redux-tools/epics package.",
-  "repository": "https://github.com/lundegaard/redux-tools",
+  "main": "lib/redux-syringe-stream-creators.js",
+  "module": "es/redux-syringe-stream-creators.js",
+  "unpkg": "dist/redux-syringe-stream-creators.js",
+  "description": "Collection of stream creators for the @redux-syringe/epics package.",
+  "repository": "https://github.com/lundegaard/redux-syringe",
   "contributors": [
     "Tomas Konrady <tomas.konrady@lundegaard.eu>",
     "Vaclav Jancarik <vaclav.jancarik@lundegaard.eu>",
@@ -14,9 +14,9 @@
     "Sergey Dunaevskiy <sergey.dunaevskiy@lundegaard.eu>"
   ],
   "dependencies": {
-    "@redux-tools/epics": "^0.9.1",
-    "@redux-tools/namespaces": "^0.9.1",
-    "@redux-tools/reducers": "^0.9.1",
+    "@redux-syringe/epics": "^0.9.1",
+    "@redux-syringe/namespaces": "^0.9.1",
+    "@redux-syringe/reducers": "^0.9.1",
     "ramda": ">=0.26.1"
   },
   "peerDependencies": {

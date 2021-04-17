@@ -1,6 +1,6 @@
 # Epics
 
-> yarn add @redux-tools/epics
+> yarn add @redux-syringe/epics
 
 This package provides a store enhancer for injecting epics into a Redux store after the store is created.
 
@@ -9,7 +9,7 @@ This package provides a store enhancer for injecting epics into a Redux store af
 ```js
 import { createStore, applyMiddleware } from 'redux';
 import { createEpicMiddleware } from 'redux-observable';
-import { makeEnhancer } from '@redux-tools/epics';
+import { makeEnhancer } from '@redux-syringe/epics';
 import { identity, compose } from 'ramda';
 import { epicA, epicB } from './epics';
 

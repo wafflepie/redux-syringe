@@ -1,6 +1,6 @@
 import { reduce, keys } from 'ramda';
 
-import { pickFunctions } from '@redux-tools/utils';
+import { pickFunctions } from '@redux-syringe/utils';
 
 // NOTE: Custom implementation so existing keys are always preserved.
 export default reducers => {

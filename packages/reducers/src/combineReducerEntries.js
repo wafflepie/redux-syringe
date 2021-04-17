@@ -1,6 +1,6 @@
 import { reduce, o, assocPath, path } from 'ramda';
 
-import { DEFAULT_FEATURE } from '@redux-tools/namespaces';
+import { DEFAULT_FEATURE } from '@redux-syringe/namespaces';
 
 import combineReducerSchema from './combineReducerSchema';
 import { ROOT_KEY } from './constants';

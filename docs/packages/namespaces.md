@@ -1,6 +1,6 @@
 # Namespaces
 
-> yarn add @redux-tools/namespaces
+> yarn add @redux-syringe/namespaces
 
 This package provides the main logic for associating Redux actions with a namespace.
 
@@ -80,7 +80,7 @@ Returns Redux state by feature and action namespace.
 **Example**
 
 ```js
-import { getStateByFeatureAndAction } from '@redux-tools/namespaces';
+import { getStateByFeatureAndAction } from '@redux-syringe/namespaces';
 
 const state = {
 	namespaces: {
@@ -113,7 +113,7 @@ Returns Redux state by action namespace.
 **Example**
 
 ```js
-import { DEFAULT_FEATURE, getStateByAction } from '@redux-tools/namespaces';
+import { DEFAULT_FEATURE, getStateByAction } from '@redux-syringe/namespaces';
 
 const state = {
 	[DEFAULT_FEATURE]: {
@@ -147,7 +147,7 @@ Returns Redux state by feature and namespace.
 **Example**
 
 ```js
-import { getStateByFeatureNamespace } from '@redux-tools/namespaces';
+import { getStateByFeatureNamespace } from '@redux-syringe/namespaces';
 
 const state = {
 	namespaces: {
@@ -174,7 +174,7 @@ Returns Redux state by namespace.
 **Example**
 
 ```js
-import { DEFAULT_FEATURE, getStateByNamespace } from '@redux-tools/namespaces';
+import { DEFAULT_FEATURE, getStateByNamespace } from '@redux-syringe/namespaces';
 
 const state = {
 	[DEFAULT_FEATURE]: {

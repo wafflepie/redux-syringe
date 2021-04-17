@@ -2,7 +2,7 @@
 
 > Maintaining large Redux applications with ease.
 
-[GitHub](https://github.com/lundegaard/redux-tools/)
+[GitHub](https://github.com/lundegaard/redux-syringe/)
 [Getting Started](#main)
 
 <!-- background color -->

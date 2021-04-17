@@ -1,4 +1,4 @@
-import { isActionFromNamespace } from '@redux-tools/namespaces';
+import { isActionFromNamespace } from '@redux-syringe/namespaces';
 
 const filterReducer = (reducer, namespace) => (state, action) =>
 	isActionFromNamespace(namespace, action) ? reducer(state, action) : state;

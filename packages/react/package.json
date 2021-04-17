@@ -1,12 +1,12 @@
 {
-  "name": "@redux-tools/react",
+  "name": "@redux-syringe/react",
   "version": "0.9.1",
   "license": "MIT",
-  "main": "lib/redux-tools-react.js",
-  "module": "es/redux-tools-react.js",
-  "unpkg": "dist/redux-tools-react.js",
-  "description": "Everything you need to get started with Redux Tools in a React application.",
-  "repository": "https://github.com/lundegaard/redux-tools",
+  "main": "lib/redux-syringe-react.js",
+  "module": "es/redux-syringe-react.js",
+  "unpkg": "dist/redux-syringe-react.js",
+  "description": "Everything you need to get started with Redux Syringe in a React application.",
+  "repository": "https://github.com/lundegaard/redux-syringe",
   "contributors": [
     "Tomas Konrady <tomas.konrady@lundegaard.eu>",
     "Vaclav Jancarik <vaclav.jancarik@lundegaard.eu>",
@@ -14,13 +14,13 @@
     "Sergey Dunaevskiy <sergey.dunaevskiy@lundegaard.eu>"
   ],
   "dependencies": {
-    "@redux-tools/actions": "^0.9.1",
-    "@redux-tools/middleware": "^0.9.1",
-    "@redux-tools/middleware-react": "^0.9.1",
-    "@redux-tools/namespaces": "^0.9.1",
-    "@redux-tools/namespaces-react": "^0.9.1",
-    "@redux-tools/reducers": "^0.9.1",
-    "@redux-tools/reducers-react": "^0.9.1"
+    "@redux-syringe/actions": "^0.9.1",
+    "@redux-syringe/middleware": "^0.9.1",
+    "@redux-syringe/middleware-react": "^0.9.1",
+    "@redux-syringe/namespaces": "^0.9.1",
+    "@redux-syringe/namespaces-react": "^0.9.1",
+    "@redux-syringe/reducers": "^0.9.1",
+    "@redux-syringe/reducers-react": "^0.9.1"
   },
   "peerDependencies": {
     "react": ">=16.8.3",

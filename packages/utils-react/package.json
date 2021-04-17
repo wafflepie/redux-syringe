@@ -1,12 +1,12 @@
 {
-  "name": "@redux-tools/utils-react",
+  "name": "@redux-syringe/utils-react",
   "version": "0.9.1",
   "license": "MIT",
-  "main": "lib/redux-tools-utils-react.js",
-  "module": "es/redux-tools-utils-react.js",
-  "unpkg": "dist/redux-tools-utils-react.js",
-  "description": "React-specific utility functions for @redux-tools packages.",
-  "repository": "https://github.com/lundegaard/redux-tools",
+  "main": "lib/redux-syringe-utils-react.js",
+  "module": "es/redux-syringe-utils-react.js",
+  "unpkg": "dist/redux-syringe-utils-react.js",
+  "description": "React-specific utility functions for @redux-syringe packages.",
+  "repository": "https://github.com/lundegaard/redux-syringe",
   "contributors": [
     "Tomas Konrady <tomas.konrady@lundegaard.eu>",
     "Vaclav Jancarik <vaclav.jancarik@lundegaard.eu>",

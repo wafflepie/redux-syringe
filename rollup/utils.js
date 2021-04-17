@@ -3,7 +3,7 @@ import { toPascalCase, toKebabCase } from 'ramda-extension';
 
 export const getGlobalName = compose(
 	join(''),
-	prepend('ReduxTools'),
+	prepend('ReduxSyringe'),
 	map(toPascalCase),
 	tail,
 	split('/')
@@ -11,7 +11,7 @@ export const getGlobalName = compose(
 
 export const getFileName = compose(
 	join('-'),
-	prepend('redux-tools'),
+	prepend('redux-syringe'),
 	map(toKebabCase),
 	tail,
 	split('/')

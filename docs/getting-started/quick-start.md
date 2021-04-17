@@ -1,10 +1,10 @@
 # Quick Start
 
-Let's take a look on how we'd use Redux Tools in a simple React application.
+Let's take a look on how we'd use Redux Syringe in a simple React application.
 
 ## Global Injection
 
-This is the go-to way to use Redux Tools in standard SPAs.
+This is the go-to way to use Redux Syringe in standard SPAs.
 
 _**duck.js**_
 
@@ -12,7 +12,7 @@ _**duck.js**_
 - exports a reducer and an action creator
 
 ```js
-import { makeActionTypes, makeEmptyActionCreator, makeReducer } from '@redux-tools/react';
+import { makeActionTypes, makeEmptyActionCreator, makeReducer } from '@redux-syringe/react';
 
 export const ActionTypes = makeActionTypes('duck', ['INCREMENT']);
 export const increment = makeEmptyActionCreator(ActionTypes.INCREMENT);
@@ -29,7 +29,7 @@ _**Counter.js**_
 ```js
 import React from 'react';
 import { o } from 'ramda';
-import { withReducers } from '@redux-tools/react';
+import { withReducers } from '@redux-syringe/react';
 import { connect } from 'react-redux';
 
 import countReducer, { increment } from './duck';
@@ -47,14 +47,14 @@ export default enhance(Counter);
 _**index.js**_
 
 - the root of our application
-- responsible for creating the Redux store and integrating Redux Tools into it
+- responsible for creating the Redux store and integrating Redux Syringe into it
 - connects the React application to the Redux store
 
 ```js
 import React from 'react';
 import { render } from 'react-dom';
 import { createStore } from 'redux';
-import { makeReducersEnhancer } from '@redux-tools/react';
+import { makeReducersEnhancer } from '@redux-syringe/react';
 import { Provider } from 'react-redux';
 import { identity } from 'ramda';
 
@@ -80,7 +80,7 @@ The state structure will look like this:
 
 ## Namespaced Injection
 
-This is the go-to way to use Redux Tools if any of these apply:
+This is the go-to way to use Redux Syringe if any of these apply:
 
 - Your application is cleary split into standalone modules which rarely communicate with one another.
 - Your application consists of widgets which store their data in Redux and can be mounted multiple times.
@@ -91,7 +91,7 @@ _**duck.js**_
 - exports a reducer and an action creator
 
 ```js
-import { makeActionTypes, makeEmptyActionCreator, makeReducer } from '@redux-tools/react';
+import { makeActionTypes, makeEmptyActionCreator, makeReducer } from '@redux-syringe/react';
 
 export const ActionTypes = makeActionTypes('duck', ['INCREMENT']);
 export const increment = makeEmptyActionCreator(ActionTypes.INCREMENT);
@@ -109,7 +109,7 @@ _**Counter.js**_
 ```js
 import React from 'react';
 import { o } from 'ramda';
-import { withReducers, namespacedConnect } from '@redux-tools/react';
+import { withReducers, namespacedConnect } from '@redux-syringe/react';
 
 import countReducer, { increment } from './duck';
 
@@ -130,14 +130,14 @@ export default enhance(Counter);
 _**index.js**_
 
 - the root of our application
-- responsible for creating the Redux store and integrating Redux Tools into it
+- responsible for creating the Redux store and integrating Redux Syringe into it
 - connects the React application to the Redux store
 
 ```js
 import React from 'react';
 import { render } from 'react-dom';
 import { createStore } from 'redux';
-import { makeReducersEnhancer } from '@redux-tools/react';
+import { makeReducersEnhancer } from '@redux-syringe/react';
 import { Provider } from 'react-redux';
 import { identity } from 'ramda';
 

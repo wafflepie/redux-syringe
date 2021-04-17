@@ -4,9 +4,9 @@ import { toPascalCase, isNotNil, rejectNil, isObject } from 'ramda-extension';
 import { useLayoutEffect, useState, useEffect, useDebugValue, useContext } from 'react';
 import { ReactReduxContext } from 'react-redux';
 
-import { createEntries } from '@redux-tools/injectors';
-import { DEFAULT_FEATURE } from '@redux-tools/namespaces';
-import { useNamespace, NamespaceContext } from '@redux-tools/namespaces-react';
+import { createEntries } from '@redux-syringe/injectors';
+import { DEFAULT_FEATURE } from '@redux-syringe/namespaces';
+import { useNamespace, NamespaceContext } from '@redux-syringe/namespaces-react';
 
 import { IS_SERVER } from './constants';
 
@@ -22,7 +22,7 @@ const makeHook = storeInterface => {
 	const hookName = `use${pascalCaseType}`;
 
 	const useInjectables = (injectables, options = {}) => {
-		const locationMessages = [`@redux-tools ${type}`, injectables];
+		const locationMessages = [`@redux-syringe ${type}`, injectables];
 
 		const warn = (...args) => console.warn(...locationMessages, ...args);
 

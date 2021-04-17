@@ -1,6 +1,6 @@
 # Middleware
 
-> yarn add @redux-tools/middleware
+> yarn add @redux-syringe/middleware
 
 This package provides a store enhancer for injecting middleware into a Redux store after the store is created.
 
@@ -8,7 +8,7 @@ This package provides a store enhancer for injecting middleware into a Redux sto
 
 ```js
 import { applyMiddleware, compose, createStore } from 'redux';
-import { makeEnhancer as makeEnhancerMiddleware } from '@redux-tools/middleware';
+import { makeEnhancer as makeEnhancerMiddleware } from '@redux-syringe/middleware';
 
 const someMiddleware = () => next => action =>
 	next({

@@ -6,7 +6,7 @@
 
 Let's face it, maintaining large applications is not easy, especially if everything is [tangled together](<https://en.wikipedia.org/wiki/Coupling_(computer_programming)>) and [spread all over the place](<https://en.wikipedia.org/wiki/Cohesion_(computer_science)>). The recommendation when using Redux is to [only ever have a single store](https://redux.js.org/faq/store-setup#can-or-should-i-create-multiple-stores-can-i-import-my-store-directly-and-use-it-in-components-myself). Furthermore, `createStore` expects you to pass the root reducer statically, meaning that if your React application is sprawling with features and various modules, you'd have to import all the necessary reducers your application would ever need in some kind of `configureStore.js` file. This approach is not scalable.
 
-It is very likely that the modules are already responsible for fetching their data and defining their [npm dependencies](https://classic.yarnpkg.com/blog/2017/08/02/introducing-workspaces/), what if they could be responsible for defining their Redux dependencies (such as reducers) as well? Redux Tools make this possible.
+It is very likely that the modules are already responsible for fetching their data and defining their [npm dependencies](https://classic.yarnpkg.com/blog/2017/08/02/introducing-workspaces/), what if they could be responsible for defining their Redux dependencies (such as reducers) as well? Redux Syringe makes this possible.
 
 !> This tutorial assumes basic knowledge of the [Redux](https://redux.js.org/) library.
 
@@ -31,7 +31,7 @@ To this:
 
 ```js
 import { createStore, combineReducers } from 'redux';
-import { makeReducersEnhancer } from '@redux-tools/react';
+import { makeReducersEnhancer } from '@redux-syringe/react';
 
 export const configureStore = () => createStore(state => state, makeReducersEnhancer());
 ```
@@ -72,12 +72,12 @@ const UserManagement = () => {
 export default UserManagement;
 ```
 
-Okay, now how do we use Redux Tools to define the Redux dependencies of this module?
+Okay, now how do we use Redux Syringe to define the Redux dependencies of this module?
 
 ```js
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { withReducers } from '@redux-tools/react';
+import { withReducers } from '@redux-syringe/react';
 import reducer, { getUsers, fetchUsers } from './redux';
 import { UserGrid } from './components';
 
@@ -101,7 +101,7 @@ Because we no longer reference all the reducers in the root of the application, 
 
 ## Side Effect Libraries
 
-Redux Tools also support injection of [redux-observable epics](https://redux-observable.js.org/) and [generic Redux middleware](https://redux.js.org/advanced/middleware). Use the `withEpics` and `withMiddleware` decorators in the same way as `withReducers`.
+Redux Syringe also supports injection of [redux-observable epics](https://redux-observable.js.org/) and [generic Redux middleware](https://redux.js.org/advanced/middleware). Use the `withEpics` and `withMiddleware` decorators in the same way as `withReducers`.
 
 !> Support for [redux-saga](https://redux-saga.js.org/) is not planned, but contributions are welcome nonetheless.
 
