@@ -1,6 +1,6 @@
 {
   "name": "redux-syringe",
-  "version": "0.11.1",
+  "version": "0.11.2",
   "license": "MIT",
   "main": "dist/redux-syringe.cjs.js",
   "module": "dist/redux-syringe.esm.js",
@@ -29,13 +29,13 @@
   ],
   "dependencies": {
     "@redux-syringe/actions": "^0.11.0",
-    "@redux-syringe/middleware": "^0.11.0",
-    "@redux-syringe/middleware-react": "^0.11.0",
+    "@redux-syringe/middleware": "^0.11.2",
+    "@redux-syringe/middleware-react": "^0.11.2",
     "@redux-syringe/namespaces": "^0.11.0",
-    "@redux-syringe/namespaces-react": "^0.11.0",
-    "@redux-syringe/reducers": "^0.11.0",
-    "@redux-syringe/reducers-react": "^0.11.0",
-    "@redux-syringe/thunk": "^0.11.0"
+    "@redux-syringe/namespaces-react": "^0.11.2",
+    "@redux-syringe/reducers": "^0.11.2",
+    "@redux-syringe/reducers-react": "^0.11.2",
+    "@redux-syringe/thunk": "^0.11.2"
   },
   "peerDependencies": {
     "react": ">=16.8.3",

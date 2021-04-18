@@ -1,6 +1,6 @@
 {
   "name": "@redux-syringe/injectors",
-  "version": "0.11.0",
+  "version": "0.11.2",
   "license": "MIT",
   "main": "dist/redux-syringe-injectors.cjs.js",
   "module": "dist/redux-syringe-injectors.esm.js",
