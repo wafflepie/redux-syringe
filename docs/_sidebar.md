@@ -26,4 +26,4 @@
   - [Epics](/packages/epics '@redux-syringe/epics')
   - [Epics (React Bindings)](/packages/epics-react '@redux-syringe/epics-react')
   - [Stream Creators](/packages/stream-creators '@redux-syringe/stream-creators')
-  - [Thunk (Extended)](/packages/thunk '@redux-syringe/thunk')
+  - [Thunk](/packages/thunk '@redux-syringe/thunk')

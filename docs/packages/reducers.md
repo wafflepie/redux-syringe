@@ -8,20 +8,24 @@ This package provides a store enhancer for injecting reducers into a Redux store
 
 ```js
 import { createStore } from 'redux';
-import { makeEnhancer, makeReducer } from '@redux-syringe/reducers';
-import ActionTypes from './actionTypes';
+import { makeEnhancer } from '@redux-syringe/reducers';
 
-const someReducer = makeReducer(
-	[
-		[ActionTypes.ADD, (count, action) => count + action.payload],
-		[ActionTypes.INCREMENT, count => count + 1],
-	],
-	0
-);
+const initialState = {
+	value: 0,
+};
+
+const counterReducer = (state = initialState, action) => {
+	switch (action.type) {
+		case 'increment':
+			return { ...state, value: state.value + 1 };
+		default:
+			return state;
+	}
+};
 
 const store = createStore(state => state, makeEnhancer());
 
-store.injectReducers({ some: someReducer });
+store.injectReducers({ counter: counterReducer });
 ```
 
 ## API Reference

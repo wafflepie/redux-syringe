@@ -10,39 +10,45 @@ The simplest example we could think of is a click counter.
 
 ```js
 import React from 'react';
-import { o } from 'ramda';
+import { compose } from 'ramda';
+import { createSlice } from '@reduxjs/toolkit';
 import {
-	makeActionTypes,
-	makeEmptyActionCreator,
-	makeReducer,
 	withReducers,
-	namespacedConnect,
+	withNamespaceProvider,
+	useNamespacedSelector,
+	useNamespacedDispatch,
 } from 'redux-syringe';
 
-const ActionTypes = makeActionTypes('duck', ['INCREMENT']);
-const increment = makeEmptyActionCreator(ActionTypes.INCREMENT);
-const reducer = makeReducer([[ActionTypes.INCREMENT, (count) => count + 1]], 0);
+const initialState = {
+	value: 0,
+};
 
-const Counter = ({ count, increment }) => <button onClick={increment}>{count}</button>;
+const counterSlice = createSlice({
+	name: 'counter',
+	initialState,
+	reducers: {
+		increment(state) {
+			state.value++;
+		},
+	},
+});
 
-const mapStateToProps = (namespacedState) => ({ count: namespacedState.count });
-const mapDispatchToProps = { increment };
+const selectCounterValue = state => state.counter.value;
 
-const enhance = o(
-	withReducers({ count: countReducer }),
-	// NOTE: `namespacedConnect` is just like `connect`, but it works over namespaces
-	namespacedConnect(mapStateToProps, mapDispatchToProps)
-);
+const PureCounter = () => {
+	const dispatch = useNamespacedDispatch();
+	const counterValue = useNamespacedSelector(selectCounterValue);
 
-export default enhance(Counter);
+	return <button onClick={() => dispatch(counterSlice.actions.increment())}>{counterValue}</button>;
+};
+
+export const Counter = compose(
+	withNamespaceProvider(),
+	withReducers({ counter: counterSlice.reducer })
+)(PureCounter);
 ```
 
-Okay, this is getting slightly more complex. Our enhanced counter expects a namespace to be provided to it! There are two feasible options to do so:
-
-- Pass a `namespace` prop.
-- Use a namespace provider.
-
-First, let's render a bunch of counters using the first method.
+Okay, this is getting slightly more complex. Our counter component expects a namespace to be provided to it! Let's render a bunch of them.
 
 ```js
 <Counter namespace="foo" />
@@ -55,16 +61,28 @@ The state structure will look like this:
 ```json
 {
 	"namespaces": {
-		"foo": { "count": 0 },
-		"bar": { "count": 0 },
-		"baz": { "count": 0 }
+		"foo": {
+			"counter": {
+				"value": 0
+			}
+		},
+		"bar": {
+			"counter": {
+				"value": 0
+			}
+		},
+		"baz": {
+			"counter": {
+				"value": 0
+			}
+		}
 	}
 }
 ```
 
-Under the hood, `withReducers` will inject the reducers at `state.namespaces.foo` because it has received the `namespace="foo"` prop. Furthermore, `namespacedConnect` will access `state.namespaces.foo` because it too has received the `namespace="foo"` prop.
+Under the hood, `withReducers` and `useNamespacedSelector` will operate over `state.namespaces.foo` because `withNamespaceProvider` has made the `"foo"` namespace available to it via React context.
 
-!> The `namespaces` key is usually referred to as `DEFAULT_FEATURE`. This is because Redux Syringe can be used to develop generic widgets as well as specific [multi-instance components](/tutorial/03-multi-instance-components).
+?> The `namespaces` key is referred to as `DEFAULT_FEATURE` in the codebase. This is because Redux Syringe can be used to develop generic widgets as well as specific [multi-instance components](/tutorial/03-multi-instance-components).
 
 When the `INCREMENT` action is dispatched, the action will look like this:
 
@@ -75,68 +93,26 @@ const action = {
 };
 ```
 
-The `meta.namespace` attribute was added automatically by `namespacedConnect`. What's the point of that?
-
-Because our counter was mounted three times, there are three instances of our reducers injected as well, each with a different namespace. If an action has a different namespace than the reducer, **it will be ignored**.
+The `meta.namespace` attribute was added automatically by `useNamespacedDispatch`. What's the point of that? Because our counter was mounted three times, there are three instances of our reducers injected as well, each with a different namespace. If an action has a different namespace than the reducer, **it will be ignored**.
 
 !> For this reason, avoid using multiple namespaces within a single widget or module. Mixing namespaces may result in unexpected behavior and hard-to-track bugs due to actions being ignored.
 
-Remember that if you need to opt out of the namespacing mechanism, just use the regular `connect`/`useSelector`/`useDispatch` functions from React Redux and pass `isGlobal: true` to any injector decorators.
+Remember that if you need to opt out of the namespacing mechanism, just use the standard `useSelector` and `useDispatch` hooks from React Redux and pass `isGlobal: true` to any injector decorators.
 
-Using the `namespace` prop is pretty simple, but it doesn't scale well if you need to use `withReducers` deeper in the React component tree. Similarly, using the `useNamespacedDispatch` and `useNamespacedSelector` hooks is unnecessarily difficult, because these hooks have no way to access the namespace passed to the counter. That's when the namespace provider comes in handy.
+## External Namespaces
 
-## Namespace Provider
-
-There are two approaches to using this component, let's start with the simpler one.
-
-Wrap each widget separately via a `<NamespaceProvider namespace={namespace} />` element. This is the go-to approach if you are rendering the widgets manually or if the widgets do not share a common React tree, i.e. they are rendered using multiple `ReactDOM.render` calls.
-
-```js
-import React, { Fragment } from 'react';
-import { NamespaceProvider } from 'redux-syringe';
-import { Counter } from './components';
-
-const CounterExample = () => (
-	<Fragment>
-		<NamespaceProvider namespace="foo">
-			<Counter />
-		</NamespaceProvider>
-		<NamespaceProvider namespace="bar">
-			<Counter />
-		</NamespaceProvider>
-	</Fragment>
-);
-```
-
-Even if our counters were more complex, they will always access the correct namespace without the need to pass it down via prop drilling. Because the namespace is now accessible via React context, we are also able to conveniently use namespaced hooks within our counters.
-
-```js
-import React from 'react';
-import { withReducers, useNamespacedSelector, useNamespacedDispatch } from 'redux-syringe';
-import { increment, countReducer } from './duck';
-
-const Counter = () => {
-	const count = useNamespacedSelector((namespacedState) => namespacedState.count);
-	const dispatch = useNamespacedDispatch();
-
-	return <button onClick={() => dispatch(increment())}>{count}</button>;
-};
-
-export default withReducers({ count: countReducer })(Counter);
-```
-
-The second approach is to wrap all the widgets in a single `<NamespaceProvider useNamespace={useNamespace} />` element. This is the approach you should choose if you are able to access the current widget namespace via React hooks from anywhere.
+Redux Syringe can also utilize an external source of namespaces. This is useful if you already have an architecture that wraps each widget/module in an arbitrary provider.
 
 ```js
 import React, { createContext, useContext } from 'react';
 import { NamespaceProvider } from 'redux-syringe';
-import { Counter } from './components';
+import { Counter } from './Counter';
 
 const WidgetNamespaceContext = createContext(null);
 
-const renderWidget = (Widget, namespace) => (
+const wrapWidgetElement = (widgetElement, namespace) => (
 	<WidgetNamespaceContext.Provider value={namespace}>
-		<Widget />
+		{widgetElement}
 	</WidgetNamespaceContext.Provider>
 );
 
@@ -144,14 +120,14 @@ const useWidgetNamespace = () => useContext(WidgetNamespaceContext);
 
 const CounterExample = () => (
 	<NamespaceProvider useNamespace={useWidgetNamespace}>
-		{renderWidget(Counter, 'foo')}
-		{renderWidget(Counter, 'bar')}
-		{renderWidget(Counter, 'baz')}
+		{wrapWidgetElement(<Counter />, 'foo')}
+		{wrapWidgetElement(<Counter />, 'bar')}
+		{wrapWidgetElement(<Counter />, 'baz')}
 	</NamespaceProvider>
 );
 ```
 
-Any Redux Syringe decorator or hook inside a widget will now access the appropriate namespace without the need to wrap each widget in a separate provider.
+Any Redux Syringe decorator or hook inside a widget will now access the appropriate namespace without the need to wrap each widget in a separate namespace provider.
 
 ## Usage Guidelines for Standard SPAs
 

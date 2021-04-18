@@ -11,9 +11,9 @@ import React from 'react';
 import { withReducers } from '@redux-syringe/reducers-react';
 import someReducer from './someReducer';
 
-const Container = () => null;
+const PureSomeComponent = () => null;
 
-export default withReducers({ someReducer })(Container);
+export const SomeComponent = withReducers({ some: someReducer })(PureSomeComponent);
 ```
 
 ## API Reference

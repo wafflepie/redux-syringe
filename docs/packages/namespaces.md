@@ -14,12 +14,11 @@ There are essentially two edge cases:
 
 - If the action has no namespace, it is a global action and therefore affects **all** namespaces.
 - If the tested namespace is undefined, it is a global namespace and is therefore affected by **all** actions.
-  - This allows easier usage of other packages (notably using `namespacedConnect` for dispatching actions affecting global reducers and epics, instead of having to use `connect` separately).
 
 **Parameters**
 
 1. [`namespace`] \( _string_ ): The namespace to check against.
-2. `action` ( _Action_ ): The Redux action to check. Should have a `meta.namespace` property.
+2. `action` ( _Action_ ): The Redux action to check.
 
 **Returns**
 
@@ -31,7 +30,7 @@ Returns the namespace of an action.
 
 **Parameters**
 
-1. `action` ( _Action_ ): The Redux action to get the namespace of. Should have a `meta.namespace` property.
+1. `action` ( _Action_ ): The Redux action to get the namespace of.
 
 **Returns**
 

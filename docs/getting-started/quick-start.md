@@ -6,49 +6,37 @@ Let's take a look on how we'd use Redux Syringe in a simple React application.
 
 This is the go-to way to use Redux Syringe in standard SPAs.
 
-_**duck.js**_
-
-- a duck (see [Ducks: Redux Reducer Bundles](https://github.com/erikras/ducks-modular-redux))
-- exports a reducer and an action creator
-
-```js
-import { makeActionTypes, makeEmptyActionCreator, makeReducer } from 'redux-syringe';
-
-export const ActionTypes = makeActionTypes('duck', ['INCREMENT']);
-export const increment = makeEmptyActionCreator(ActionTypes.INCREMENT);
-
-export default makeReducer([[ActionTypes.INCREMENT, (count) => count + 1]], 0);
-```
-
-_**Counter.js**_
-
-- a connected React component
-- can visualize a number from Redux
-- can dispatch an `INCREMENT` action
-
 ```js
 import React from 'react';
-import { o } from 'ramda';
+import { createSlice } from '@reduxjs/toolkit';
+import { useSelector, useDispatch } from 'react-redux';
 import { withReducers } from 'redux-syringe';
-import { connect } from 'react-redux';
 
-import countReducer, { increment } from './duck';
+const initialState = {
+	value: 0,
+};
 
-const Counter = ({ count, increment }) => <button onClick={increment}>{count}</button>;
+const counterSlice = createSlice({
+	name: 'counter',
+	initialState,
+	reducers: {
+		increment(state) {
+			state.value++;
+		},
+	},
+});
 
-const enhance = o(
-	withReducers({ count: countReducer }),
-	connect((state) => ({ count: state.count }), { increment })
-);
+const selectCounterValue = state => state.counter.value;
 
-export default enhance(Counter);
+const PureCounter = () => {
+	const dispatch = useDispatch();
+	const counterValue = useSelector(selectCounterValue);
+
+	return <button onClick={() => dispatch(counterSlice.actions.increment())}>{counterValue}</button>;
+};
+
+export const Counter = withReducers({ counter: counterSlice.reducer })(Counter);
 ```
-
-_**index.js**_
-
-- the root of our application
-- responsible for creating the Redux store and integrating Redux Syringe into it
-- connects the React application to the Redux store
 
 ```js
 import React from 'react';
@@ -56,11 +44,10 @@ import { render } from 'react-dom';
 import { createStore } from 'redux';
 import { makeReducersEnhancer } from 'redux-syringe';
 import { Provider } from 'react-redux';
-import { identity } from 'ramda';
 
-import Counter from './Counter';
+import { Counter } from './Counter';
 
-const store = createStore(identity, makeReducersEnhancer());
+const store = createStore(state => state, makeReducersEnhancer());
 
 render(
 	<Provider store={store}>
@@ -70,11 +57,11 @@ render(
 );
 ```
 
-The state structure will look like this:
-
 ```json
 {
-	"count": 0
+	"counter": {
+		"value": 0
+	}
 }
 ```
 
@@ -85,53 +72,45 @@ This is the go-to way to use Redux Syringe if any of these apply:
 - Your application is cleary split into standalone modules which rarely communicate with one another.
 - Your application consists of widgets which store their data in Redux and can be mounted multiple times.
 
-_**duck.js**_
-
-- a duck file (see [Ducks: Redux Reducer Bundles](https://github.com/erikras/ducks-modular-redux))
-- exports a reducer and an action creator
-
-```js
-import { makeActionTypes, makeEmptyActionCreator, makeReducer } from 'redux-syringe';
-
-export const ActionTypes = makeActionTypes('duck', ['INCREMENT']);
-export const increment = makeEmptyActionCreator(ActionTypes.INCREMENT);
-
-export default makeReducer([[ActionTypes.INCREMENT, (count) => count + 1]], 0);
-```
-
-_**Counter.js**_
-
-- a connected React component
-- expects a `namespace` prop to be passed to it
-- can visualize a number from a specified Redux namespace
-- can dispatch an `INCREMENT` action to a specified Redux namespace
-
 ```js
 import React from 'react';
-import { o } from 'ramda';
-import { withReducers, namespacedConnect } from 'redux-syringe';
+import { compose } from 'ramda';
+import { createSlice } from '@reduxjs/toolkit';
+import {
+	withReducers,
+	withNamespaceProvider,
+	useNamespacedSelector,
+	useNamespacedDispatch,
+} from 'redux-syringe';
 
-import countReducer, { increment } from './duck';
+const initialState = {
+	value: 0,
+};
 
-const Counter = ({ count, increment }) => <button onClick={increment}>{count}</button>;
+const counterSlice = createSlice({
+	name: 'counter',
+	initialState,
+	reducers: {
+		increment(state) {
+			state.value++;
+		},
+	},
+});
 
-const mapStateToProps = (namespacedState) => ({ count: namespacedState.count });
-const mapDispatchToProps = { increment };
+const selectCounterValue = state => state.counter.value;
 
-const enhance = o(
-	withReducers({ count: countReducer }),
-	// NOTE: `namespacedConnect` is just like `connect`, but it works over namespaces
-	namespacedConnect(mapStateToProps, mapDispatchToProps)
-);
+const PureCounter = () => {
+	const dispatch = useNamespacedDispatch();
+	const counterValue = useNamespacedSelector(selectCounterValue);
 
-export default enhance(Counter);
+	return <button onClick={() => dispatch(counterSlice.actions.increment())}>{counterValue}</button>;
+};
+
+export const Counter = compose(
+	withNamespaceProvider(),
+	withReducers({ counter: counterSlice.reducer })
+)(PureCounter);
 ```
-
-_**index.js**_
-
-- the root of our application
-- responsible for creating the Redux store and integrating Redux Syringe into it
-- connects the React application to the Redux store
 
 ```js
 import React from 'react';
@@ -139,11 +118,10 @@ import { render } from 'react-dom';
 import { createStore } from 'redux';
 import { makeReducersEnhancer } from 'redux-syringe';
 import { Provider } from 'react-redux';
-import { identity } from 'ramda';
 
 import Counter from './Counter';
 
-const store = createStore(identity, makeReducersEnhancer());
+const store = createStore(state => state, makeReducersEnhancer());
 
 render(
 	<Provider store={store}>
@@ -155,14 +133,24 @@ render(
 );
 ```
 
-The state structure will look like this:
-
 ```json
 {
 	"namespaces": {
-		"foo": { "count": 0 },
-		"bar": { "count": 0 },
-		"baz": { "count": 0 }
+		"foo": {
+			"counter": {
+				"value": 0
+			}
+		},
+		"bar": {
+			"counter": {
+				"value": 0
+			}
+		},
+		"baz": {
+			"counter": {
+				"value": 0
+			}
+		}
 	}
 }
 ```

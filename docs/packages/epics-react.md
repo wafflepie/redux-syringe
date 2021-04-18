@@ -11,9 +11,9 @@ import React from 'react';
 import { withEpics } from '@redux-syringe/epics-react';
 import someEpic from './someEpic';
 
-const Container = () => null;
+const PureSomeComponent = () => null;
 
-export default withEpics(someEpic)(Container);
+export const SomeComponent = withEpics(someEpic)(PureSomeComponent);
 ```
 
 ## API Reference

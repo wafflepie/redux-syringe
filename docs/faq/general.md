@@ -5,7 +5,7 @@
 1. Wrap your `<Union />` component in a `<NamespaceProvider />`.
 2. Pass `() => useContext(WidgetContext).namespace` as the `useNamespace` prop to the namespace provider.
 
-That's it! All injector decorators, `namespacedConnect`, and namespaced hooks will always access the namespace of the widget they are being used in.
+That's it! All decorators and hooks will always access the namespace of the widget they are being used in.
 
 To use injectors globally, pass `isGlobal: true` to them. To access global state and affect global state, use the decorators and hooks from React Redux directly.
 

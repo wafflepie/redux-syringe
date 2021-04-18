@@ -11,9 +11,9 @@ import React from 'react';
 import { withMiddleware } from '@redux-syringe/middleware-react';
 import someMiddleware from './someMiddleware';
 
-const Container = () => null;
+const PureSomeComponent = () => null;
 
-export default withMiddleware(someMiddleware)(Container);
+export const SomeComponent = withMiddleware(someMiddleware)(PureSomeComponent);
 ```
 
 ## API Reference

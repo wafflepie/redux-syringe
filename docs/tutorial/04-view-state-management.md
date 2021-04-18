@@ -13,37 +13,37 @@ Redux Syringe supports deep reducer injection, meaning that you can organize sta
 ```
 
 ```js
-// Dummy reducer, manages `state.userManagement.userList`
+// Dummy reducer, manages `state.userManagement.userList`.
 const userListReducer = () => [];
 
-const UserList = () => {
+const PureUserList = () => {
 	const users = useSelector(getUsers);
 
 	return users.map(user => user.name);
 };
 
-export default withReducers({
+export const UserList = withReducers({
 	userManagement: {
 		userList: userListReducer,
 	},
-})(UserList);
+})(PureUserList);
 ```
 
 ```js
-// Dummy reducer, manages `state.userManagement.userDetail`
+// Dummy reducer, manages `state.userManagement.userDetail`.
 const userDetailReducer = () => null;
 
-const UserDetail = ({ userId }) => {
+const PureUserDetail = ({ userId }) => {
 	const user = useSelector(getUser(userId));
 
 	return user.name;
 };
 
-export default withReducers({
+export const UserDetail = withReducers({
 	userManagement: {
 		userDetail: userDetailReducer,
 	},
-})(UserDetail);
+})(PureUserDetail);
 ```
 
 ```js
@@ -53,12 +53,14 @@ const userManagementReducer = state => ({
 	hasPermissions: true,
 });
 
-const UserManagement = () => (
+const PureUserManagement = () => (
 	<Router>
 		<Route component={UserList} path="/users" />
 		<Route component={UserDetail} path="/users/:userId" />
 	</Router>
 );
 
-export default withReducers({ userManagement: userManagementReducer })(UserDetail);
+export const UserManagement = withReducers({ userManagement: userManagementReducer })(
+	PureUserManagement
+);
 ```
