@@ -28,11 +28,6 @@ A collection of tools for maintaining large Redux applications by enabling depen
   </a>
 </p>
 
-Redux Syringe consists mainly of:
-
-- [Store enhancers](https://github.com/reduxjs/redux/blob/master/docs/understanding/thinking-in-redux/Glossary.md#store-enhancer) for injecting reducers, middleware, and epics into your Redux store after the store is created.
-- Logic for managing your state via namespaces.
-
 Although the Redux Syringe core is platform-agnostic, [React](https://github.com/facebook/react/) bindings are included for tying the injection mechanism to the lifecycle of your components.
 
 ## Documentation & API Reference
