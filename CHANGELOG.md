@@ -8,6 +8,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Nothing!
 
+## [0.11.2] – 2021-04-18
+
+### Fixed
+
+- Feature fallbacks are now more consistent. This should help with namespace resolution in some use cases.
+
 ## [0.11.1] – 2021-04-17
 
 ### Fixed
