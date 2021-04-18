@@ -11,7 +11,7 @@ Maintaining large Redux applications with ease.
 </h3>
 
 <p align="center">
-A collection of tools for maintaining large Redux applications by enabling dependency injection of Redux code and development of multi-instance components by namespacing their state.
+Store enhancers and utilities for asynchronous injection of Redux dependencies and development of multi-instance components with isolated state. Redux Syringe supports injection and namespacing of reducers, middleware, and [redux-observable](https://redux-observable.js.org/) epics.
 </p>
 
 <p align="center">
@@ -28,7 +28,7 @@ A collection of tools for maintaining large Redux applications by enabling depen
   </a>
 </p>
 
-Although the Redux Syringe core is platform-agnostic, [React](https://github.com/facebook/react/) bindings are included for tying the injection mechanism to the lifecycle of your components.
+Although the Redux Syringe core is platform-agnostic, [React](https://github.com/facebook/react/) bindings are included for tying the injection mechanism to the lifecycle of your React components.
 
 ## Documentation & API Reference
 

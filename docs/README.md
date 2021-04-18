@@ -6,9 +6,9 @@
 [![Downloads](https://badgen.net/npm/dm/redux-syringe)](https://npmjs.com/package/redux-syringe)
 [![Version](https://badgen.net/npm/v/redux-syringe)](https://npmjs.com/package/redux-syringe)
 
-A collection of tools for maintaining large Redux applications by enabling dependency injection of Redux code and development of multi-instance components by namespacing their state.
+Store enhancers and utilities for asynchronous injection of Redux dependencies and development of multi-instance components with isolated state. Redux Syringe supports injection and namespacing of reducers, middleware, and [redux-observable](https://redux-observable.js.org/) epics.
 
-Although the Redux Syringe core is platform-agnostic, [React](https://github.com/facebook/react/) bindings are included for tying the injection mechanism to the lifecycle of your components. The [quick start guide](/getting-started/quick-start) and the [tutorial](/tutorial/01-dependency-injection) use React as the view library of choice.
+Although the Redux Syringe core is platform-agnostic, [React](https://github.com/facebook/react/) bindings are included for tying the injection mechanism to the lifecycle of your React components. The [quick start guide](/getting-started/quick-start) and the [tutorial](/tutorial/01-dependency-injection) use React as the view library of choice.
 
 ## Installation
 
@@ -34,9 +34,9 @@ Here are the packages `redux-syringe` reexports:
 
 Take a look at the [package index](https://github.com/wafflepie/redux-syringe/blob/main/presets/redux-syringe/src/index.js) to see all the available exports.
 
-Based on your preferred method of handling side effects, install any of the following packages as well:
+Additionally, if you use [redux-observable](https://redux-observable.js.org/), you may want to install the following packages as well:
 
-- [@redux-syringe/epics](/packages/epics), store enhancer for asynchronous injection of [epics](https://redux-observable.js.org/).
+- [@redux-syringe/epics](/packages/epics), store enhancer for asynchronous injection of epics.
 - [@redux-syringe/epics-react](/packages/epics-react), React bindings for the `epics` package.
 - [@redux-syringe/stream-creators](/packages/stream-creators), collection of stream creators for the `epics` package.
 
