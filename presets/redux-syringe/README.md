@@ -55,10 +55,6 @@ Please visit [wafflepie.github.io/redux-syringe](https://wafflepie.github.io/red
 
 See the [CHANGELOG.md](https://github.com/wafflepie/redux-syringe/blob/main/CHANGELOG.md) file.
 
-## Resources
-
-- [Beyond Simplicity: Using Redux in Dynamic Applications](https://medium.com/@wafflepie/beyond-simplicity-using-redux-in-dynamic-applications-ae9e0aea928c) (published 21 Jan 2019)
-
 ## Contributing
 
 We are open to all ideas and suggestions, feel free to open an issue or a pull request!

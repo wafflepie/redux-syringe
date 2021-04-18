@@ -1,4 +1,4 @@
-# FAQ: Internals {docsify-ignore-all}
+# Internals {docsify-ignore-all}
 
 ## What happens under the hood when we inject something?
 

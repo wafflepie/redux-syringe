@@ -47,11 +47,7 @@ Based on your preferred method of handling side effects, install any of the foll
 
 ## Changelog
 
-See the [CHANGELOG.md](https://github.com/wafflepie/redux-syringe/blob/main/CHANGELOG.md) file in our [repository](https://github.com/wafflepie/redux-syringe).
-
-## Resources
-
-- [Beyond Simplicity: Using Redux in Dynamic Applications](https://medium.com/@wafflepie/beyond-simplicity-using-redux-in-dynamic-applications-ae9e0aea928c) (published 21 Jan 2019)
+See the [CHANGELOG.md](https://github.com/wafflepie/redux-syringe/blob/main/CHANGELOG.md) file.
 
 ## License
 

@@ -1,4 +1,4 @@
-# FAQ: General {docsify-ignore-all}
+# FAQ {docsify-ignore-all}
 
 ## How to use Redux Syringe with React Union?
 

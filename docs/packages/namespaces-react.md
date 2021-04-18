@@ -6,7 +6,7 @@ This package provides React bindings for the [@redux-syringe/namespaces](/packag
 
 ## API Reference
 
-### \<NamespaceProvider />
+### NamespaceProvider
 
 Provides a namespacing strategy to its children. See the [tutorial](/tutorial/02-namespacing?id=namespace-provider) for more information about the usage.
 
