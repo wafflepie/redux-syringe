@@ -11,7 +11,7 @@ Maintaining large Redux applications with ease.
 </h3>
 
 <p align="center">
-Store enhancers and utilities for asynchronous injection of Redux dependencies and development of multi-instance components with isolated state. Redux Syringe supports injection and namespacing of reducers, middleware, and [redux-observable](https://redux-observable.js.org/) epics.
+Store enhancers and utilities for asynchronous injection of Redux dependencies and development of multi-instance components with isolated state. Redux Syringe supports injection and namespacing of reducers, middleware, and <a href="https://redux-observable.js.org/">redux-observable</a> epics.
 </p>
 
 <p align="center">
