@@ -12,10 +12,7 @@ describe('makeEnhancer', () => {
 		const enhancer = makeEnhancer();
 		const store = createStore(
 			identity,
-			compose(
-				enhancer,
-				applyMiddleware(enhancer.injectedMiddleware)
-			)
+			compose(enhancer, applyMiddleware(enhancer.injectedMiddleware))
 		);
 
 		expect(store.injectMiddleware).toBeInstanceOf(Function);
@@ -33,10 +30,7 @@ describe('makeEnhancer', () => {
 		const enhancer = makeEnhancer();
 		const store = createStore(
 			identity,
-			compose(
-				enhancer,
-				applyMiddleware(enhancer.injectedMiddleware)
-			)
+			compose(enhancer, applyMiddleware(enhancer.injectedMiddleware))
 		);
 
 		store.injectMiddleware({ foo: middleware }, { namespace: 'ns' });
@@ -66,10 +60,7 @@ describe('makeEnhancer', () => {
 		const enhancer = makeEnhancer();
 		const store = createStore(
 			identity,
-			compose(
-				enhancer,
-				applyMiddleware(enhancer.injectedMiddleware)
-			)
+			compose(enhancer, applyMiddleware(enhancer.injectedMiddleware))
 		);
 
 		store.injectMiddleware({ foo: middlewareA }, { namespace: 'ns' });
@@ -106,10 +97,7 @@ describe('makeEnhancer', () => {
 		const enhancer = makeEnhancer();
 		const store = createStore(
 			identity,
-			compose(
-				enhancer,
-				applyMiddleware(enhancer.injectedMiddleware)
-			)
+			compose(enhancer, applyMiddleware(enhancer.injectedMiddleware))
 		);
 
 		store.injectMiddleware({ foo: middlewareA }, { namespace: 'A' });
@@ -145,10 +133,7 @@ describe('makeEnhancer', () => {
 		const enhancer = makeEnhancer();
 		const store = createStore(
 			identity,
-			compose(
-				enhancer,
-				applyMiddleware(middlewareA, enhancer.injectedMiddleware, middlewareB)
-			)
+			compose(enhancer, applyMiddleware(middlewareA, enhancer.injectedMiddleware, middlewareB))
 		);
 
 		store.injectMiddleware({ foo: middlewareA });
@@ -180,10 +165,7 @@ describe('makeEnhancer', () => {
 		const enhancer = makeEnhancer();
 		const store = createStore(
 			identity,
-			compose(
-				enhancer,
-				applyMiddleware(enhancer.injectedMiddleware)
-			)
+			compose(enhancer, applyMiddleware(enhancer.injectedMiddleware))
 		);
 
 		store.injectMiddleware({ foo: middlewareA });
@@ -206,10 +188,7 @@ describe('makeEnhancer', () => {
 		const enhancer = makeEnhancer();
 		const store = createStore(
 			identity,
-			compose(
-				enhancer,
-				applyMiddleware(enhancer.injectedMiddleware)
-			)
+			compose(enhancer, applyMiddleware(enhancer.injectedMiddleware))
 		);
 
 		store.injectMiddleware({ foo: middlewareA });
@@ -251,10 +230,7 @@ describe('makeEnhancer', () => {
 		const enhancer = makeEnhancer();
 		const store = createStore(
 			identity,
-			compose(
-				enhancer,
-				applyMiddleware(enhancer.injectedMiddleware)
-			)
+			compose(enhancer, applyMiddleware(enhancer.injectedMiddleware))
 		);
 
 		store.injectMiddleware({ foo: middlewareA });
@@ -304,10 +280,7 @@ describe('makeEnhancer', () => {
 
 		const store = createStore(
 			always(state),
-			compose(
-				enhancer,
-				applyMiddleware(enhancer.injectedMiddleware)
-			)
+			compose(enhancer, applyMiddleware(enhancer.injectedMiddleware))
 		);
 
 		store.injectMiddleware({ foo: middleware }, { namespace: 'foo', feature: 'yolo' });
@@ -321,10 +294,7 @@ describe('makeEnhancer', () => {
 		const enhancer = makeEnhancer();
 		const store = createStore(
 			identity,
-			compose(
-				enhancer,
-				applyMiddleware(enhancer.injectedMiddleware)
-			)
+			compose(enhancer, applyMiddleware(enhancer.injectedMiddleware))
 		);
 
 		expect(() => store.dispatch({ payload: 'Yo', type: 'MESSAGE' })).not.toThrow();
@@ -344,10 +314,7 @@ describe('makeEnhancer', () => {
 		const enhancer = makeEnhancer();
 		const store = createStore(
 			identity,
-			compose(
-				enhancer,
-				applyMiddleware(middlewareA, enhancer.injectedMiddleware, middlewareB)
-			)
+			compose(enhancer, applyMiddleware(middlewareA, enhancer.injectedMiddleware, middlewareB))
 		);
 
 		store.injectMiddleware({ foo: middlewareA });
@@ -379,10 +346,7 @@ describe('makeEnhancer', () => {
 		const enhancer = makeEnhancer();
 		const store = createStore(
 			identity,
-			compose(
-				enhancer,
-				applyMiddleware(enhancer.injectedMiddleware)
-			)
+			compose(enhancer, applyMiddleware(enhancer.injectedMiddleware))
 		);
 
 		store.injectMiddleware({ foo: middlewareA }, { namespace: 'ns' });
@@ -396,10 +360,7 @@ describe('makeEnhancer', () => {
 		const enhancer = makeEnhancer();
 		const store = createStore(
 			identity,
-			compose(
-				enhancer,
-				applyMiddleware(enhancer.injectedMiddleware)
-			)
+			compose(enhancer, applyMiddleware(enhancer.injectedMiddleware))
 		);
 
 		const action = { type: 'MESSAGE' };
@@ -414,10 +375,7 @@ describe('makeEnhancer', () => {
 		const enhancer = makeEnhancer();
 		const store = createStore(
 			identity,
-			compose(
-				enhancer,
-				applyMiddleware(enhancer.injectedMiddleware)
-			)
+			compose(enhancer, applyMiddleware(enhancer.injectedMiddleware))
 		);
 
 		store.injectMiddleware({ foo: middleware }, { namespace: 'ns' });
@@ -433,10 +391,7 @@ describe('makeEnhancer', () => {
 		const enhancer = makeEnhancer();
 		const store = createStore(
 			identity,
-			compose(
-				enhancer,
-				applyMiddleware(enhancer.injectedMiddleware)
-			)
+			compose(enhancer, applyMiddleware(enhancer.injectedMiddleware))
 		);
 
 		store.injectMiddleware({ foo: middleware }, { namespace: 'ns' });
@@ -481,10 +436,7 @@ describe('makeEnhancer', () => {
 		const enhancer = makeEnhancer();
 		const store = createStore(
 			identity,
-			compose(
-				enhancer,
-				applyMiddleware(enhancer.injectedMiddleware)
-			)
+			compose(enhancer, applyMiddleware(enhancer.injectedMiddleware))
 		);
 
 		store.injectMiddleware({ foo: middlewareA }, { namespace: 'ns' });
