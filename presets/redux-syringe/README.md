@@ -11,10 +11,6 @@ Maintaining large Redux applications with ease.
 </h3>
 
 <p align="center">
-Store enhancers and utilities for asynchronous injection of Redux dependencies and development of multi-instance components with isolated state. Redux Syringe supports injection and namespacing of reducers, middleware, and <a href="https://redux-observable.js.org/">redux-observable</a> epics.
-</p>
-
-<p align="center">
   <a href="https://github.com/wafflepie/redux-syringe/blob/main/LICENSE">
     <img src="https://flat.badgen.net/badge/license/MIT/blue" alt="MIT License" />
   </a>
@@ -27,6 +23,8 @@ Store enhancers and utilities for asynchronous injection of Redux dependencies a
     <img src="https://flat.badgen.net/npm/v/redux-syringe" alt="Version" />
   </a>
 </p>
+
+Store enhancers and utilities for asynchronous injection of Redux dependencies and development of multi-instance components with isolated state. Redux Syringe supports injection and namespacing of reducers, middleware, and [redux-observable](https://redux-observable.js.org/) epics.
 
 Although the Redux Syringe core is platform-agnostic, [React](https://github.com/facebook/react/) bindings are included for tying the injection mechanism to the lifecycle of your React components.
 
