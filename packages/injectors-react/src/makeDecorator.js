@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { toPascalCase, isObject } from 'ramda-extension';
 import React from 'react';
 
+import { DEFAULT_FEATURE } from '@redux-syringe/namespaces';
 import { useNamespace } from '@redux-syringe/namespaces-react';
 import { getDisplayName } from '@redux-syringe/utils-react';
 
@@ -16,7 +17,7 @@ const makeDecorator = (storeInterface, useInjectables) => {
 	return (injectables, options = {}) => NextComponent => {
 		const Injector = props => {
 			// eslint-disable-next-line react/destructuring-assignment
-			const feature = options.feature ?? props.feature ?? null;
+			const feature = options.feature ?? props.feature ?? DEFAULT_FEATURE;
 			const contextNamespace = useNamespace(feature);
 			// eslint-disable-next-line react/destructuring-assignment
 			const namespace = options.namespace ?? props.namespace ?? contextNamespace ?? null;

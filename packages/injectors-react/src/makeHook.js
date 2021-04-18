@@ -30,7 +30,7 @@ const makeHook = storeInterface => {
 		const isGlobal = options.isGlobal ?? options.global ?? false;
 		const isPersistent = options.isPersistent ?? options.persist ?? false;
 		const isNamespaced = options.isNamespaced ?? false;
-		const feature = options.feature ?? null;
+		const feature = options.feature ?? DEFAULT_FEATURE;
 		const contextNamespace = useNamespace(feature);
 		const { store } = useContext(ReactReduxContext);
 		const { isUseNamespaceProvided } = useContext(NamespaceContext);
@@ -86,7 +86,7 @@ const makeHook = storeInterface => {
 
 		// NOTE: This doesn't run on the server, but won't trigger `useLayoutEffect` warnings either.
 		useUniversalLayoutEffect(() => {
-			if (isGlobal && isNotNil(feature) && feature !== DEFAULT_FEATURE) {
+			if (isGlobal && feature !== DEFAULT_FEATURE) {
 				warn(
 					`You are using a feature (${feature}) with global ${type}.`,
 					'This will have no effect.'

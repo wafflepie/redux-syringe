@@ -7,7 +7,7 @@ import { DEFAULT_FEATURE } from '@redux-syringe/namespaces';
 
 import { NamespaceContext } from './contexts';
 
-// NOTE: `flip(or)` gives priority to second argument.
+// NOTE: We use `flip(or)` so falsy values won't override existing truthy ones.
 const mergeContextValues = mergeDeepWith(flip(or));
 
 const NamespaceProvider = ({ children, feature, namespace, store, useNamespace }) => {
@@ -16,8 +16,6 @@ const NamespaceProvider = ({ children, feature, namespace, store, useNamespace }
 	const nextContext = useMemo(
 		() =>
 			mergeContextValues(context, {
-				// NOTE: Defaulting here is safer than using `Provider.defaultProps`,
-				// because passing `null` would not result in a fallback to `DEFAULT_FEATURE`.
 				namespaces: { [feature ?? DEFAULT_FEATURE]: namespace },
 				useNamespace,
 				isUseNamespaceProvided: Boolean(useNamespace),

@@ -86,7 +86,7 @@ const makeEnhancer = () => {
 
 				nextInitializedEntries.set(
 					entry,
-					initializedEntries.get(entry) ||
+					initializedEntries.get(entry) ??
 						entry.value({
 							namespace,
 							dispatch: o(dispatch, defaultNamespace(namespace)),

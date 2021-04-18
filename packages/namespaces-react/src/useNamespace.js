@@ -7,9 +7,9 @@ import { NamespaceContext } from './contexts';
 
 const useNamespace = feature => {
 	const { namespaces = {}, useNamespace = alwaysNull } = useContext(NamespaceContext);
-	const namespace = useNamespace(feature ?? DEFAULT_FEATURE, namespaces);
+	const externalNamespace = useNamespace(feature ?? DEFAULT_FEATURE, namespaces);
 
-	return namespaces[feature] ?? namespace ?? null;
+	return namespaces[feature ?? DEFAULT_FEATURE] ?? externalNamespace ?? null;
 };
 
 export default useNamespace;

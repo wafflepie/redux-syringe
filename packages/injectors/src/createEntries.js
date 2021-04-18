@@ -42,7 +42,7 @@ const createRawEntries = injectables => {
 const createEntries = (injectables, { feature, namespace } = {}) => {
 	const sanitizedProps = rejectNil({
 		namespace,
-		feature: feature ?? (namespace ? DEFAULT_FEATURE : null),
+		feature: namespace ? feature ?? DEFAULT_FEATURE : null,
 	});
 
 	const rawEntries = createRawEntries(injectables);
