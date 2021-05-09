@@ -1,14 +1,20 @@
-const { NODE_ENV, BABEL_ENV } = process.env;
-const cjs = NODE_ENV === 'test' || BABEL_ENV === 'commonjs';
-const loose = true;
-
 module.exports = {
-	presets: [['@babel/env', { loose, modules: false }]],
+	presets: [
+		[
+			'@babel/env',
+			{
+				modules: false,
+			},
+		],
+		'@babel/react',
+	],
 	plugins: [
-		['@babel/plugin-proposal-class-properties', { loose }],
-		['@babel/plugin-proposal-object-rest-spread', { loose }],
-		'@babel/plugin-transform-react-jsx',
-		cjs && ['@babel/plugin-transform-modules-commonjs', { loose }],
-		['@babel/plugin-transform-runtime', { useESModules: !cjs }],
+		'@babel/transform-runtime',
+		process.env.NODE_ENV === 'test' && [
+			'@babel/plugin-transform-modules-commonjs',
+			{
+				loose: true,
+			},
+		],
 	].filter(Boolean),
 };
