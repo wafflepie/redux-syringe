@@ -1,12 +1,12 @@
 import path from 'path';
 
+import babelPlugin from '@rollup/plugin-babel';
+import cjsPlugin from '@rollup/plugin-commonjs';
+import nodeResolvePlugin from '@rollup/plugin-node-resolve';
+import replacePlugin from '@rollup/plugin-replace';
 import { split, compose, join, prepend, tail, map } from 'ramda';
 import { toPascalCase, toKebabCase } from 'ramda-extension';
 import autoExternalPlugin from 'rollup-plugin-auto-external';
-import babelPlugin from 'rollup-plugin-babel';
-import cjsPlugin from 'rollup-plugin-commonjs';
-import nodeResolvePlugin from 'rollup-plugin-node-resolve';
-import replacePlugin from 'rollup-plugin-replace';
 import { terser as terserPlugin } from 'rollup-plugin-terser';
 
 const { LERNA_ROOT_PATH } = process.env;
@@ -31,7 +31,7 @@ const plugins = {
 	babel: babelPlugin({
 		cwd: LERNA_ROOT_PATH,
 		extensions,
-		runtimeHelpers: true,
+		babelHelpers: 'runtime',
 	}),
 };
 
@@ -81,7 +81,7 @@ export default [
 		},
 		// HACK: Necessary, because `autoExternal` plugin does not handle deep imports.
 		// https://github.com/stevenbenisek/rollup-plugin-auto-external/issues/7
-		external: ['rxjs/operators'],
+		external: ['rxjs/operators', /@babel\/runtime/],
 		plugins: [autoExternalPlugin(), plugins.nodeResolve, plugins.babel, plugins.cjs],
 	},
 
@@ -95,7 +95,7 @@ export default [
 		},
 		// HACK: Necessary, because `autoExternal` plugin does not handle deep imports.
 		// https://github.com/stevenbenisek/rollup-plugin-auto-external/issues/7
-		external: ['rxjs/operators'],
+		external: ['rxjs/operators', /@babel\/runtime/],
 		plugins: [autoExternalPlugin(), plugins.nodeResolve, plugins.babel, plugins.cjs],
 	},
 
@@ -115,7 +115,10 @@ export default [
 						globals,
 					},
 					plugins: [
-						replacePlugin({ 'process.env.NODE_ENV': JSON.stringify('development') }),
+						replacePlugin({
+							'process.env.NODE_ENV': JSON.stringify('development'),
+							preventAssignment: true,
+						}),
 						plugins.nodeResolve,
 						plugins.babel,
 						plugins.cjs,
@@ -134,7 +137,10 @@ export default [
 						globals,
 					},
 					plugins: [
-						replacePlugin({ 'process.env.NODE_ENV': JSON.stringify('production') }),
+						replacePlugin({
+							'process.env.NODE_ENV': JSON.stringify('production'),
+							preventAssignment: true,
+						}),
 						plugins.nodeResolve,
 						plugins.babel,
 						plugins.cjs,

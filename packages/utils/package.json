@@ -15,6 +15,7 @@
     "Martin Machacek <martin.machacek@lundegaard.eu>"
   ],
   "dependencies": {
+    "@babel/runtime": "^7.12.1",
     "ramda": ">=0.26.1",
     "ramda-extension": ">=0.8.0"
   },

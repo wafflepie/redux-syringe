@@ -15,6 +15,7 @@
     "Martin Machacek <martin.machacek@lundegaard.eu>"
   ],
   "dependencies": {
+    "@babel/runtime": "^7.12.1",
     "@redux-syringe/namespaces": "^0.11.0",
     "@redux-syringe/reducers": "^0.11.2",
     "@redux-syringe/utils-react": "^0.11.0",
