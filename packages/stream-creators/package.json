@@ -1,6 +1,6 @@
 {
   "name": "@redux-syringe/stream-creators",
-  "version": "0.11.2",
+  "version": "0.11.3",
   "license": "MIT",
   "main": "dist/redux-syringe-stream-creators.cjs.js",
   "module": "dist/redux-syringe-stream-creators.esm.js",
@@ -16,9 +16,9 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.12.1",
-    "@redux-syringe/epics": "^0.11.2",
-    "@redux-syringe/namespaces": "^0.11.0",
-    "@redux-syringe/reducers": "^0.11.2",
+    "@redux-syringe/epics": "^0.11.3",
+    "@redux-syringe/namespaces": "^0.11.3",
+    "@redux-syringe/reducers": "^0.11.3",
     "ramda": ">=0.26.1"
   },
   "peerDependencies": {

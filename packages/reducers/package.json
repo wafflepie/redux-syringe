@@ -1,6 +1,6 @@
 {
   "name": "@redux-syringe/reducers",
-  "version": "0.11.2",
+  "version": "0.11.3",
   "license": "MIT",
   "main": "dist/redux-syringe-reducers.cjs.js",
   "module": "dist/redux-syringe-reducers.esm.js",
@@ -16,9 +16,9 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.12.1",
-    "@redux-syringe/injectors": "^0.11.2",
-    "@redux-syringe/namespaces": "^0.11.0",
-    "@redux-syringe/utils": "^0.11.0",
+    "@redux-syringe/injectors": "^0.11.3",
+    "@redux-syringe/namespaces": "^0.11.3",
+    "@redux-syringe/utils": "^0.11.3",
     "invariant": "^2.2.4",
     "ramda": ">=0.26.1",
     "ramda-extension": ">=0.8.0"
