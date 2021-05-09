@@ -8,6 +8,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Nothing!
 
+## [0.11.3] – 2021-05-09
+
+### Changed
+
+- `@babel/runtime` was added as a dependency to all packages.
+
 ## [0.11.2] – 2021-04-18
 
 ### Fixed
