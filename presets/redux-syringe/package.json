@@ -38,9 +38,9 @@
     "@redux-syringe/thunk": "^0.11.2"
   },
   "peerDependencies": {
-    "react": ">=16.8.3",
+    "react": "^16.8.0 || ^17.0.0",
     "react-redux": "^6.0.0 || ^7.0.0",
-    "redux": "^4.0.4"
+    "redux": "^4.0.0"
   },
   "publishConfig": {
     "access": "public"

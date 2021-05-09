@@ -21,9 +21,9 @@
     "ramda": ">=0.26.1"
   },
   "peerDependencies": {
-    "redux": "^4.0.4",
-    "redux-observable": "^1.0.0",
-    "rxjs": "^6.3.3"
+    "redux": "^4.0.0",
+    "redux-observable": "^1.0.0 || ^2.0.0-rc.1",
+    "rxjs": "^6.0.0 || ^7.0.0"
   },
   "publishConfig": {
     "access": "public"

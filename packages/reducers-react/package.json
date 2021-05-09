@@ -21,13 +21,9 @@
     "ramda-extension": ">=0.8.0"
   },
   "peerDependencies": {
-    "react": ">=16.8.3",
+    "react": "^16.8.0 || ^17.0.0",
     "react-redux": "^6.0.0 || ^7.0.0",
-    "redux": "^4.0.4"
-  },
-  "devDependencies": {
-    "enzyme": "3.11.0",
-    "redux": "4.0.5"
+    "redux": "^4.0.0"
   },
   "publishConfig": {
     "access": "public"

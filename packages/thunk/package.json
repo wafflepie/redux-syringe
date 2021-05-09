@@ -21,10 +21,7 @@
     "ramda-extension": ">=0.8.0"
   },
   "peerDependencies": {
-    "redux": "^4.0.4"
-  },
-  "devDependencies": {
-    "redux": "4.0.5"
+    "redux": "^4.0.0"
   },
   "publishConfig": {
     "access": "public"
