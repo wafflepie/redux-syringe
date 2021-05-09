@@ -9,6 +9,7 @@ describe('filterReducer', () => {
 			isActionFromNamespace: jest.fn(() => true),
 		}));
 
+		// eslint-disable-next-line global-require
 		const { default: filterReducer } = require('./filterReducer');
 		const reducer = jest.fn(() => newState);
 
@@ -21,6 +22,7 @@ describe('filterReducer', () => {
 			isActionFromNamespace: jest.fn(() => false),
 		}));
 
+		// eslint-disable-next-line global-require
 		const { default: filterReducer } = require('./filterReducer');
 		const reducer = jest.fn(() => newState);
 

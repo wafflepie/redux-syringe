@@ -38,7 +38,10 @@ NamespaceProvider.propTypes = {
 	children: PropTypes.node.isRequired,
 	feature: PropTypes.string,
 	namespace: PropTypes.string,
-	store: PropTypes.object,
+	store: PropTypes.shape({
+		dispatch: PropTypes.func.isRequired,
+		getState: PropTypes.func.isRequired,
+	}),
 	useNamespace: PropTypes.func,
 };
 

@@ -6,8 +6,11 @@ import { DEFAULT_FEATURE } from '@redux-syringe/namespaces';
 import { NamespaceContext } from './contexts';
 
 const useNamespace = feature => {
-	const { namespaces = {}, useNamespace = alwaysNull } = useContext(NamespaceContext);
-	const externalNamespace = useNamespace(feature ?? DEFAULT_FEATURE, namespaces);
+	const { namespaces = {}, useNamespace: useExternalNamespace = alwaysNull } = useContext(
+		NamespaceContext
+	);
+
+	const externalNamespace = useExternalNamespace(feature ?? DEFAULT_FEATURE, namespaces);
 
 	return namespaces[feature ?? DEFAULT_FEATURE] ?? externalNamespace ?? null;
 };

@@ -10,7 +10,10 @@ const makeStoreInterface = type => {
 		injectionKey: `inject${toPascalCase(type)}`,
 		ejectionKey: `eject${toPascalCase(type)}`,
 		getEntries: o(defaultToEmptyArray, path(['entries', type])),
-		setEntries: curry((entries, store) => (store.entries = { ...store.entries, [type]: entries })),
+		setEntries: curry((entries, store) => {
+			// eslint-disable-next-line no-param-reassign
+			store.entries = { ...store.entries, [type]: entries };
+		}),
 	};
 };
 

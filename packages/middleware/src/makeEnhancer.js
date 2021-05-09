@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import invariant from 'invariant';
 import { map, compose, uniq, forEach, o } from 'ramda';
 

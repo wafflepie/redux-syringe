@@ -31,7 +31,11 @@ describe('useNamespacedDispatch', () => {
 
 		mount(
 			<NamespaceProvider namespace="foo">
-				<Test>{() => (result = useNamespacedSelector(state => state.value))}</Test>
+				<Test>
+					{() => {
+						result = useNamespacedSelector(state => state.value);
+					}}
+				</Test>
 			</NamespaceProvider>
 		);
 
@@ -44,11 +48,11 @@ describe('useNamespacedDispatch', () => {
 		mount(
 			<NamespaceProvider namespace="bar" feature="someFeature">
 				<Test>
-					{() =>
-						(result = useNamespacedSelector(state => state.value, undefined, {
+					{() => {
+						result = useNamespacedSelector(state => state.value, undefined, {
 							feature: 'someFeature',
-						}))
-					}
+						});
+					}}
 				</Test>
 			</NamespaceProvider>
 		);
@@ -59,7 +63,13 @@ describe('useNamespacedDispatch', () => {
 	it('returns undefined if no namespace could be resolved', () => {
 		let result;
 
-		mount(<Test>{() => (result = useNamespacedSelector(state => state))}</Test>);
+		mount(
+			<Test>
+				{() => {
+					result = useNamespacedSelector(state => state);
+				}}
+			</Test>
+		);
 
 		expect(result).toBe(undefined);
 	});
@@ -70,11 +80,11 @@ describe('useNamespacedDispatch', () => {
 		mount(
 			<NamespaceProvider namespace="bar">
 				<Test>
-					{() =>
-						(result = useNamespacedSelector(state => state.value, undefined, {
+					{() => {
+						result = useNamespacedSelector(state => state.value, undefined, {
 							namespace: 'foo',
-						}))
-					}
+						});
+					}}
 				</Test>
 			</NamespaceProvider>
 		);

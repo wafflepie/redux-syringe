@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import invariant from 'invariant';
 import { pluck, concat } from 'ramda';
 import { noop, isObject, toScreamingSnakeCase } from 'ramda-extension';

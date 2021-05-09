@@ -22,7 +22,11 @@ describe('useNamespace', () => {
 
 		mount(
 			<NamespaceContext.Provider value={{ namespaces: { foo: 'bar' }, useNamespace: alwaysFoo }}>
-				<Test>{() => (namespace = useNamespace('foo'))}</Test>
+				<Test>
+					{() => {
+						namespace = useNamespace('foo');
+					}}
+				</Test>
 			</NamespaceContext.Provider>
 		);
 
@@ -34,7 +38,11 @@ describe('useNamespace', () => {
 
 		mount(
 			<NamespaceContext.Provider value={{ namespaces: { foo: 'bar' }, useNamespace: alwaysFoo }}>
-				<Test>{() => (namespace = useNamespace('random'))}</Test>
+				<Test>
+					{() => {
+						namespace = useNamespace('random');
+					}}
+				</Test>
 			</NamespaceContext.Provider>
 		);
 
@@ -48,7 +56,11 @@ describe('useNamespace', () => {
 			<NamespaceContext.Provider
 				value={{ namespaces: { [DEFAULT_FEATURE]: 'baz' }, useNamespace: alwaysNull }}
 			>
-				<Test>{() => (namespace = useNamespace('random'))}</Test>
+				<Test>
+					{() => {
+						namespace = useNamespace('random');
+					}}
+				</Test>
 			</NamespaceContext.Provider>
 		);
 

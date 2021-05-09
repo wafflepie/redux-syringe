@@ -1,6 +1,10 @@
 module.exports = {
 	root: true,
-	extends: ['react-union', 'prettier'],
+	extends: ['airbnb', 'prettier'],
+	env: {
+		jest: true,
+	},
+	parser: '@babel/eslint-parser',
 	plugins: ['react-hooks'],
 	rules: {
 		'padding-line-between-statements': [
@@ -54,5 +58,9 @@ module.exports = {
 		],
 		// TODO: Look at `common-tags` to solve indentation issues with multiline template strings.
 		'prefer-template': 'off',
+		'import/prefer-default-export': 'off',
+		'react/jsx-filename-extension': ['error', { extensions: ['.js'] }],
+		'react/jsx-props-no-spreading': 'off',
+		'react/require-default-props': 'off',
 	},
 };

@@ -16,19 +16,22 @@ import { overHead, isString, isFunction, isArray } from 'ramda-extension';
 const createTypeEqualsPredicate = condition => (state, action) => {
 	if (isString(condition)) {
 		return action.type === condition;
-	} else if (isArray(condition)) {
-		return includes(action.type, condition);
-	} else if (isFunction(condition)) {
-		return condition(action);
-	} else {
-		throw new TypeError(
-			// eslint-disable-next-line prefer-template
-			'The condition passed to makeReducer must be a string, an array of strings, or a predicate. ' +
-				'Instead, it received ' +
-				condition +
-				'.'
-		);
 	}
+
+	if (isArray(condition)) {
+		return includes(action.type, condition);
+	}
+
+	if (isFunction(condition)) {
+		return condition(action);
+	}
+
+	throw new TypeError(
+		'The condition passed to makeReducer must be a string, an array of strings, or a predicate. ' +
+			'Instead, it received ' +
+			condition +
+			'.'
+	);
 };
 
 const mergeReducers = ([typePredicate, reducer, errorReducer]) => {

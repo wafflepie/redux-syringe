@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import { equals, includes } from 'ramda';
 import { Subject } from 'rxjs';
 import * as Rx from 'rxjs/operators';
