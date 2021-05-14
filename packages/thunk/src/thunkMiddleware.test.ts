@@ -1,14 +1,22 @@
 import { identity } from 'ramda';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, Middleware } from 'redux';
 
 import { attachNamespace, getNamespaceByAction } from '@redux-syringe/namespaces';
 
-import thunkMiddleware from './index';
+import { Thunk, thunkMiddleware } from './thunkMiddleware';
+
+declare module 'redux' {
+	export interface Dispatch<A extends Action = AnyAction> {
+		<R = any, S = any, N = any, D extends Record<string, unknown> = Record<string, unknown>>(
+			thunk: Thunk<R, S, A, N, D>
+		): R;
+	}
+}
 
 describe('thunkMiddleware', () => {
 	const listener = jest.fn();
 
-	const listenerMiddleware = () => next => action => {
+	const listenerMiddleware: Middleware = () => next => action => {
 		listener(action);
 		next(action);
 	};
@@ -39,9 +47,9 @@ describe('thunkMiddleware', () => {
 		const action = { type: 'BATTLESTAR_GALACTICA' };
 
 		store.dispatch(
-			attachNamespace('MICHAEL', ({ dispatch }) => {
+			attachNamespace('MICHAEL', (({ dispatch }) => {
 				dispatch(action);
-			})
+			}) as Thunk)
 		);
 
 		expect(listener).toHaveBeenCalledTimes(1);

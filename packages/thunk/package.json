@@ -4,6 +4,7 @@
   "license": "MIT",
   "main": "dist/redux-syringe-thunk.cjs.js",
   "module": "dist/redux-syringe-thunk.esm.js",
+  "types": "dist/types/index.d.ts",
   "description": "Redux Thunk clone with support for namespacing.",
   "repository": "https://github.com/wafflepie/redux-syringe",
   "contributors": [
@@ -17,11 +18,9 @@
   "dependencies": {
     "@babel/runtime": "^7.12.1",
     "@redux-syringe/namespaces": "^0.11.3",
-    "@redux-syringe/reducers": "^0.11.3",
-    "ramda": ">=0.26.1",
-    "ramda-extension": ">=0.8.0"
+    "ramda": ">=0.26.1"
   },
-  "peerDependencies": {
+  "devDependencies": {
     "redux": "^4.0.0"
   },
   "publishConfig": {
