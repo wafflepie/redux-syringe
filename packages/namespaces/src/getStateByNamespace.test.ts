@@ -1,5 +1,5 @@
 import { DEFAULT_FEATURE } from './constants';
-import getStateByNamespace from './getStateByNamespace';
+import { getStateByNamespace } from './getStateByNamespace';
 
 const state = {
 	[DEFAULT_FEATURE]: {
@@ -17,6 +17,7 @@ describe('getStateByNamespace', () => {
 	});
 
 	it('returns undefined when no namespace is passed', () => {
+		// @ts-expect-error `undefined` shouldn't be allowed as a valid namespace.
 		expect(getStateByNamespace(undefined, state)).toBeUndefined();
 	});
 });

@@ -1,17 +1,28 @@
 import { NAMESPACE_PREVENTED } from './constants';
-import isActionFromNamespace from './isActionFromNamespace';
+import { isActionFromNamespace } from './isActionFromNamespace';
 
-const fooAction = { meta: { namespace: 'foo' } };
-const barAction = { meta: { namespace: 'bar' } };
-const actionWithPreventedNamespace = { meta: { namespace: NAMESPACE_PREVENTED } };
+const fooAction = {
+	type: 'action',
+	meta: { namespace: 'foo' },
+};
+
+const barAction = {
+	type: 'action',
+	meta: { namespace: 'bar' },
+};
+
+const actionWithPreventedNamespace = {
+	type: 'action',
+	meta: { namespace: NAMESPACE_PREVENTED },
+};
 
 describe('isActionFromNamespace', () => {
 	it('returns true when action is global and reducer is global', () => {
-		expect(isActionFromNamespace(undefined, {})).toBe(true);
+		expect(isActionFromNamespace(undefined, { type: 'action' })).toBe(true);
 	});
 
 	it('returns true when action is global and reducer is namespaced', () => {
-		expect(isActionFromNamespace('foo', {})).toBe(true);
+		expect(isActionFromNamespace('foo', { type: 'action' })).toBe(true);
 	});
 
 	it('returns true when action is namespaced and reducer is global', () => {

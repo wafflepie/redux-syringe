@@ -1,13 +1,20 @@
-import defaultNamespace from './defaultNamespace';
+import { defaultNamespace } from './defaultNamespace';
+
+const action = { type: 'action' };
 
 describe('defaultNamespace', () => {
 	it('adds a namespace to an action', () => {
-		expect(defaultNamespace('yo', {})).toEqual({ meta: { namespace: 'yo' } });
+		expect(defaultNamespace('yo', action)).toEqual({
+			...action,
+			meta: { namespace: 'yo' },
+		});
 	});
 
 	it('returns the original action when no namespace is passed', () => {
-		const action = {};
+		// @ts-expect-error `null` should be allowed as a valid namespace.
 		expect(defaultNamespace(null, action)).toBe(action);
+		// @ts-expect-error `null` should be allowed as a valid namespace.
+		expect(defaultNamespace(undefined, action)).toBe(action);
 	});
 
 	it('adds a namespace to a function', () => {
@@ -18,7 +25,13 @@ describe('defaultNamespace', () => {
 	});
 
 	it('does not overwrite existing namespace', () => {
-		expect(defaultNamespace('hi', { meta: { namespace: 'yo' } })).toEqual({
+		expect(
+			defaultNamespace('hi', {
+				...action,
+				meta: { namespace: 'yo' },
+			})
+		).toEqual({
+			...action,
 			meta: { namespace: 'yo' },
 		});
 	});

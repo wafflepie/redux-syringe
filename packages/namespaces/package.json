@@ -4,6 +4,7 @@
   "license": "MIT",
   "main": "dist/redux-syringe-namespaces.cjs.js",
   "module": "dist/redux-syringe-namespaces.esm.js",
+  "types": "dist/types/index.d.ts",
   "description": "Utility functions for namespacing of Redux actions.",
   "repository": "https://github.com/wafflepie/redux-syringe",
   "contributors": [
@@ -16,8 +17,7 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.12.1",
-    "ramda": ">=0.26.1",
-    "ramda-extension": ">=0.8.0"
+    "ramda": ">=0.26.1"
   },
   "publishConfig": {
     "access": "public"

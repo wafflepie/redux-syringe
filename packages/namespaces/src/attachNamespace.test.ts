@@ -1,13 +1,20 @@
-import attachNamespace from './attachNamespace';
+import { attachNamespace } from './attachNamespace';
+
+const action = { type: 'action' };
 
 describe('attachNamespace', () => {
 	it('adds a namespace to an action', () => {
-		expect(attachNamespace('yo', {})).toEqual({ meta: { namespace: 'yo' } });
+		expect(attachNamespace('yo', action)).toEqual({
+			...action,
+			meta: { namespace: 'yo' },
+		});
 	});
 
 	it('returns the original action when no namespace is passed', () => {
-		const action = {};
+		// @ts-expect-error `null` should be allowed as a valid namespace.
 		expect(attachNamespace(null, action)).toBe(action);
+		// @ts-expect-error `null` should be allowed as a valid namespace.
+		expect(attachNamespace(undefined, action)).toBe(action);
 	});
 
 	it('adds a namespace to a function', () => {
@@ -18,7 +25,13 @@ describe('attachNamespace', () => {
 	});
 
 	it('overwrites existing namespace', () => {
-		expect(attachNamespace('hi', { meta: { namespace: 'yo' } })).toEqual({
+		expect(
+			attachNamespace('hi', {
+				...action,
+				meta: { namespace: 'yo' },
+			})
+		).toEqual({
+			...action,
 			meta: { namespace: 'hi' },
 		});
 	});
