@@ -1,6 +1,6 @@
 import { DEFAULT_FEATURE } from '@redux-syringe/namespaces';
 
-import createEntries from './createEntries';
+import { createEntries } from './createEntries';
 
 const foo = () => {};
 

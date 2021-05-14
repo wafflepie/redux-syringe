@@ -1,28 +1,47 @@
 /* eslint-disable no-use-before-define */
 import invariant from 'invariant';
-import { pluck, concat } from 'ramda';
-import { noop, isObject, toScreamingSnakeCase } from 'ramda-extension';
+import { pluck, concat, toUpper } from 'ramda';
+import type { Store } from 'redux';
 
-import { withoutOnce } from '@redux-syringe/utils';
+import { FeatureAndNamespace } from '@redux-syringe/namespaces';
+import { withoutOnce, noop } from '@redux-syringe/utils';
 
-import createEntries from './createEntries';
+import { createEntries } from './createEntries';
+import {
+	Injectables,
+	InjectorStoreInterface,
+	InjectorStore,
+	Injectable,
+	InjectorCallbacks,
+} from './types';
 
-const enhanceStore = (prevStore, storeInterface, { onEjected = noop, onInjected = noop } = {}) => {
+export const enhanceStore = <
+	TStore extends Store<any, any>,
+	TInjectable extends Injectable,
+	TInjectorStoreInterface extends InjectorStoreInterface<TInjectable, string>
+>(
+	prevStore: TStore,
+	storeInterface: TInjectorStoreInterface,
+	{ onEjected = noop, onInjected = noop }: InjectorCallbacks<TInjectable> = {}
+): TStore & InjectorStore<TInjectable, TInjectorStoreInterface> => {
 	invariant(
-		isObject(prevStore),
+		prevStore && typeof prevStore === 'object',
 		'You must pass a Redux store as the first argument to `enhanceStore()`'
 	);
 
 	invariant(
-		isObject(storeInterface),
+		prevStore && typeof prevStore === 'object',
 		'You must pass a store interface as the second argument to `enhanceStore()`'
 	);
 
 	const { injectionKey, ejectionKey, getEntries, setEntries, type } = storeInterface;
 	const { dispatch = noop } = prevStore;
-	const actionType = toScreamingSnakeCase(type);
+	const actionType = toUpper(type);
 
-	const inject = (injectables, props = {}) => {
+	const inject = (
+		injectables: Injectables<TInjectable>,
+		props: Partial<FeatureAndNamespace> = {}
+	) => {
 		const entries = createEntries(injectables, props);
 
 		const nextEntries = concat(getEntries(nextStore), entries);
@@ -36,7 +55,10 @@ const enhanceStore = (prevStore, storeInterface, { onEjected = noop, onInjected 
 		});
 	};
 
-	const eject = (injectables, props = {}) => {
+	const eject = (
+		injectables: Injectables<TInjectable>,
+		props: Partial<FeatureAndNamespace> = {}
+	) => {
 		const entries = createEntries(injectables, props);
 		const nextEntries = withoutOnce(entries, getEntries(nextStore));
 		setEntries(nextEntries, nextStore);
@@ -53,11 +75,9 @@ const enhanceStore = (prevStore, storeInterface, { onEjected = noop, onInjected 
 		...prevStore,
 		[injectionKey]: inject,
 		[ejectionKey]: eject,
-	};
+	} as TStore & InjectorStore<TInjectable, TInjectorStoreInterface>;
 
 	setEntries([], nextStore);
 
 	return nextStore;
 };
-
-export default enhanceStore;
