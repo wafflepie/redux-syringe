@@ -1,12 +1,13 @@
 import { mount } from 'enzyme';
-import { always } from 'ramda';
-import { noop } from 'ramda-extension';
+import { always, identity } from 'ramda';
 import React from 'react';
+import { createStore } from 'redux';
 
 import { makeStoreInterface } from '@redux-syringe/injectors';
 import { NamespaceProvider } from '@redux-syringe/namespaces-react';
+import { noop } from '@redux-syringe/utils';
 
-import makeHook from './makeHook';
+import { makeHook } from './makeHook';
 
 const storeInterface = makeStoreInterface('things');
 const useThings = makeHook(storeInterface);
@@ -15,7 +16,7 @@ jest.mock('./constants', () => ({ IS_SERVER: false }));
 
 const injectables = { foo: noop };
 
-const Test = ({ children }) => {
+const Test = ({ children }: { children: () => void }) => {
 	children();
 
 	return null;
@@ -23,11 +24,9 @@ const Test = ({ children }) => {
 
 describe('makeHook', () => {
 	const store = {
+		...createStore(identity),
 		injectThings: jest.fn(),
 		ejectThings: jest.fn(),
-		subscribe: jest.fn(),
-		getState: jest.fn(),
-		dispatch: jest.fn(),
 	};
 
 	beforeEach(() => {
@@ -42,11 +41,11 @@ describe('makeHook', () => {
 		);
 
 		expect(store.injectThings).toHaveBeenCalledTimes(1);
-		expect(store.injectThings.mock.calls[0][0]).toEqual({ foo: noop }, { namespace: 'yolo' });
+		expect(store.injectThings.mock.calls[0][0]).toEqual({ foo: noop });
 	});
 
 	it('warns if useNamespace is provided, but the namespace could not be resolved and isGlobal is not passed', () => {
-		const warn = jest.spyOn(global.console, 'warn').mockImplementation(() => {});
+		const warn = jest.spyOn(global.console, 'warn').mockImplementation(noop);
 
 		mount(
 			<NamespaceProvider store={store} useNamespace={always(undefined)}>
@@ -82,7 +81,7 @@ describe('makeHook', () => {
 	});
 
 	it('throws if isNamespaced is passed, but no namespace could be resolved', () => {
-		jest.spyOn(global.console, 'error').mockImplementation(() => {});
+		jest.spyOn(global.console, 'error').mockImplementation(noop);
 
 		expect(() => {
 			mount(

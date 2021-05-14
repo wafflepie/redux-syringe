@@ -1,12 +1,14 @@
 import { mount } from 'enzyme';
-import { noop } from 'ramda-extension';
+import { identity } from 'ramda';
 import React from 'react';
+import { createStore } from 'redux';
 
 import { makeStoreInterface } from '@redux-syringe/injectors';
 import { NamespaceProvider } from '@redux-syringe/namespaces-react';
+import { alwaysNull } from '@redux-syringe/utils';
 
-import makeDecorator from './makeDecorator';
-import makeHook from './makeHook';
+import { makeDecorator } from './makeDecorator';
+import { makeHook } from './makeHook';
 
 const storeInterface = makeStoreInterface('things');
 const useThings = makeHook(storeInterface);
@@ -16,11 +18,9 @@ jest.mock('./constants', () => ({ IS_SERVER: false }));
 
 describe('makeDecorator', () => {
 	const store = {
+		...createStore(identity),
 		injectThings: jest.fn(),
 		ejectThings: jest.fn(),
-		subscribe: jest.fn(),
-		getState: jest.fn(),
-		dispatch: jest.fn(),
 	};
 
 	beforeEach(() => {
@@ -28,7 +28,7 @@ describe('makeDecorator', () => {
 	});
 
 	it('calls proper store methods when mounted', () => {
-		const Root = withThings({ foo: noop })(noop);
+		const Root = withThings({ foo: alwaysNull })(alwaysNull);
 
 		mount(
 			<NamespaceProvider store={store} namespace="yolo">
@@ -37,6 +37,6 @@ describe('makeDecorator', () => {
 		);
 
 		expect(store.injectThings).toHaveBeenCalledTimes(1);
-		expect(store.injectThings.mock.calls[0][0]).toEqual({ foo: noop }, { namespace: 'yolo' });
+		expect(store.injectThings.mock.calls[0][0]).toEqual({ foo: alwaysNull });
 	});
 });

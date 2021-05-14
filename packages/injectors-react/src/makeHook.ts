@@ -1,30 +1,44 @@
 import invariant from 'invariant';
-import { all, includes, omit, isNil } from 'ramda';
-import { toPascalCase, isNotNil, rejectNil, isObject } from 'ramda-extension';
+import { all, includes, omit, isNil, reject } from 'ramda';
 import { useLayoutEffect, useState, useEffect, useDebugValue, useContext } from 'react';
 import { ReactReduxContext } from 'react-redux';
+import type { Store } from 'redux';
 
-import { createEntries } from '@redux-syringe/injectors';
+import {
+	createEntries,
+	InjectorStoreInterface,
+	Injectables,
+	Injectable,
+	InjectorStore,
+	InjectorMethod,
+} from '@redux-syringe/injectors';
 import { DEFAULT_FEATURE } from '@redux-syringe/namespaces';
 import { useNamespace, NamespaceContext } from '@redux-syringe/namespaces-react';
+import { capitalize } from '@redux-syringe/utils';
 
 import { IS_SERVER } from './constants';
+import { InjectorHook, InjectorOptions } from './types';
 
 const useUniversalLayoutEffect = IS_SERVER ? useEffect : useLayoutEffect;
 const getOtherProps = omit(['isGlobal', 'global', 'isPersistent', 'persist']);
 
-const makeHook = storeInterface => {
-	invariant(isObject(storeInterface), 'The store interface is undefined.');
+export const makeHook = <
+	TInjectable extends Injectable,
+	TInjectorStoreInterface extends InjectorStoreInterface<TInjectable, string>
+>(
+	storeInterface: TInjectorStoreInterface
+): InjectorHook<TInjectable> => {
+	invariant(storeInterface, 'The store interface is falsy.');
 
 	const { getEntries, ejectionKey, injectionKey, type } = storeInterface;
 
-	const pascalCaseType = toPascalCase(type);
-	const hookName = `use${pascalCaseType}`;
+	const capitalizedType = capitalize(type);
+	const hookName = `use${capitalizedType}`;
 
-	const useInjectables = (injectables, options = {}) => {
+	const useInjectables = (injectables: Injectables<TInjectable>, options: InjectorOptions = {}) => {
 		const locationMessages = [`@redux-syringe ${type}`, injectables];
 
-		const warn = (...args) => console.warn(...locationMessages, ...args);
+		const warn = (...args: any[]) => console.warn(...locationMessages, ...args);
 
 		// NOTE: `options.global` and `options.persist` are deprecated.
 		const isGlobal = options.isGlobal ?? options.global ?? false;
@@ -32,16 +46,21 @@ const makeHook = storeInterface => {
 		const isNamespaced = options.isNamespaced ?? false;
 		const feature = options.feature ?? DEFAULT_FEATURE;
 		const contextNamespace = useNamespace(feature);
-		const { store } = useContext(ReactReduxContext);
+
+		const store = useContext(ReactReduxContext).store as Store &
+			InjectorStore<TInjectable, TInjectorStoreInterface>;
+
 		const { isUseNamespaceProvided } = useContext(NamespaceContext);
+
 		const namespace = isGlobal ? null : options.namespace ?? contextNamespace;
-		const inject = store[injectionKey];
-		const eject = store[ejectionKey];
+
+		const inject = (store as any)[injectionKey] as InjectorMethod<TInjectable>;
+		const eject = (store as any)[ejectionKey] as InjectorMethod<TInjectable>;
 
 		// NOTE: On the server, the injectables should be injected beforehand.
 		const [isInitialized, setIsInitialized] = useState(IS_SERVER);
 
-		const props = rejectNil({
+		const props = reject(isNil, {
 			...getOtherProps(options),
 			feature,
 			namespace,
@@ -52,7 +71,7 @@ const makeHook = storeInterface => {
 			String([
 				`Namespace: ${namespace}`,
 				`Feature: ${feature}`,
-				`Type: ${pascalCaseType}`,
+				`Type: ${capitalizedType}`,
 				`Initialized: ${isInitialized}`,
 			])
 		);
@@ -101,18 +120,18 @@ const makeHook = storeInterface => {
 				);
 			}
 
-			if (isNotNil(options.global)) {
+			if (!isNil(options.global)) {
 				warn(`'global: ${options.global}' is deprecated. Use 'isGlobal: ${options.global}'.`);
 			}
 
-			if (isNotNil(options.persist)) {
+			if (!isNil(options.persist)) {
 				warn(
 					`'persist: ${options.persist}' is deprecated. Use 'isPersistent: ${options.persist}'.`
 				);
 			}
 
 			invariant(
-				!isNamespaced || isNotNil(namespace),
+				!isNamespaced || !isNil(namespace),
 				`You're injecting ${type} marked as namespaced, but no namespace could be resolved.`
 			);
 
@@ -134,5 +153,3 @@ const makeHook = storeInterface => {
 
 	return useInjectables;
 };
-
-export default makeHook;
