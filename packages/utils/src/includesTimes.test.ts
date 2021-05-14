@@ -1,4 +1,4 @@
-import includesTimes from './includesTimes';
+import { includesTimes } from './includesTimes';
 
 const entries = [
 	{ path: ['foo'], value: 'bar', namespace: 'ns' },

@@ -1,4 +1,4 @@
-import withoutOnce from './withoutOnce';
+import { withoutOnce } from './withoutOnce';
 
 describe('withoutOnce', () => {
 	const a = { a: 1 };
