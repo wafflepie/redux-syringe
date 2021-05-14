@@ -1,14 +1,14 @@
 import { mount } from 'enzyme';
 import { always } from 'ramda';
-import { alwaysNull } from 'ramda-extension';
 import React from 'react';
 
 import { DEFAULT_FEATURE } from '@redux-syringe/namespaces';
+import { alwaysNull } from '@redux-syringe/utils';
 
 import { NamespaceContext } from './contexts';
-import useNamespace from './useNamespace';
+import { useNamespace } from './useNamespace';
 
-const Test = ({ children }) => {
+const Test = ({ children }: { children: () => void }) => {
 	children();
 
 	return null;

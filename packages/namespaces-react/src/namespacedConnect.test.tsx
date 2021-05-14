@@ -1,13 +1,14 @@
 import { mount } from 'enzyme';
-import * as R from 'ramda';
-import * as R_ from 'ramda-extension';
+import { always, identity, prop } from 'ramda';
 import React from 'react';
 import { createStore } from 'redux';
 
 import { DEFAULT_FEATURE } from '@redux-syringe/namespaces';
+import { alwaysNull } from '@redux-syringe/utils';
 
-import NamespaceProvider from './NamespaceProvider';
-import namespacedConnect, {
+import { NamespaceProvider } from './NamespaceProvider';
+import {
+	namespacedConnect,
 	wrapMapStateToProps,
 	wrapMapDispatchToProps,
 	NAMESPACED_CONNECT_PROPS,
@@ -25,7 +26,7 @@ const state = {
 
 describe('wrapMapStateToProps', () => {
 	it('gets correct state slice', () => {
-		const mapStateToProps = wrapMapStateToProps(R.identity);
+		const mapStateToProps = wrapMapStateToProps(identity);
 
 		expect(
 			mapStateToProps(state, {
@@ -37,7 +38,7 @@ describe('wrapMapStateToProps', () => {
 	});
 
 	it('gets correct state slice if feature is set', () => {
-		const mapStateToProps = wrapMapStateToProps(R.identity);
+		const mapStateToProps = wrapMapStateToProps(identity);
 
 		expect(
 			mapStateToProps(state, {
@@ -49,7 +50,7 @@ describe('wrapMapStateToProps', () => {
 	});
 
 	it('applies passed mapStateToProps', () => {
-		const mapStateToProps = wrapMapStateToProps(R.prop('qux'));
+		const mapStateToProps = wrapMapStateToProps(prop('qux'));
 
 		expect(
 			mapStateToProps(state, {
@@ -74,7 +75,7 @@ describe('wrapMapStateToProps', () => {
 describe('wrapMapDispatchToProps', () => {
 	it('handles an object', () => {
 		const mapDispatchToProps = wrapMapDispatchToProps({
-			actionCreator: R.always({ type: 'TEST' }),
+			actionCreator: always({ type: 'TEST' }),
 		});
 
 		const dispatch = jest.fn();
@@ -92,7 +93,7 @@ describe('wrapMapDispatchToProps', () => {
 	});
 
 	it('handles a function', () => {
-		const mapDispatchToProps = wrapMapDispatchToProps(dispatch => ({
+		const mapDispatchToProps = wrapMapDispatchToProps((dispatch: any) => ({
 			actionCreator: () => dispatch({ type: 'TEST' }),
 		}));
 
@@ -130,10 +131,10 @@ describe('wrapMapDispatchToProps', () => {
 
 describe('namespacedConnect', () => {
 	it('applies mapStateToProps', () => {
-		const connector = namespacedConnect(R.identity);
-		const store = createStore(R.always(state));
+		const connector = namespacedConnect(identity);
+		const store = createStore(always(state));
 
-		const Root = R_.noop;
+		const Root = alwaysNull;
 		const ConnectedRoot = connector(Root);
 
 		const wrapper = mount(
@@ -146,12 +147,12 @@ describe('namespacedConnect', () => {
 	});
 
 	it('applies mapDispatchToProps', () => {
-		const connector = namespacedConnect(undefined, { actionCreator: R.always({ type: 'TEST' }) });
+		const connector = namespacedConnect(undefined, { actionCreator: always({ type: 'TEST' }) });
 
-		const store = createStore(R.always(state));
+		const store = createStore(always(state));
 		store.dispatch = jest.fn();
 
-		const Root = R_.noop;
+		const Root = alwaysNull;
 		const ConnectedRoot = connector(Root);
 
 		const wrapper = mount(
@@ -160,7 +161,7 @@ describe('namespacedConnect', () => {
 			</NamespaceProvider>
 		);
 
-		wrapper.find(Root).prop('actionCreator')();
+		wrapper.find(Root).prop<any>('actionCreator')();
 		expect(store.dispatch).toHaveBeenCalledWith({
 			type: 'TEST',
 			meta: { namespace: 'bar' },
@@ -172,9 +173,9 @@ describe('namespacedConnect', () => {
 			namespace: 'foo',
 		});
 
-		const store = createStore(R.always(state));
+		const store = createStore(always(state));
 
-		const Root = R_.noop;
+		const Root = alwaysNull;
 		const ConnectedRoot = connector(Root);
 
 		const wrapper = mount(
@@ -187,12 +188,12 @@ describe('namespacedConnect', () => {
 	});
 
 	it('does not pass the static namespace down as a prop', () => {
-		const Root = R_.noop;
+		const Root = alwaysNull;
 		const ConnectedRoot = namespacedConnect(undefined, undefined, undefined, {
 			namespace: 'foo',
 		})(Root);
 
-		const store = createStore(R.always(state));
+		const store = createStore(always(state));
 		store.dispatch = jest.fn();
 
 		const wrapper = mount(

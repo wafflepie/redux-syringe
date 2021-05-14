@@ -1,16 +1,31 @@
-import PropTypes from 'prop-types';
 import { mergeDeepWith, flip, or } from 'ramda';
-import React, { useContext, useMemo } from 'react';
+import React, { ReactElement, ReactNode, useContext, useMemo } from 'react';
 import { Provider as ReactReduxProvider } from 'react-redux';
+import type { Store } from 'redux';
 
-import { DEFAULT_FEATURE } from '@redux-syringe/namespaces';
+import { DEFAULT_FEATURE, Feature, Namespace } from '@redux-syringe/namespaces';
 
 import { NamespaceContext } from './contexts';
+import { UseExternalNamespace } from './types';
 
 // NOTE: We use `flip(or)` so falsy values won't override existing truthy ones.
 const mergeContextValues = mergeDeepWith(flip(or));
 
-const NamespaceProvider = ({ children, feature, namespace, store, useNamespace }) => {
+export interface NamespaceProviderProps {
+	children: ReactNode;
+	feature?: Feature;
+	namespace?: Namespace;
+	store?: Store;
+	useNamespace?: UseExternalNamespace;
+}
+
+export const NamespaceProvider = ({
+	children,
+	feature,
+	namespace,
+	store,
+	useNamespace,
+}: NamespaceProviderProps): ReactElement => {
 	const context = useContext(NamespaceContext);
 
 	const nextContext = useMemo(
@@ -33,16 +48,3 @@ const NamespaceProvider = ({ children, feature, namespace, store, useNamespace }
 		providerElement
 	);
 };
-
-NamespaceProvider.propTypes = {
-	children: PropTypes.node.isRequired,
-	feature: PropTypes.string,
-	namespace: PropTypes.string,
-	store: PropTypes.shape({
-		dispatch: PropTypes.func.isRequired,
-		getState: PropTypes.func.isRequired,
-	}),
-	useNamespace: PropTypes.func,
-};
-
-export default NamespaceProvider;

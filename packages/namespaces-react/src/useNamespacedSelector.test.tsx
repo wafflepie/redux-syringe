@@ -3,10 +3,10 @@ import React from 'react';
 
 import { DEFAULT_FEATURE } from '@redux-syringe/namespaces';
 
-import NamespaceProvider from './NamespaceProvider';
-import useNamespacedSelector from './useNamespacedSelector';
+import { NamespaceProvider } from './NamespaceProvider';
+import { useNamespacedSelector } from './useNamespacedSelector';
 
-const Test = ({ children }) => {
+const Test = ({ children }: { children: () => void }) => {
 	children();
 
 	return null;
@@ -21,7 +21,9 @@ const mockState = {
 	},
 };
 
-jest.mock('react-redux', () => ({ useSelector: selector => selector(mockState) }));
+jest.mock('react-redux', () => ({
+	useSelector: (selector: any) => selector(mockState),
+}));
 
 describe('useNamespacedDispatch', () => {
 	beforeEach(() => jest.resetAllMocks());

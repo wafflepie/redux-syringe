@@ -1,9 +1,10 @@
 import { mount } from 'enzyme';
-import { alwaysNull } from 'ramda-extension';
 import React from 'react';
 
+import { alwaysNull } from '@redux-syringe/utils';
+
 import { NamespaceContext } from './contexts';
-import withNamespaceProvider from './withNamespaceProvider';
+import { withNamespaceProvider } from './withNamespaceProvider';
 
 describe('withNamespaceProvider', () => {
 	beforeEach(() => jest.resetAllMocks());

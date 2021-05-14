@@ -1,10 +1,10 @@
 import { mount } from 'enzyme';
 import React from 'react';
 
-import NamespaceProvider from './NamespaceProvider';
-import useNamespacedDispatch from './useNamespacedDispatch';
+import { NamespaceProvider } from './NamespaceProvider';
+import { useNamespacedDispatch } from './useNamespacedDispatch';
 
-const Test = ({ children }) => {
+const Test = ({ children }: { children: () => void }) => {
 	children();
 
 	return null;

@@ -1,16 +1,17 @@
 import { mount } from 'enzyme';
-import { always } from 'ramda';
-import { noop, alwaysNull } from 'ramda-extension';
+import { always, identity } from 'ramda';
 import React from 'react';
 import { ReactReduxContext } from 'react-redux';
+import { createStore } from 'redux';
 
 import { DEFAULT_FEATURE } from '@redux-syringe/namespaces';
+import { alwaysNull } from '@redux-syringe/utils';
 
-import NamespaceProvider from './NamespaceProvider';
+import { NamespaceProvider } from './NamespaceProvider';
 import { NamespaceContext } from './contexts';
 
 describe('NamespaceProvider', () => {
-	const store = { subscribe: noop, dispatch: noop, getState: noop };
+	const store = createStore(identity);
 	const renderProp = jest.fn(alwaysNull);
 	const alwaysFoo = always('foo');
 
@@ -73,7 +74,7 @@ describe('NamespaceProvider', () => {
 			</NamespaceProvider>
 		);
 
-		expect(renderProp.mock.calls[0][0].store).toBe(store);
+		expect((renderProp.mock.calls as any)[0][0].store).toBe(store);
 	});
 
 	it('defaults isUseNamespaceProvided to false', () => {
