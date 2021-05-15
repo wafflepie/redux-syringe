@@ -1,24 +1,30 @@
 import { identity } from 'ramda';
-import { createStore } from 'redux';
+import { AnyAction, createStore } from 'redux';
 
 import { DEFAULT_FEATURE } from '@redux-syringe/namespaces';
 
-import makeEnhancer, { storeInterface } from './makeEnhancer';
+import { storeInterface, makeEnhancer } from './makeEnhancer';
 
 const createMockStore = () => ({
 	replaceReducer: jest.fn(),
 	dispatch: jest.fn(),
+	getState: jest.fn(),
+	subscribe: jest.fn(),
+	[Symbol.observable]: jest.fn(),
 });
 
 const { getEntries } = storeInterface;
 
 describe('makeEnhancer', () => {
 	const reducerA = (state = { name: 'a' }) => state;
-	let store;
+
+	const configureStore = () => makeEnhancer()(createMockStore)(identity);
+
+	let store = configureStore();
 
 	beforeEach(() => {
 		jest.clearAllMocks();
-		store = makeEnhancer()(createMockStore)();
+		store = configureStore();
 	});
 
 	it('returns a Redux store with defined functions', () => {
@@ -93,7 +99,7 @@ describe('makeEnhancer', () => {
 	});
 
 	it('removes data from state after ejecting (object reducers with preloaded state)', () => {
-		store = createStore(identity, { preloadedStateObject: 'example' }, makeEnhancer());
+		store = createStore(identity as any, { preloadedStateObject: 'example' }, makeEnhancer());
 		expect(store.getState()).toEqual({ preloadedStateObject: 'example' });
 
 		store.injectReducers({ a: reducerA });
@@ -160,7 +166,7 @@ describe('makeEnhancer', () => {
 	});
 
 	it('removes data from state after ejecting (function reducer with preloaded state)', () => {
-		store = createStore(identity, { preloadedStateObject: 'example' }, makeEnhancer());
+		store = createStore(identity as any, { preloadedStateObject: 'example' }, makeEnhancer());
 		expect(store.getState()).toEqual({ preloadedStateObject: 'example' });
 
 		store.injectReducers(reducerA, { namespace: 'nsA' });
@@ -191,7 +197,7 @@ describe('makeEnhancer', () => {
 	});
 
 	it('does not remove data from state after ejecting if the same entry is still present', () => {
-		store = createStore(identity, { preloadedStateObject: 'example' }, makeEnhancer());
+		store = createStore(identity as any, { preloadedStateObject: 'example' }, makeEnhancer());
 		expect(store.getState()).toEqual({ preloadedStateObject: 'example' });
 
 		store.injectReducers({ a: reducerA });
@@ -310,7 +316,7 @@ describe('makeEnhancer', () => {
 	it('handles initial reducers', () => {
 		const options = {
 			initialReducers: {
-				reducerStateA: (state = { nameA: 'A' }, action) =>
+				reducerStateA: (state = { nameA: 'A' }, action: AnyAction) =>
 					action.type === 'exampleA'
 						? {
 								...state,
@@ -334,7 +340,7 @@ describe('makeEnhancer', () => {
 	});
 
 	it('can process initial reducers with later injected reducers', () => {
-		const reducerMockB = (state = { nameB: 'B' }, action) =>
+		const reducerMockB = (state = { nameB: 'B' }, action: AnyAction) =>
 			action.type === 'exampleB'
 				? {
 						...state,

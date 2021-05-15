@@ -1,9 +1,12 @@
 import { reduce, keys } from 'ramda';
+import type { Reducer } from 'redux';
 
 import { pickFunctions } from '@redux-syringe/utils';
 
+import { ShallowReducers } from './types';
+
 // NOTE: Custom implementation so existing keys are always preserved.
-export default reducers => {
+export const combineReducers = (reducers: ShallowReducers): Reducer => {
 	const finalReducers = pickFunctions(reducers);
 	const finalReducerKeys = keys(finalReducers);
 

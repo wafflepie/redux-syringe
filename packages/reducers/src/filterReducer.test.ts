@@ -9,8 +9,8 @@ describe('filterReducer', () => {
 			isActionFromNamespace: jest.fn(() => true),
 		}));
 
-		// eslint-disable-next-line global-require
-		const { default: filterReducer } = require('./filterReducer');
+		// eslint-disable-next-line @typescript-eslint/no-var-requires, global-require
+		const { filterReducer } = require('./filterReducer');
 		const reducer = jest.fn(() => newState);
 
 		expect(filterReducer(reducer, 'matchedNamespace')(state, {})).toBe(newState);
@@ -22,8 +22,8 @@ describe('filterReducer', () => {
 			isActionFromNamespace: jest.fn(() => false),
 		}));
 
-		// eslint-disable-next-line global-require
-		const { default: filterReducer } = require('./filterReducer');
+		// eslint-disable-next-line @typescript-eslint/no-var-requires, global-require
+		const { filterReducer } = require('./filterReducer');
 		const reducer = jest.fn(() => newState);
 
 		expect(filterReducer(reducer, 'randomNamespace')(state, {})).toBe(state);

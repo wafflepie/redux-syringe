@@ -1,6 +1,6 @@
 import { inc, map } from 'ramda';
 
-import combineReducerSchema from './combineReducerSchema';
+import { combineReducerSchema } from './combineReducerSchema';
 import { ROOT_KEY } from './constants';
 
 const fooAction = { type: 'FOO' };

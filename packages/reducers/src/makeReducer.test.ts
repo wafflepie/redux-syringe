@@ -1,6 +1,6 @@
 import { propEq } from 'ramda';
 
-import makeReducer from './makeReducer';
+import { makeReducer } from './makeReducer';
 
 describe('makeReducer', () => {
 	it('handles actions with error: true', () => {
@@ -33,7 +33,7 @@ describe('makeReducer', () => {
 	});
 
 	it('handles reducers which depend on actions', () => {
-		const reducer = makeReducer([['ADD', (state, { payload }) => state + payload]]);
+		const reducer = makeReducer([['ADD', (state: any, { payload }: any) => state + payload]]);
 		expect(reducer(5, { type: 'ADD', payload: 3 })).toBe(8);
 	});
 

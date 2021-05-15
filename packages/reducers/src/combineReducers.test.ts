@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
 
-import combineReducers from './combineReducers';
+import { combineReducers } from './combineReducers';
 
 describe('combineReducers', () => {
 	const foo = (state = {}) => state;
@@ -20,8 +20,11 @@ describe('combineReducers', () => {
 
 	it('ignores all props which are not a function', () => {
 		const reducer = combineReducers({
+			// @ts-expect-error Not a function.
 			fake: true,
+			// @ts-expect-error Not a function.
 			broken: 'string',
+			// @ts-expect-error Not a function.
 			another: { nested: 'object' },
 			stack: (state = []) => state,
 		});

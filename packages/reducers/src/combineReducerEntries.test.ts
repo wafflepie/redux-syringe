@@ -1,6 +1,6 @@
 import { inc, o, defaultTo, map, multiply } from 'ramda';
 
-import combineReducerEntries from './combineReducerEntries';
+import { combineReducerEntries } from './combineReducerEntries';
 
 const globalAction = { type: 'ACTION' };
 const actionA = { type: 'ACTION', meta: { namespace: 'a' } };

@@ -1,4 +1,4 @@
-import composeReducers from './composeReducers';
+import { composeReducers } from './composeReducers';
 
 describe('composeReducers', () => {
 	it('correctly composes reducers', () => {
@@ -8,6 +8,6 @@ describe('composeReducers', () => {
 			(state, action) => state + action.payload
 		);
 
-		expect(reducer(1, { payload: 3 })).toBe(9);
+		expect(reducer(1, { type: 'action', payload: 3 })).toBe(9);
 	});
 });
