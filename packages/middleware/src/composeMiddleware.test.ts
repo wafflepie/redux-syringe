@@ -1,12 +1,14 @@
-import composeMiddleware from './composeMiddleware';
+import type { Middleware } from 'redux';
+
+import { composeMiddleware } from './composeMiddleware';
 
 describe('composeMiddleware', () => {
 	const logger = jest.fn();
-	const someReduxApi = { dispatch: jest.fn(), getState: jest.fn() };
+	const someReduxApi = { dispatch: jest.fn(), getState: jest.fn(), getNamespacedState: jest.fn() };
 	const someNext = jest.fn();
 	const someAction = { type: 'FOO' };
 
-	const middleware = reduxApi => next => action => {
+	const middleware: Middleware = reduxApi => next => action => {
 		logger({ reduxApi, next, action });
 
 		return next(action);

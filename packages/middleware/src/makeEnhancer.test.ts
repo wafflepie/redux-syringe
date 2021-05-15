@@ -1,7 +1,12 @@
 import { identity, compose, always, prop, propEq } from 'ramda';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, Middleware } from 'redux';
 
-import makeEnhancer from './makeEnhancer';
+import { InjectableMiddlewareApi, makeEnhancer } from './makeEnhancer';
+
+declare module 'redux' {
+	// eslint-disable-next-line @typescript-eslint/no-empty-interface
+	export interface MiddlewareAPI extends InjectableMiddlewareApi {}
+}
 
 describe('makeEnhancer', () => {
 	beforeEach(() => {
@@ -22,7 +27,7 @@ describe('makeEnhancer', () => {
 	it('passes actions to the injected middleware', () => {
 		const mock = jest.fn();
 
-		const middleware = () => next => action => {
+		const middleware: Middleware = () => next => action => {
 			mock(`${action.payload}yo`);
 			next(action);
 		};
@@ -41,7 +46,7 @@ describe('makeEnhancer', () => {
 	it('handles changes to injected middleware', () => {
 		const mock = jest.fn();
 
-		const middlewareA = () => next => action => {
+		const middlewareA: Middleware = () => next => action => {
 			if (action.type === 'MESSAGE') {
 				mock('A');
 			}
@@ -49,7 +54,7 @@ describe('makeEnhancer', () => {
 			next(action);
 		};
 
-		const middlewareB = () => next => action => {
+		const middlewareB: Middleware = () => next => action => {
 			if (action.type === 'MESSAGE') {
 				mock('B');
 			}
@@ -84,12 +89,12 @@ describe('makeEnhancer', () => {
 		const mockA = jest.fn();
 		const mockB = jest.fn();
 
-		const middlewareA = () => next => action => {
+		const middlewareA: Middleware = () => next => action => {
 			next(action);
 			mockA(action.payload);
 		};
 
-		const middlewareB = () => next => action => {
+		const middlewareB: Middleware = () => next => action => {
 			next(action);
 			mockB(action.payload);
 		};
@@ -114,7 +119,7 @@ describe('makeEnhancer', () => {
 		const mockA = jest.fn();
 		const mockB = jest.fn();
 
-		const middlewareA = () => next => action => {
+		const middlewareA: Middleware = () => next => action => {
 			next(action);
 
 			if (action.type === 'MESSAGE') {
@@ -122,7 +127,7 @@ describe('makeEnhancer', () => {
 			}
 		};
 
-		const middlewareB = () => next => action => {
+		const middlewareB: Middleware = () => next => action => {
 			next(action);
 
 			if (action.type === 'MESSAGE') {
@@ -144,9 +149,9 @@ describe('makeEnhancer', () => {
 	});
 
 	it('calls the middleware in the order of injection', () => {
-		const callOrder = [];
+		const callOrder: string[] = [];
 
-		const middlewareA = () => next => action => {
+		const middlewareA: Middleware = () => next => action => {
 			if (action.type === 'MESSAGE') {
 				callOrder.push('a');
 			}
@@ -154,7 +159,7 @@ describe('makeEnhancer', () => {
 			next(action);
 		};
 
-		const middlewareB = () => next => action => {
+		const middlewareB: Middleware = () => next => action => {
 			if (action.type === 'MESSAGE') {
 				callOrder.push('b');
 			}
@@ -177,7 +182,7 @@ describe('makeEnhancer', () => {
 	it('only allows a middleware to be injected once (with same key and value)', () => {
 		const mockA = jest.fn();
 
-		const middlewareA = () => next => action => {
+		const middlewareA: Middleware = () => next => action => {
 			next(action);
 
 			if (action.type === 'MESSAGE') {
@@ -203,7 +208,7 @@ describe('makeEnhancer', () => {
 		const reduxAPIMockB = jest.fn();
 		const nextMockB = jest.fn();
 
-		const middlewareA = reduxAPI => {
+		const middlewareA: Middleware = reduxAPI => {
 			reduxAPIMockA(reduxAPI);
 
 			return next => {
@@ -215,7 +220,7 @@ describe('makeEnhancer', () => {
 			};
 		};
 
-		const middlewareB = reduxAPI => {
+		const middlewareB: Middleware = reduxAPI => {
 			reduxAPIMockB(reduxAPI);
 
 			return next => {
@@ -261,11 +266,14 @@ describe('makeEnhancer', () => {
 		const namespacedStateMock = jest.fn();
 		const differentFeatureMock = jest.fn();
 
-		const middleware = ({ getState, getNamespacedState }) => () => () => {
-			stateMock(getState());
-			namespacedStateMock(getNamespacedState());
-			differentFeatureMock(getNamespacedState('random'));
-		};
+		const middleware: Middleware =
+			({ getState, getNamespacedState }) =>
+			() =>
+			() => {
+				stateMock(getState());
+				namespacedStateMock(getNamespacedState());
+				differentFeatureMock(getNamespacedState('random'));
+			};
 
 		const enhancer = makeEnhancer();
 
@@ -303,11 +311,11 @@ describe('makeEnhancer', () => {
 	it('does not modify actions if the middleware is namespaced', () => {
 		const mock = jest.fn();
 
-		const middlewareA = () => next => action => {
+		const middlewareA: Middleware = () => next => action => {
 			next(action);
 		};
 
-		const middlewareB = () => () => action => {
+		const middlewareB: Middleware = () => () => action => {
 			mock(action);
 		};
 
@@ -327,15 +335,18 @@ describe('makeEnhancer', () => {
 	it('defaults namespace of dispatched actions from namespaced middleware', () => {
 		const mock = jest.fn();
 
-		const middlewareA = ({ dispatch }) => next => action => {
-			next(action);
+		const middlewareA: Middleware =
+			({ dispatch }) =>
+			next =>
+			action => {
+				next(action);
 
-			if (action.type === 'MESSAGE') {
-				dispatch({ type: 'MESSAGE_REACTION' });
-			}
-		};
+				if (action.type === 'MESSAGE') {
+					dispatch({ type: 'MESSAGE_REACTION' });
+				}
+			};
 
-		const middlewareB = () => next => action => {
+		const middlewareB: Middleware = () => next => action => {
 			next(action);
 
 			if (action.type === 'MESSAGE_REACTION') {
@@ -370,7 +381,7 @@ describe('makeEnhancer', () => {
 	});
 
 	it('does not modify action object with injected middleware', () => {
-		const middleware = () => next => action => next(action);
+		const middleware: Middleware = () => next => action => next(action);
 
 		const enhancer = makeEnhancer();
 		const store = createStore(
@@ -386,7 +397,7 @@ describe('makeEnhancer', () => {
 	});
 
 	it('modifies action object with injected middleware', () => {
-		const middleware = () => next => action => next({ ...action, payload: 'Foo' });
+		const middleware: Middleware = () => next => action => next({ ...action, payload: 'Foo' });
 
 		const enhancer = makeEnhancer();
 		const store = createStore(
@@ -405,7 +416,7 @@ describe('makeEnhancer', () => {
 		const propPayload = prop('payload');
 		const isMessageType = propEq('type', 'MESSAGE');
 
-		const middlewareA = () => next => action => {
+		const middlewareA: Middleware = () => next => action => {
 			if (isMessageType(action)) {
 				expect(propPayload(action)).toBe('Foo');
 			}
@@ -419,7 +430,7 @@ describe('makeEnhancer', () => {
 			return result;
 		};
 
-		const middlewareB = () => next => action => {
+		const middlewareB: Middleware = () => next => action => {
 			if (isMessageType(action)) {
 				expect(propPayload(action)).toBe('Foo');
 			}
