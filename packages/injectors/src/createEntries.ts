@@ -47,7 +47,7 @@ export const createEntries = <TInjectable extends Injectable = Injectable>(
 ): InjectableEntry<TInjectable>[] => {
 	const sanitizedProps: Partial<FeatureAndNamespace> = reject(isNil, {
 		namespace,
-		feature: namespace ? feature ?? DEFAULT_FEATURE : null,
+		feature: namespace ? feature ?? DEFAULT_FEATURE : undefined,
 	});
 
 	const rawEntries = createPathValueEntries(injectables);

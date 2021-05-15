@@ -5,11 +5,11 @@ import { alwaysNull } from '@redux-syringe/utils';
 
 import { NamespaceContext } from './contexts';
 
-export const useNamespace = (feature?: Feature): Namespace | null => {
+export const useNamespace = (feature?: Feature): Namespace | undefined => {
 	const { namespaces = {}, useNamespace: useExternalNamespace = alwaysNull } =
 		useContext(NamespaceContext);
 
 	const externalNamespace = useExternalNamespace(feature ?? DEFAULT_FEATURE, namespaces);
 
-	return namespaces[feature ?? DEFAULT_FEATURE] ?? externalNamespace ?? null;
+	return namespaces[feature ?? DEFAULT_FEATURE] ?? externalNamespace ?? undefined;
 };

@@ -18,7 +18,7 @@ export const useNamespacedDispatch = ({
 	const dispatch = useDispatch<any>();
 	const feature = optionFeature ?? DEFAULT_FEATURE;
 	const contextNamespace = useNamespace(feature);
-	const namespace = optionNamespace ?? contextNamespace ?? null;
+	const namespace = optionNamespace ?? contextNamespace;
 
 	return useCallback(
 		(action: ActionOrThunk) => dispatch(namespace ? defaultNamespace(namespace, action) : action),

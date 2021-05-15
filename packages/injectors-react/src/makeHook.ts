@@ -52,7 +52,7 @@ export const makeHook = <
 
 		const { isUseNamespaceProvided } = useContext(NamespaceContext);
 
-		const namespace = isGlobal ? null : options.namespace ?? contextNamespace;
+		const namespace = isGlobal ? undefined : options.namespace ?? contextNamespace;
 
 		const inject = (store as any)[injectionKey] as InjectorMethod<TInjectable>;
 		const eject = (store as any)[ejectionKey] as InjectorMethod<TInjectable>;

@@ -19,7 +19,7 @@ export const useNamespacedSelector = <TNamespacedState = any, TReturnValue = unk
 ): TReturnValue => {
 	const feature = optionFeature ?? DEFAULT_FEATURE;
 	const contextNamespace = useNamespace(feature);
-	const namespace = optionNamespace ?? contextNamespace ?? null;
+	const namespace = optionNamespace ?? contextNamespace;
 
 	const namespacedSelector = useMemo(
 		() =>

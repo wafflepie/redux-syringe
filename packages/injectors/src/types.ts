@@ -7,6 +7,7 @@ export type InjectableKey = string;
 export type Injectables<TInjectable extends Injectable = Injectable> =
 	| undefined
 	| null
+	| false
 	| TInjectable
 	| Injectables<TInjectable>[]
 	| {
