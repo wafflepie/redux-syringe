@@ -11,9 +11,9 @@ import { terser as terserPlugin } from 'rollup-plugin-terser';
 
 const { LERNA_ROOT_PATH, LERNA_PACKAGE_NAME } = process.env;
 const PACKAGE_ROOT_PATH = process.cwd();
-const INPUT_FILE = path.join(PACKAGE_ROOT_PATH, 'src/index.js');
+const INPUT_FILE = path.join(PACKAGE_ROOT_PATH, 'src/index.ts');
 
-const extensions = ['.js'];
+const extensions = ['.tsx', '.ts', '.js'];
 
 const plugins = {
 	cjs: cjsPlugin({
@@ -80,7 +80,7 @@ export default [
 			file: path.join(PACKAGE_ROOT_PATH, 'dist', `${fileName}.cjs.js`),
 			format: 'cjs',
 			indent: false,
-			exports: 'auto',
+			exports: 'named',
 		},
 		// HACK: Necessary, because `autoExternal` plugin does not handle deep imports.
 		// https://github.com/stevenbenisek/rollup-plugin-auto-external/issues/7
@@ -100,6 +100,7 @@ export default [
 			file: path.join(PACKAGE_ROOT_PATH, 'dist', `${fileName}.esm.js`),
 			format: 'es',
 			indent: false,
+			exports: 'named',
 		},
 		// HACK: Necessary, because `autoExternal` plugin does not handle deep imports.
 		// https://github.com/stevenbenisek/rollup-plugin-auto-external/issues/7
@@ -125,6 +126,7 @@ export default [
 						format: 'umd',
 						name: globalName,
 						indent: false,
+						exports: 'named',
 						globals,
 					},
 					plugins: [
@@ -147,6 +149,7 @@ export default [
 						format: 'umd',
 						name: globalName,
 						indent: false,
+						exports: 'named',
 						globals,
 					},
 					plugins: [

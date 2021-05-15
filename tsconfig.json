@@ -1,0 +1,5 @@
+{
+	"exclude": ["**/node_modules", "**/dist"],
+	"extends": "./tsconfig.base.json",
+	"compilerOptions": {}
+}

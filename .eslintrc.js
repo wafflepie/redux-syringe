@@ -1,11 +1,28 @@
 module.exports = {
 	root: true,
-	extends: ['airbnb', 'prettier'],
+	extends: [
+		'airbnb',
+		'plugin:@typescript-eslint/recommended',
+		'plugin:import/typescript',
+		'prettier',
+	],
 	env: {
+		browser: true,
+		commonjs: true,
+		es6: true,
 		jest: true,
+		node: true,
 	},
-	parser: '@babel/eslint-parser',
-	plugins: ['react-hooks'],
+	settings: {
+		'import/resolver': {
+			node: {
+				extensions: ['.tsx', '.ts', '.js'],
+			},
+		},
+		'import/extensions': ['.tsx', '.ts', '.js'],
+	},
+	parser: '@typescript-eslint/parser',
+	plugins: ['@typescript-eslint', 'react-hooks'],
 	rules: {
 		'padding-line-between-statements': [
 			'error',
@@ -54,13 +71,31 @@ module.exports = {
 		'no-console': ['error', { allow: ['warn', 'error', 'info'] }],
 		'import/no-extraneous-dependencies': [
 			'error',
-			{ devDependencies: ['packages/**/*.test.js', '*.js'] },
+			{ devDependencies: ['packages/**/*.test.{js,ts,tsx}', '*.js'] },
 		],
 		// TODO: Look at `common-tags` to solve indentation issues with multiline template strings.
 		'prefer-template': 'off',
 		'import/prefer-default-export': 'off',
-		'react/jsx-filename-extension': ['error', { extensions: ['.js'] }],
+		'react/jsx-filename-extension': ['error', { extensions: ['.tsx', '.js'] }],
 		'react/jsx-props-no-spreading': 'off',
 		'react/require-default-props': 'off',
+		'no-use-before-define': 'off',
+		'import/extensions': [
+			'error',
+			'ignorePackages',
+			{
+				tsx: 'never',
+				ts: 'never',
+				js: 'never',
+			},
+		],
+		'no-restricted-imports': [
+			'error',
+			{
+				patterns: ['@redux-syringe/*/src', '@redux-syringe/*/src/**'],
+			},
+		],
+		'@typescript-eslint/no-explicit-any': 'off',
+		'@typescript-eslint/no-empty-function': 'off',
 	},
 };

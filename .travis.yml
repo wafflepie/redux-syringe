@@ -12,3 +12,4 @@ script:
   - yarn
   - yarn test
   - yarn lint
+  - yarn verify
