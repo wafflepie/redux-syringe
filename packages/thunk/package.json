@@ -1,6 +1,6 @@
 {
   "name": "@redux-syringe/thunk",
-  "version": "0.12.0-alpha.0",
+  "version": "0.12.0",
   "license": "MIT",
   "main": "dist/redux-syringe-thunk.cjs.js",
   "module": "dist/redux-syringe-thunk.esm.js",
@@ -17,7 +17,7 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.12.1",
-    "@redux-syringe/namespaces": "^0.12.0-alpha.0",
+    "@redux-syringe/namespaces": "^0.12.0",
     "ramda": ">=0.26.1"
   },
   "devDependencies": {

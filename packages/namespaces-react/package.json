@@ -1,6 +1,6 @@
 {
   "name": "@redux-syringe/namespaces-react",
-  "version": "0.12.0-alpha.0",
+  "version": "0.12.0",
   "license": "MIT",
   "main": "dist/redux-syringe-namespaces-react.cjs.js",
   "module": "dist/redux-syringe-namespaces-react.esm.js",
@@ -17,7 +17,7 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.12.1",
-    "@redux-syringe/namespaces": "^0.12.0-alpha.0",
+    "@redux-syringe/namespaces": "^0.12.0",
     "@redux-syringe/utils": "^0.12.0-alpha.0",
     "@redux-syringe/utils-react": "^0.12.0-alpha.0",
     "hoist-non-react-statics": "^3.3.2",

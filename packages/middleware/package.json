@@ -1,6 +1,6 @@
 {
   "name": "@redux-syringe/middleware",
-  "version": "0.12.0-alpha.0",
+  "version": "0.12.0",
   "license": "MIT",
   "main": "dist/redux-syringe-middleware.cjs.js",
   "module": "dist/redux-syringe-middleware.esm.js",
@@ -17,8 +17,8 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.12.1",
-    "@redux-syringe/injectors": "^0.12.0-alpha.0",
-    "@redux-syringe/namespaces": "^0.12.0-alpha.0",
+    "@redux-syringe/injectors": "^0.12.0",
+    "@redux-syringe/namespaces": "^0.12.0",
     "invariant": "^2.2.4",
     "ramda": ">=0.26.1"
   },
