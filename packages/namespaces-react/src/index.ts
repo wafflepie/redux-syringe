@@ -5,4 +5,4 @@ export { useNamespacedDispatch } from './useNamespacedDispatch';
 export { useNamespacedSelector } from './useNamespacedSelector';
 export { withNamespaceProvider } from './withNamespaceProvider';
 export { NamespaceContext } from './contexts';
-export type { Namespaces, UseExternalNamespace } from './types';
+export type { NamespacesByFeature, UseExternalNamespace } from './types';

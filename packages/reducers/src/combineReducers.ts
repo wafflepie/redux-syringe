@@ -3,10 +3,10 @@ import type { Reducer } from 'redux';
 
 import { pickFunctions } from '@redux-syringe/utils';
 
-import { ShallowReducers } from './types';
+import { ReducerKey } from './types';
 
 // NOTE: Custom implementation so existing keys are always preserved.
-export const combineReducers = (reducers: ShallowReducers): Reducer => {
+export const combineReducers = (reducers: Record<ReducerKey, Reducer>): Reducer => {
 	const finalReducers = pickFunctions(reducers);
 	const finalReducerKeys = keys(finalReducers);
 

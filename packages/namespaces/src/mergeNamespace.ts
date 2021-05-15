@@ -1,27 +1,35 @@
 import { curry, isNil } from 'ramda';
+import type { AnyAction } from 'redux';
 
 import { getNamespaceByAction } from './getNamespaceByAction';
-import { ActionOrThunk, AnyActionOrThunk, Namespace, Namespaced } from './types';
+import { ActionLike, Namespace, NamespacedActionLike } from './types';
 
 interface MergeNamespace {
-	<TAction extends ActionOrThunk>(
+	<TAction extends ActionLike>(
 		overwrite: boolean,
 		namespace: Namespace,
 		action: TAction
-	): Namespaced<TAction>;
+	): NamespacedActionLike<TAction>;
 
-	(overwrite: boolean, namespace: Namespace): <TAction extends ActionOrThunk>(
+	(overwrite: boolean, namespace: Namespace): <TAction extends ActionLike>(
 		action: TAction
-	) => Namespaced<TAction>;
+	) => NamespacedActionLike<TAction>;
 
 	(overwrite: boolean): {
-		<TAction extends ActionOrThunk>(namespace: Namespace, action: TAction): Namespaced<TAction>;
-		(namespace: Namespace): <TAction extends ActionOrThunk>(action: TAction) => Namespaced<TAction>;
+		<TAction extends ActionLike>(
+			namespace: Namespace,
+			action: TAction
+		): NamespacedActionLike<TAction>;
+		(namespace: Namespace): <TAction extends ActionLike>(
+			action: TAction
+		) => NamespacedActionLike<TAction>;
 	};
 }
 
+type AnyActionLike = AnyAction | ((...args: any[]) => any);
+
 export const mergeNamespace: MergeNamespace = curry(
-	(overwrite: boolean, namespace: Namespace, action: AnyActionOrThunk) => {
+	(overwrite: boolean, namespace: Namespace, action: AnyActionLike) => {
 		if (isNil(namespace)) {
 			return action;
 		}
@@ -29,7 +37,7 @@ export const mergeNamespace: MergeNamespace = curry(
 		const nextNamespace = overwrite ? namespace : getNamespaceByAction(action) ?? namespace;
 
 		if (typeof action === 'function') {
-			const nextAction: Namespaced<ActionOrThunk> = (...args) => action(...args);
+			const nextAction: NamespacedActionLike<ActionLike> = (...args) => action(...args);
 
 			nextAction.meta = {
 				namespace: nextNamespace,

@@ -10,11 +10,9 @@ export { getStateByFeatureAndNamespace } from './getStateByFeatureAndNamespace';
 export { preventNamespace } from './preventNamespace';
 
 export type {
-	ActionOrThunk,
-	AnyActionOrThunk,
-	NamespacedActionOrThunk,
+	ActionLike,
 	Feature,
 	FeatureAndNamespace,
 	Namespace,
-	Namespaced,
+	NamespacedActionLike,
 } from './types';

@@ -54,21 +54,19 @@ const makeThunkMiddleware = (dependencies?: AnyObject) => {
 	const middleware: ThunkMiddlewareWithDependencies =
 		({ dispatch, getState }) =>
 		next =>
-		(actionOrThunk: Action | Thunk) => {
-			if (typeof actionOrThunk === 'function') {
-				const namespace = getNamespaceByAction(actionOrThunk);
+		(action: Action | Thunk) => {
+			if (typeof action === 'function') {
+				const namespace = getNamespaceByAction(action);
 
 				const getNamespacedState = (feature?: Feature) =>
 					namespace
 						? getStateByFeatureAndNamespace(feature ?? DEFAULT_FEATURE, namespace, getState())
 						: undefined;
 
-				const thunkApiDispatch = (otherActionOrThunk: Action | Thunk) =>
-					dispatch(
-						namespace ? defaultNamespace(namespace, otherActionOrThunk) : otherActionOrThunk
-					);
+				const thunkApiDispatch = (otherAction: Action | Thunk) =>
+					dispatch(namespace ? defaultNamespace(namespace, otherAction) : otherAction);
 
-				return actionOrThunk({
+				return action({
 					dispatch: thunkApiDispatch,
 					getState,
 					namespace,
@@ -77,7 +75,7 @@ const makeThunkMiddleware = (dependencies?: AnyObject) => {
 				});
 			}
 
-			return next(actionOrThunk);
+			return next(action);
 		};
 
 	middleware.withDependencies = makeThunkMiddleware;

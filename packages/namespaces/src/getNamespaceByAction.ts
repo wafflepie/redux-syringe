@@ -1,8 +1,8 @@
-import { ActionOrThunk, Namespace, NamespacedActionOrThunk } from './types';
+import { ActionLike, Namespace, NamespacedActionLike } from './types';
 
 interface GetNamespaceByAction {
-	(action: NamespacedActionOrThunk): Namespace;
-	(action: ActionOrThunk): Namespace | undefined;
+	(action: NamespacedActionLike): Namespace;
+	(action: ActionLike): Namespace | undefined;
 }
 
 /**

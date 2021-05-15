@@ -1,10 +1,15 @@
 import { mergeNamespace } from './mergeNamespace';
-import { ActionOrThunk, Namespace, Namespaced } from './types';
+import { ActionLike, Namespace, NamespacedActionLike } from './types';
 
 interface DefaultNamespace {
-	<TAction extends ActionOrThunk>(namespace: Namespace, action: TAction): Namespaced<TAction>;
+	<TAction extends ActionLike>(
+		namespace: Namespace,
+		action: TAction
+	): NamespacedActionLike<TAction>;
 
-	(namespace: Namespace): <TAction extends ActionOrThunk>(action: TAction) => Namespaced<TAction>;
+	(namespace: Namespace): <TAction extends ActionLike>(
+		action: TAction
+	) => NamespacedActionLike<TAction>;
 }
 
 /**

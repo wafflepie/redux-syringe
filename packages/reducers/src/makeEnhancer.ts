@@ -17,6 +17,7 @@ import type { Reducer, StoreEnhancer } from 'redux';
 import {
 	enhanceStore,
 	makeStoreInterface,
+	Injectables,
 	InjectorStore,
 	InjectorCallbackPayload,
 } from '@redux-syringe/injectors';
@@ -24,14 +25,14 @@ import { DEFAULT_FEATURE } from '@redux-syringe/namespaces';
 
 import { combineReducerEntries } from './combineReducerEntries';
 import { composeReducers } from './composeReducers';
-import { DeepReducers, ReducerKey } from './types';
+import { ReducerKey } from './types';
 
 export const storeInterface = makeStoreInterface<Reducer, 'reducers'>('reducers');
 
 export type ReducersEnhancer = StoreEnhancer<InjectorStore<Reducer, typeof storeInterface>>;
 
 export interface ReducersEnhancerOptions {
-	initialReducers?: DeepReducers;
+	initialReducers?: Injectables<Reducer>;
 }
 
 const cleanupReducer: Reducer = (state, action) => {

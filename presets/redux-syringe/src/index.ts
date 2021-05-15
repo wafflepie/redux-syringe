@@ -20,8 +20,8 @@ export {
 } from '@redux-syringe/middleware';
 
 export type {
-	FullInjectableMiddlewareApi,
-	InjectableMiddlewareApi,
+	MiddlewareApi,
+	MiddlewareNamespaceApi,
 	MiddlewareEnhancer,
 } from '@redux-syringe/middleware';
 
@@ -40,13 +40,11 @@ export {
 } from '@redux-syringe/namespaces';
 
 export type {
-	ActionOrThunk,
-	AnyActionOrThunk,
+	ActionLike,
 	Feature,
 	FeatureAndNamespace,
 	Namespace,
-	Namespaced,
-	NamespacedActionOrThunk,
+	NamespacedActionLike,
 } from '@redux-syringe/namespaces';
 
 export {
@@ -57,12 +55,10 @@ export {
 } from '@redux-syringe/reducers';
 
 export type {
-	DeepReducers,
 	ReducerKey,
+	ReducerSchema,
 	ReducersEnhancer,
 	ReducersEnhancerOptions,
-	ReducerSchema,
-	ShallowReducers,
 } from '@redux-syringe/reducers';
 
 export { useReducers, withReducers } from '@redux-syringe/reducers-react';
@@ -76,7 +72,7 @@ export {
 	useNamespacedDispatch,
 } from '@redux-syringe/namespaces-react';
 
-export type { Namespaces, UseExternalNamespace } from '@redux-syringe/namespaces-react';
+export type { NamespacesByFeature, UseExternalNamespace } from '@redux-syringe/namespaces-react';
 
 export { thunkMiddleware } from '@redux-syringe/thunk';
 

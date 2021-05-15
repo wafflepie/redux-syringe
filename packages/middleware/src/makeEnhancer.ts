@@ -1,7 +1,12 @@
 /* eslint-disable no-use-before-define */
 import invariant from 'invariant';
 import { map, compose, uniq, forEach, o, identity } from 'ramda';
-import type { Middleware, StoreEnhancer, Dispatch, MiddlewareAPI } from 'redux';
+import type {
+	Middleware,
+	StoreEnhancer,
+	Dispatch,
+	MiddlewareAPI as ReduxMiddlewareApi,
+} from 'redux';
 
 import {
 	enhanceStore,
@@ -29,13 +34,16 @@ export type MiddlewareEnhancer = StoreEnhancer<InjectorStore<Middleware, typeof 
 	injectedMiddleware: Middleware;
 };
 
-export interface InjectableMiddlewareApi<N = any> {
+export interface MiddlewareNamespaceApi<N = any> {
 	getNamespacedState: (feature?: Feature) => N | undefined;
 	namespace?: Namespace;
 }
 
-export type FullInjectableMiddlewareApi<D extends Dispatch = Dispatch, S = any, N = any> =
-	MiddlewareAPI<D, S> & Partial<InjectableMiddlewareApi<N>>;
+export type MiddlewareApi<D extends Dispatch = Dispatch, S = any, N = any> = ReduxMiddlewareApi<
+	D,
+	S
+> &
+	Partial<MiddlewareNamespaceApi<N>>;
 
 export const makeEnhancer = (): MiddlewareEnhancer => {
 	// NOTE: Keys are entries, values are middleware with bound `dispatch` and `getState`.
@@ -125,7 +133,7 @@ export const makeEnhancer = (): MiddlewareEnhancer => {
 												getState()
 										  )
 										: undefined,
-							} as FullInjectableMiddlewareApi)
+							} as MiddlewareApi)
 					);
 				}, nextEntries);
 

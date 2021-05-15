@@ -1,4 +1,4 @@
-import type { Action, AnyAction } from 'redux';
+import type { Action } from 'redux';
 
 export type Namespace = string;
 export type Feature = string;
@@ -8,8 +8,8 @@ export interface FeatureAndNamespace<TFeature extends Feature = Feature> {
 	feature: TFeature;
 }
 
-export type ActionOrThunk = Action | ((...args: any[]) => any);
-export type AnyActionOrThunk = AnyAction | ((...args: any[]) => any);
+export type ActionLike = Action | ((...args: any[]) => any);
 
-export type Namespaced<TAction> = TAction & { meta: { namespace: Namespace } };
-export type NamespacedActionOrThunk = Namespaced<ActionOrThunk>;
+export type NamespacedActionLike<TAction extends ActionLike = ActionLike> = TAction & {
+	meta: { namespace: Namespace };
+};

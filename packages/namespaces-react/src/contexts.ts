@@ -2,11 +2,11 @@ import { createContext } from 'react';
 
 import { alwaysNull } from '@redux-syringe/utils';
 
-import { Namespaces, UseExternalNamespace } from './types';
+import { NamespacesByFeature, UseExternalNamespace } from './types';
 
 interface NamespaceContextValue {
 	isUseNamespaceProvided?: boolean;
-	namespaces?: Namespaces;
+	namespaces?: NamespacesByFeature;
 	useNamespace?: UseExternalNamespace;
 }
 

@@ -6,7 +6,7 @@ import {
 	defaultNamespace,
 	DEFAULT_FEATURE,
 	FeatureAndNamespace,
-	ActionOrThunk,
+	ActionLike,
 } from '@redux-syringe/namespaces';
 
 import { useNamespace } from './useNamespace';
@@ -21,7 +21,7 @@ export const useNamespacedDispatch = ({
 	const namespace = optionNamespace ?? contextNamespace;
 
 	return useCallback(
-		(action: ActionOrThunk) => dispatch(namespace ? defaultNamespace(namespace, action) : action),
+		(action: ActionLike) => dispatch(namespace ? defaultNamespace(namespace, action) : action),
 		[dispatch, namespace]
 	);
 };

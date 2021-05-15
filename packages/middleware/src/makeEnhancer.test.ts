@@ -1,11 +1,11 @@
 import { identity, compose, always, prop, propEq } from 'ramda';
 import { createStore, applyMiddleware, Middleware } from 'redux';
 
-import { InjectableMiddlewareApi, makeEnhancer } from './makeEnhancer';
+import { MiddlewareNamespaceApi, makeEnhancer } from './makeEnhancer';
 
 declare module 'redux' {
 	// eslint-disable-next-line @typescript-eslint/no-empty-interface
-	export interface MiddlewareAPI extends InjectableMiddlewareApi {}
+	export interface MiddlewareAPI extends MiddlewareNamespaceApi {}
 }
 
 describe('makeEnhancer', () => {
