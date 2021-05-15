@@ -4,6 +4,7 @@
   "license": "MIT",
   "main": "dist/redux-syringe-epics-react.cjs.js",
   "module": "dist/redux-syringe-epics-react.esm.js",
+  "types": "dist/types/index.d.ts",
   "description": "React bindings for the epics package.",
   "repository": "https://github.com/wafflepie/redux-syringe",
   "contributors": [
@@ -26,8 +27,6 @@
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0",
     "react-redux": "^6.0.0 || ^7.0.0",
-    "redux": "^4.0.0",
-    "redux-observable": "^1.0.0 || ^2.0.0-rc.1",
     "rxjs": "^6.0.0 || ^7.0.0"
   },
   "sideEffects": false
