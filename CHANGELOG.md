@@ -8,6 +8,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Nothing!
 
+## [0.12.0] – 2021-05-15
+
+### Added
+
+- TypeScript.
+- (_thunk_): A named export of `thunkMiddleware` has been added in addition to the default one.
+
+### Changed
+
+- (_utils_): Miscellaneous breaking changes which shouldn't affect the end user.
+- (_utils-react_): Miscellaneous breaking changes which shouldn't affect the end user.
+
+### Fixed
+
+- Dependencies in all packages have been cleaned up.
+
 ## [0.11.3] – 2021-05-09
 
 ### Changed
