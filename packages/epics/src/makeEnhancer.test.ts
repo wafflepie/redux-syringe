@@ -1,12 +1,12 @@
 import { identity, compose } from 'ramda';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, Middleware, AnyAction } from 'redux';
 import { createEpicMiddleware, ofType } from 'redux-observable';
 import { Subject, Observable } from 'rxjs';
 import * as Rx from 'rxjs/operators';
 
-import makeEnhancer from './makeEnhancer';
+import { makeEnhancer } from './makeEnhancer';
 
-const incrementEpic = action$ =>
+const incrementEpic = (action$: Observable<AnyAction>) =>
 	action$.pipe(
 		ofType('PING'),
 		Rx.map(action => ({
@@ -16,23 +16,29 @@ const incrementEpic = action$ =>
 	);
 
 describe('makeEnhancer', () => {
-	let store;
-	let epicMiddleware;
 	const logger = jest.fn();
 	const dependencies = { dependency: 'dependency' };
 
-	const loggerMiddleware = () => next => action => {
+	const loggerMiddleware: Middleware = () => next => action => {
 		next(action);
 		logger(action);
 	};
 
-	beforeEach(() => {
-		jest.clearAllMocks();
-		epicMiddleware = createEpicMiddleware({ dependencies });
-		store = createStore(
+	const configureEpicMiddleware = () => createEpicMiddleware({ dependencies });
+
+	const configureStore = (epicMiddleware: ReturnType<typeof configureEpicMiddleware>) =>
+		createStore(
 			identity,
 			compose(makeEnhancer({ epicMiddleware }), applyMiddleware(epicMiddleware, loggerMiddleware))
 		);
+
+	let epicMiddleware = configureEpicMiddleware();
+	let store = configureStore(epicMiddleware);
+
+	beforeEach(() => {
+		jest.clearAllMocks();
+		epicMiddleware = configureEpicMiddleware();
+		store = configureStore(epicMiddleware);
 	});
 
 	it('returns a Redux store with defined functions', () => {
@@ -41,7 +47,7 @@ describe('makeEnhancer', () => {
 	});
 
 	it('runs an epic in the supplied middleware', () => {
-		epicMiddleware = jest.fn();
+		epicMiddleware = jest.fn() as any;
 		epicMiddleware.run = jest.fn();
 		const enhancer = makeEnhancer({ epicMiddleware });
 		createStore(identity, enhancer);
@@ -108,7 +114,7 @@ describe('makeEnhancer', () => {
 	});
 
 	it('passes correct arguments to the epic when streamCreator is omitted', () => {
-		const epic = jest.fn(() => new Subject());
+		const epic = jest.fn<Subject<unknown>, any>(() => new Subject());
 		store.injectEpics({ foo: epic }, { namespace: 'ns' });
 		expect(epic).toHaveBeenCalledTimes(1);
 		expect(epic.mock.calls[0][0]).toBeInstanceOf(Observable);
@@ -126,7 +132,7 @@ describe('makeEnhancer', () => {
 			compose(enhancer, applyMiddleware(epicMiddleware, loggerMiddleware))
 		);
 
-		const epic = jest.fn(() => new Subject());
+		const epic = jest.fn<Subject<unknown>, any>(() => new Subject());
 		store.injectEpics({ foo: epic }, { namespace: 'ns' });
 		expect(epic).toHaveBeenCalledTimes(1);
 		expect(epic.mock.calls[0][0]).toBeInstanceOf(Observable);
