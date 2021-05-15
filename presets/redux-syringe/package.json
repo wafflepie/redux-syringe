@@ -5,6 +5,7 @@
   "main": "dist/redux-syringe.cjs.js",
   "module": "dist/redux-syringe.esm.js",
   "unpkg": "dist/redux-syringe.umd.js",
+  "types": "dist/types/index.d.ts",
   "description": "Maintaining large Redux applications with ease.",
   "repository": "https://github.com/wafflepie/redux-syringe",
   "contributors": [
@@ -40,8 +41,7 @@
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0",
-    "react-redux": "^6.0.0 || ^7.0.0",
-    "redux": "^4.0.0"
+    "react-redux": "^6.0.0 || ^7.0.0"
   },
   "publishConfig": {
     "access": "public"

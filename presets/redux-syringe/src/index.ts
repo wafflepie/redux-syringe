@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/triple-slash-reference
+/// <reference path="../actions.d.ts" />
+
 // NOTE: We need to list all exports manually because of potential naming collisions.
 export {
 	isErrorAction,
@@ -16,6 +19,12 @@ export {
 	composeMiddleware,
 } from '@redux-syringe/middleware';
 
+export type {
+	FullInjectableMiddlewareApi,
+	InjectableMiddlewareApi,
+	MiddlewareEnhancer,
+} from '@redux-syringe/middleware';
+
 export { useMiddleware, withMiddleware } from '@redux-syringe/middleware-react';
 
 export {
@@ -30,11 +39,30 @@ export {
 	getStateByFeatureAndNamespace,
 } from '@redux-syringe/namespaces';
 
+export type {
+	ActionOrThunk,
+	AnyActionOrThunk,
+	Feature,
+	FeatureAndNamespace,
+	Namespace,
+	Namespaced,
+	NamespacedActionOrThunk,
+} from '@redux-syringe/namespaces';
+
 export {
 	composeReducers,
 	makeEnhancer as makeReducersEnhancer,
 	makeReducer,
 	combineReducers,
+} from '@redux-syringe/reducers';
+
+export type {
+	DeepReducers,
+	ReducerKey,
+	ReducersEnhancer,
+	ReducersEnhancerOptions,
+	ReducerSchema,
+	ShallowReducers,
 } from '@redux-syringe/reducers';
 
 export { useReducers, withReducers } from '@redux-syringe/reducers-react';
@@ -48,4 +76,13 @@ export {
 	useNamespacedDispatch,
 } from '@redux-syringe/namespaces-react';
 
-export { default as thunkMiddleware } from '@redux-syringe/thunk';
+export type { Namespaces, UseExternalNamespace } from '@redux-syringe/namespaces-react';
+
+export { thunkMiddleware } from '@redux-syringe/thunk';
+
+export type {
+	Thunk,
+	ThunkDispatch,
+	ThunkMiddleware,
+	ThunkMiddlewareWithDependencies,
+} from '@redux-syringe/thunk';
