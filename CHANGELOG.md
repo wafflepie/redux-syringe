@@ -8,6 +8,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Nothing!
 
+## [0.12.1] – 2021-08-17
+
+### Changed
+
+- (_injectors-react_): Use `typeof window === 'undefined'` to detect server-side rendering environments.
+
+### Fixed
+
+- (_injectors-react_): Add `isNamespaced` to injector `useEffect` dependencies.
+
 ## [0.12.0] – 2021-05-15
 
 ### Added
