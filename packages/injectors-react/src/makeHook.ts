@@ -1,5 +1,5 @@
 import invariant from 'invariant';
-import { all, includes, omit, isNil, reject } from 'ramda';
+import { all, includes, isNil, reject } from 'ramda';
 import { useLayoutEffect, useState, useEffect, useDebugValue, useContext } from 'react';
 import { ReactReduxContext } from 'react-redux';
 import type { Store } from 'redux';
@@ -20,7 +20,6 @@ import { IS_SERVER } from './constants';
 import { InjectorHook, InjectorOptions } from './types';
 
 const useUniversalLayoutEffect = IS_SERVER ? useEffect : useLayoutEffect;
-const getOtherProps = omit(['isGlobal', 'global', 'isPersistent', 'persist']);
 
 export const makeHook = <
 	TInjectable extends Injectable,
@@ -60,26 +59,22 @@ export const makeHook = <
 		// NOTE: On the server, the injectables should be injected beforehand.
 		const [isInitialized, setIsInitialized] = useState(IS_SERVER);
 
-		const props = reject(isNil, {
-			...getOtherProps(options),
-			feature,
-			namespace,
-		});
+		const featureAndNamespace = reject(isNil, { feature, namespace });
 
 		// TODO: Refactor when React DevTools support multiple debug values or non-primitive structures.
 		useDebugValue(
 			String([
-				`Namespace: ${namespace}`,
-				`Feature: ${feature}`,
-				`Type: ${capitalizedType}`,
-				`Initialized: ${isInitialized}`,
+				`namespace:${namespace}`,
+				`feature:${feature}`,
+				`type:${capitalizedType}`,
+				`initialized:${isInitialized}`,
 			])
 		);
 
 		if (IS_SERVER) {
 			const areEntriesAlreadyInjected = all(
 				entry => includes(entry, getEntries(store)),
-				createEntries(injectables, props)
+				createEntries(injectables, featureAndNamespace)
 			);
 
 			if (!areEntriesAlreadyInjected) {
@@ -98,6 +93,7 @@ export const makeHook = <
 			feature,
 			isGlobal,
 			isPersistent,
+			isNamespaced,
 			inject,
 			eject,
 			injectables,
@@ -138,12 +134,12 @@ export const makeHook = <
 			invariant(inject, `'store.${injectionKey}' missing. Are you using the enhancer correctly?`);
 			invariant(eject, `'store.${ejectionKey}' missing. Are you using the enhancer correctly?`);
 
-			inject(injectables, props);
+			inject(injectables, featureAndNamespace);
 			setIsInitialized(true);
 
 			return () => {
 				if (!isPersistent) {
-					eject(injectables, props);
+					eject(injectables, featureAndNamespace);
 				}
 			};
 		}, effectDependencies);
