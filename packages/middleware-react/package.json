@@ -1,6 +1,6 @@
 {
   "name": "@redux-syringe/middleware-react",
-  "version": "0.12.0",
+  "version": "0.12.1",
   "license": "MIT",
   "main": "dist/redux-syringe-middleware-react.cjs.js",
   "module": "dist/redux-syringe-middleware-react.esm.js",
@@ -17,7 +17,7 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.12.1",
-    "@redux-syringe/injectors-react": "^0.12.0",
+    "@redux-syringe/injectors-react": "^0.12.1",
     "@redux-syringe/middleware": "^0.12.0",
     "ramda": ">=0.26.1"
   },
