@@ -33,6 +33,7 @@ describe('makeStoreInterface', () => {
 
 	it('passes correct setters down', () => {
 		const storeA: InjectorStore<typeof noop, typeof storeInterface> = {
+			entries: { noops: [] },
 			injectNoops: noop,
 			ejectNoops: noop,
 		};

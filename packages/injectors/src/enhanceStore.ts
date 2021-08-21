@@ -18,7 +18,7 @@ import {
 export const enhanceStore = <
 	TStore extends Store<any, any>,
 	TInjectable extends Injectable,
-	TInjectorStoreInterface extends InjectorStoreInterface<TInjectable, string>
+	TInjectorStoreInterface extends InjectorStoreInterface<TInjectable, any>
 >(
 	prevStore: TStore,
 	storeInterface: TInjectorStoreInterface,
@@ -77,7 +77,9 @@ export const enhanceStore = <
 		[ejectionKey]: eject,
 	} as TStore & InjectorStore<TInjectable, TInjectorStoreInterface>;
 
-	setEntries([], nextStore);
+	if (!nextStore.entries) {
+		nextStore.entries = { [type]: [] };
+	}
 
 	return nextStore;
 };

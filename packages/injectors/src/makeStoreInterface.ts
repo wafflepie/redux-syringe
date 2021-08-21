@@ -3,7 +3,7 @@ import { o, path } from 'ramda';
 
 import { capitalize } from '@redux-syringe/utils';
 
-import { Injectable, InjectorStoreInterface, InjectableEntry, InjectorStoreEntries } from './types';
+import { Injectable, InjectorStoreInterface, InjectableEntry } from './types';
 
 export const makeStoreInterface = <
 	TInjectable extends Injectable,
@@ -25,10 +25,7 @@ export const makeStoreInterface = <
 
 		setEntries: (entries, store) => {
 			// eslint-disable-next-line no-param-reassign
-			store.entries = { ...store.entries, [type]: entries } as InjectorStoreEntries<
-				TInjectable,
-				TInjectablePluralName
-			>;
+			store.entries[type] = entries;
 		},
 	};
 };

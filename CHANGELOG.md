@@ -6,7 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
-Nothing!
+### Fixed
+
+- (_injectors_): `setEntries` no longer creates shallow copies of the `store.entries` object, fixing server-side rendering warnings when multiple injector enhancers are applied to a store.
 
 ## [0.12.1] – 2021-08-17
 
