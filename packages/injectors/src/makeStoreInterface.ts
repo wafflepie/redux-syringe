@@ -1,9 +1,10 @@
+/* eslint-disable no-param-reassign */
 import invariant from 'invariant';
 import { o, path } from 'ramda';
 
 import { capitalize } from '@redux-syringe/utils';
 
-import { Injectable, InjectorStoreInterface, InjectableEntry } from './types';
+import { Injectable, InjectorStoreInterface, InjectableEntry, InjectorStoreEntries } from './types';
 
 export const makeStoreInterface = <
 	TInjectable extends Injectable,
@@ -24,7 +25,10 @@ export const makeStoreInterface = <
 		),
 
 		setEntries: (entries, store) => {
-			// eslint-disable-next-line no-param-reassign
+			if (!store.entries) {
+				store.entries = {} as InjectorStoreEntries<TInjectable, TInjectablePluralName>;
+			}
+
 			store.entries[type] = entries;
 		},
 	};

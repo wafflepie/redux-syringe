@@ -38,6 +38,11 @@ export interface InjectorStoreInterface<
 	) => void;
 }
 
+export type InjectorStoreEntries<
+	TInjectable extends Injectable,
+	TInjectablePluralName extends string
+> = Record<TInjectablePluralName, InjectableEntry<TInjectable>[]>;
+
 export interface InjectorMethod<TInjectable extends Injectable> {
 	(injectables: Injectables<TInjectable>, props?: Partial<FeatureAndNamespace>): void;
 }
@@ -49,7 +54,7 @@ export type InjectorStore<
 	TInjectorStoreInterface['injectionKey'] | TInjectorStoreInterface['ejectionKey'],
 	InjectorMethod<TInjectable>
 > & {
-	entries: Record<TInjectorStoreInterface['type'], InjectableEntry<TInjectable>[]>;
+	entries: InjectorStoreEntries<TInjectable, TInjectorStoreInterface['type']>;
 };
 
 export interface InjectorCallbackPayload<TInjectable extends Injectable = Injectable> {

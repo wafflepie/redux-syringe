@@ -11,5 +11,6 @@ export type {
 	InjectorCallbacks,
 	InjectorMethod,
 	InjectorStore,
+	InjectorStoreEntries,
 	InjectorStoreInterface,
 } from './types';

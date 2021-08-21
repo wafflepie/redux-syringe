@@ -77,9 +77,7 @@ export const enhanceStore = <
 		[ejectionKey]: eject,
 	} as TStore & InjectorStore<TInjectable, TInjectorStoreInterface>;
 
-	if (!nextStore.entries) {
-		nextStore.entries = { [type]: [] };
-	}
+	setEntries([], nextStore);
 
 	return nextStore;
 };
