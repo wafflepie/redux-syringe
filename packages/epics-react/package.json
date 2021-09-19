@@ -19,7 +19,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@babel/runtime": "^7.15.7",
+    "@babel/runtime": "^7.15.4",
     "@redux-syringe/epics": "^0.12.0",
     "@redux-syringe/injectors-react": "^0.12.1",
     "ramda": ">=0.26.1"

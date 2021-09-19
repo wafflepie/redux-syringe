@@ -10,7 +10,7 @@ module.exports = {
 		'@babel/typescript',
 	],
 	plugins: [
-		['@babel/transform-runtime', { version: '7.15.7' }],
+		['@babel/transform-runtime', { version: '7.15.4' }],
 		process.env.NODE_ENV === 'test' && [
 			'@babel/plugin-transform-modules-commonjs',
 			{
