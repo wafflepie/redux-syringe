@@ -7,4 +7,5 @@ module.exports = {
 	coveragePathIgnorePatterns: ignorePatterns,
 	snapshotSerializers: ['enzyme-to-json/serializer'],
 	setupFilesAfterEnv: ['<rootDir>/enzymeSetup.js'],
+	testEnvironment: 'jsdom',
 };

@@ -16,7 +16,7 @@
     "Martin Machacek <martin.machacek@lundegaard.eu>"
   ],
   "dependencies": {
-    "@babel/runtime": "^7.12.1",
+    "@babel/runtime": "^7.15.7",
     "@redux-syringe/utils": "^0.12.0-alpha.0",
     "hoist-non-react-statics": "^3.3.2",
     "ramda": ">=0.26.1"
