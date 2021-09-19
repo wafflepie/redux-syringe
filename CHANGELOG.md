@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
+Nothing!
+
+## [0.12.2] – 2021-09-19
+
 ### Changed
 
 - (_thunk_): Typings have been updated.
