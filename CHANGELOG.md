@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
+### Changed
+
+- (_thunk_): Typings have been updated to resemble `redux-thunk` more closely.
+  - Module augmentation overloading `Dispatch` has been added.
+  - Type parameters have been reordered and renamed.
+  - `getNamespacedState()` is now a generic function instead of having a bound type.
+
 ### Fixed
 
 - (_injectors_): `setEntries` no longer creates shallow copies of the `store.entries` object, fixing server-side rendering warnings when multiple injector enhancers are applied to a store.

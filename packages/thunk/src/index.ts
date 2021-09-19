@@ -5,7 +5,7 @@ export type {
 	ThunkDispatch,
 	ThunkMiddleware,
 	ThunkMiddlewareWithDependencies,
-} from './thunkMiddleware';
+} from './types';
 
 export { thunkMiddleware };
 export default thunkMiddleware;

@@ -3,15 +3,8 @@ import { createStore, applyMiddleware, Middleware } from 'redux';
 
 import { attachNamespace, getNamespaceByAction } from '@redux-syringe/namespaces';
 
-import { Thunk, thunkMiddleware } from './thunkMiddleware';
-
-declare module 'redux' {
-	export interface Dispatch<A extends Action = AnyAction> {
-		<R = any, S = any, N = any, D extends Record<string, unknown> = Record<string, unknown>>(
-			thunk: Thunk<R, S, A, N, D>
-		): R;
-	}
-}
+import { thunkMiddleware } from './thunkMiddleware';
+import { Thunk } from './types';
 
 describe('thunkMiddleware', () => {
 	const listener = jest.fn();
