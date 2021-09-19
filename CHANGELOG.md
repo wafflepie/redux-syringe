@@ -8,9 +8,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 
-- (_thunk_): Typings have been updated to resemble `redux-thunk` more closely.
+- (_thunk_): Typings have been updated.
   - Module augmentation overloading `Dispatch` has been added.
-  - Type parameters have been reordered and renamed.
+  - Type parameters have been reordered and renamed to resemble `redux-thunk` more closely.
+  - `getNamespacedState()` is now a generic function instead of having a bound type.
+- (_middleware_): Typings have been updated.
   - `getNamespacedState()` is now a generic function instead of having a bound type.
 
 ### Fixed

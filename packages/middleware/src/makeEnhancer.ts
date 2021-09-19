@@ -23,6 +23,7 @@ import {
 	Namespace,
 } from '@redux-syringe/namespaces';
 
+// TODO: Define a custom middleware type.
 export const storeInterface = makeStoreInterface<Middleware, 'middleware'>('middleware');
 
 const noopEntry: InjectableEntry<Middleware> = {
@@ -34,16 +35,16 @@ export type MiddlewareEnhancer = StoreEnhancer<InjectorStore<Middleware, typeof 
 	injectedMiddleware: Middleware;
 };
 
-export interface MiddlewareNamespaceApi<N = any> {
-	getNamespacedState: (feature?: Feature) => N | undefined;
+export interface MiddlewareNamespaceApi {
+	getNamespacedState: <TNamespacedState = any>(feature?: Feature) => TNamespacedState | undefined;
 	namespace?: Namespace;
 }
 
-export type MiddlewareApi<D extends Dispatch = Dispatch, S = any, N = any> = ReduxMiddlewareApi<
-	D,
-	S
+export type MiddlewareApi<TDispatch extends Dispatch = Dispatch, TState = any> = ReduxMiddlewareApi<
+	TDispatch,
+	TState
 > &
-	Partial<MiddlewareNamespaceApi<N>>;
+	MiddlewareNamespaceApi;
 
 export const makeEnhancer = (): MiddlewareEnhancer => {
 	// NOTE: Keys are entries, values are middleware with bound `dispatch` and `getState`.
