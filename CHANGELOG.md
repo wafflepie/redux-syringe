@@ -8,6 +8,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Nothing!
 
+## [0.12.3] – 2022-06-20
+
+### Added
+
+- React v18 has been added to `peerDependencies` (alongside v16 and v17).
+- React Redux v8 has been added to `peerDependencies` (alongside v6 and v7).
+
 ## [0.12.2] – 2021-09-19
 
 ### Changed
