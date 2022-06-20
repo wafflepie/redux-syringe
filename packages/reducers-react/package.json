@@ -22,8 +22,8 @@
     "ramda": ">=0.26.1"
   },
   "peerDependencies": {
-    "react": "^16.8.0 || ^17.0.0",
-    "react-redux": "^6.0.0 || ^7.0.0"
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-redux": "^6.0.0 || ^7.0.0 || ^8.0.0"
   },
   "devDependencies": {
     "redux": "^4.1.0"

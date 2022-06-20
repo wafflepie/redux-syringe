@@ -44,9 +44,9 @@ export const wrapMapDispatchToProps: any =
 			defaultNamespace(ownProps[NAMESPACED_CONNECT_PROPS].namespace)
 		);
 
-		return cond([
+		return cond<any, any>([
 			[isNil, alwaysEmptyObject],
-			[isFunction, apply(__ as any, [wrappedDispatch, ownProps])],
+			[isFunction, apply<any>(__, [wrappedDispatch, ownProps])],
 			[isObject, map(wrapActionCreator(wrappedDispatch))],
 			[T, throwTypeError],
 		])(mapDispatchToProps);
@@ -92,6 +92,6 @@ export const namespacedConnect: any = (
 				},
 			};
 		}),
-		rawNamespacedConnect(mapStateToProps, mapDispatchToProps, mergeProps, options) as any,
+		rawNamespacedConnect(mapStateToProps, mapDispatchToProps, mergeProps, options),
 		mapProps(dissoc(NAMESPACED_CONNECT_PROPS))
 	);

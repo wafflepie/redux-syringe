@@ -4,7 +4,7 @@ import { alwaysNull } from '@redux-syringe/utils';
 
 import { NamespacesByFeature, UseExternalNamespace } from './types';
 
-interface NamespaceContextValue {
+export interface NamespaceContextValue {
 	isUseNamespaceProvided?: boolean;
 	namespaces?: NamespacesByFeature;
 	useNamespace?: UseExternalNamespace;

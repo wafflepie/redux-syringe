@@ -12,8 +12,8 @@ export const withNamespaceProvider =
 	(options: WithNamespaceProviderOptions) =>
 	<TProps extends unknown>(
 		NextComponent: ComponentType<TProps>
-	): ComponentType<TProps & Partial<NamespaceProviderProps>> => {
-		const WithNamespaceProvider = (props: TProps & Partial<NamespaceProviderProps>) => (
+	): ComponentType<TProps & WithNamespaceProviderOptions> => {
+		const WithNamespaceProvider = (props: TProps & WithNamespaceProviderOptions) => (
 			// NOTE: `NamespaceProvider` will ignore any unknown props.
 			<NamespaceProvider {...mergeLeft(options, props)}>
 				<NextComponent {...props} />

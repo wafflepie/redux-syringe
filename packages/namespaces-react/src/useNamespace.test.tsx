@@ -21,6 +21,7 @@ describe('useNamespace', () => {
 		let namespace;
 
 		mount(
+			// eslint-disable-next-line react/jsx-no-constructed-context-values
 			<NamespaceContext.Provider value={{ namespaces: { foo: 'bar' }, useNamespace: alwaysFoo }}>
 				<Test>
 					{() => {
@@ -37,6 +38,7 @@ describe('useNamespace', () => {
 		let namespace;
 
 		mount(
+			// eslint-disable-next-line react/jsx-no-constructed-context-values
 			<NamespaceContext.Provider value={{ namespaces: { foo: 'bar' }, useNamespace: alwaysFoo }}>
 				<Test>
 					{() => {
@@ -54,6 +56,7 @@ describe('useNamespace', () => {
 
 		mount(
 			<NamespaceContext.Provider
+				// eslint-disable-next-line react/jsx-no-constructed-context-values
 				value={{ namespaces: { [DEFAULT_FEATURE]: 'baz' }, useNamespace: alwaysNull }}
 			>
 				<Test>

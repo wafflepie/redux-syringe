@@ -3,7 +3,7 @@ import React from 'react';
 
 import { alwaysNull } from '@redux-syringe/utils';
 
-import { NamespaceContext } from './contexts';
+import { NamespaceContext, NamespaceContextValue } from './contexts';
 import { withNamespaceProvider } from './withNamespaceProvider';
 
 describe('withNamespaceProvider', () => {
@@ -11,7 +11,7 @@ describe('withNamespaceProvider', () => {
 
 	it('configures NamespaceContext with options having priority over props', () => {
 		const Test = withNamespaceProvider({ namespace: 'foo' })(NamespaceContext.Consumer);
-		const renderProp = jest.fn(alwaysNull);
+		const renderProp = jest.fn<null, [NamespaceContextValue]>(alwaysNull);
 
 		mount(
 			<Test namespace="bar" feature="bar">

@@ -97,5 +97,8 @@ module.exports = {
 		],
 		'@typescript-eslint/no-explicit-any': 'off',
 		'@typescript-eslint/no-empty-function': 'off',
+		'react/function-component-definition': 'off',
+		'default-param-last': 'off',
+		'@typescript-eslint/no-unnecessary-type-constraint': 'off',
 	},
 };

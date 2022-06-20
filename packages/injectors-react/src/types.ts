@@ -22,7 +22,7 @@ export interface InjectorHook<TInjectable extends Injectable> {
 }
 
 export interface InjectorDecorator<TInjectable extends Injectable> {
-	(injectables: Injectables<TInjectable>, options?: InjectorOptions): <TProps extends unknown>(
+	(injectables: Injectables<TInjectable>, options?: InjectorOptions): <TProps>(
 		NextComponent: ComponentType<TProps>
 	) => ComponentType<TProps & Partial<FeatureAndNamespace>>;
 }
