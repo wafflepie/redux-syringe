@@ -1,6 +1,6 @@
 {
   "name": "@redux-syringe/namespaces-react",
-  "version": "0.12.2",
+  "version": "0.12.3",
   "license": "MIT",
   "main": "dist/redux-syringe-namespaces-react.cjs.js",
   "module": "dist/redux-syringe-namespaces-react.esm.js",
@@ -19,7 +19,7 @@
     "@babel/runtime": "^7.15.4",
     "@redux-syringe/namespaces": "^0.12.2",
     "@redux-syringe/utils": "^0.12.2",
-    "@redux-syringe/utils-react": "^0.12.2",
+    "@redux-syringe/utils-react": "^0.12.3",
     "hoist-non-react-statics": "^3.3.2",
     "ramda": ">=0.26.1"
   },

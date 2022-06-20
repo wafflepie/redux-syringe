@@ -1,6 +1,6 @@
 {
   "name": "@redux-syringe/utils-react",
-  "version": "0.12.2",
+  "version": "0.12.3",
   "license": "MIT",
   "main": "dist/redux-syringe-utils-react.cjs.js",
   "module": "dist/redux-syringe-utils-react.esm.js",

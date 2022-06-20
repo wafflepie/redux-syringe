@@ -1,6 +1,6 @@
 {
   "name": "@redux-syringe/injectors-react",
-  "version": "0.12.2",
+  "version": "0.12.3",
   "license": "MIT",
   "main": "dist/redux-syringe-injectors-react.cjs.js",
   "module": "dist/redux-syringe-injectors-react.esm.js",
@@ -19,9 +19,9 @@
     "@babel/runtime": "^7.15.4",
     "@redux-syringe/injectors": "^0.12.2",
     "@redux-syringe/namespaces": "^0.12.2",
-    "@redux-syringe/namespaces-react": "^0.12.2",
+    "@redux-syringe/namespaces-react": "^0.12.3",
     "@redux-syringe/utils": "^0.12.2",
-    "@redux-syringe/utils-react": "^0.12.2",
+    "@redux-syringe/utils-react": "^0.12.3",
     "hoist-non-react-statics": "^3.3.2",
     "invariant": "^2.2.4",
     "ramda": ">=0.26.1"
